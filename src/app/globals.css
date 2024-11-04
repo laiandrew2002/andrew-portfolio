@@ -26,13 +26,13 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #292d45;
+  background: #3d3d3c;
   height: 80%;
   padding-top: 10px;
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: #3d4363;
+  background: #424344;
 }
 
 .content::-webkit-scrollbar {

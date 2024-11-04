@@ -1,7 +1,7 @@
 import useExplorerStore, { SubMenu } from '@/lib/store/useExplorerStore';
 import SubCollapsableMenu from './SubCollapsableMenu';
 
-export default function Outline() {
+const Outline = () => {
   const { outline } = useExplorerStore();
 
   return (
@@ -16,3 +16,5 @@ export default function Outline() {
     </SubCollapsableMenu>
   );
 }
+
+export default Outline;

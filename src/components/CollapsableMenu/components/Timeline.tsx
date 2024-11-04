@@ -1,7 +1,7 @@
 import useExplorerStore, { SubMenu } from '@/lib/store/useExplorerStore';
 import SubCollapsableMenu from './SubCollapsableMenu';
 
-export default function Timeline() {
+const Timeline = () => {
   const { timeline } = useExplorerStore();
   return (
     <SubCollapsableMenu
@@ -15,3 +15,5 @@ export default function Timeline() {
     </SubCollapsableMenu>
   );
 }
+
+export default Timeline;

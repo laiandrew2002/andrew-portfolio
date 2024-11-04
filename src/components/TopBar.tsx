@@ -11,14 +11,16 @@ import {
   UntoggledSidebar,
   VSCode,
 } from '@/icons';
+import { useTogglePortfolio } from '@/lib/hook/useTogglePortfolio';
 import useExpandableStore from '@/lib/store/useExpandableStore';
 const menuItems = ['File', 'Edit', 'Selection', 'View', 'Go', 'Run', 'Terminal', 'Help'];
 
 export default function TopBar() {
   const { value } = useExpandableStore();
+  useTogglePortfolio();
 
   return (
-    <div className="flex justify-between text-gray-500 border-b-2 border-dark_border items-center">
+    <div className="flex justify-between text-gray-500 items-center bg-topbar_dark_bg">
       <MenuBar />
       <h1 className="text-sm py-3 pointer-events-none select-none hidden sm:block">Andrew Lai - Portfolio</h1>
       <div className="flex">
@@ -29,7 +31,7 @@ export default function TopBar() {
   );
 }
 
-function MenuBar() {
+const MenuBar = () => {
   // const initialLoad = useSelector(selectInitialLoad);
 
   const toggleMenu: React.MouseEventHandler<HTMLDivElement> = () => {
@@ -65,7 +67,7 @@ function MenuBar() {
 
 const toggleButtons = [{ icon: <SplitVerticalUntoggled /> }, { icon: <SplitHorizontal /> }];
 
-function ToggleButtons({ menuExpanded }: { menuExpanded: boolean }) {
+const ToggleButtons = ({ menuExpanded }: { menuExpanded: boolean }) => {
   const { toggleMenu } = useExpandableStore();
 
   return (
@@ -88,7 +90,7 @@ function ToggleButtons({ menuExpanded }: { menuExpanded: boolean }) {
   );
 }
 
-function ControlButtons() {
+const ControlButtons = () => {
   return (
     <div className="flex">
       <div className="hover:bg-gray-300 p-3 transform duration-300">

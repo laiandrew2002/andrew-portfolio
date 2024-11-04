@@ -1,6 +1,6 @@
 'use client';
+
 import { Ellipsis } from '@/icons';
-// import { App, Leetcode, MDXEntry } from '@/lib/mdx';
 import Header from './Header';
 import Editors from './Editors';
 import Outline from './Outline';
@@ -8,15 +8,13 @@ import Timeline from './Timeline';
 import Scripts from './Scripts';
 import Portfolio from './Portfolio';
 
-export default function Explorer({
+const Explorer = ({
   allApps,
   allLeetcode,
 }: {
   allApps: any;
   allLeetcode: any;
-  // allApps: MDXEntry<App>[];
-  // allLeetcode: MDXEntry<Leetcode>[];
-}) {
+}) => {
   return (
     <>
       <Header menuTitle="EXPLORER">
@@ -35,3 +33,5 @@ export default function Explorer({
     </>
   );
 }
+
+export default Explorer;

@@ -4,6 +4,8 @@ import "./globals.css";
 import TopBar from "@/components/TopBar";
 import BottomBar from "@/components/BottomBar";
 import ActivityBar from "@/components/ActivityBar";
+import TabsContainer from "@/components/TabContainer";
+import NavigationChange from "@/components/NavigationChange";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,7 +28,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   const allSections = {};
 
   const allApps = null;
@@ -38,13 +39,14 @@ export default function RootLayout({
       >
         <TopBar />
         <main className="flex-1 flex overflow-hidden relative">
-            <ActivityBar sections={allSections} allApps={allApps} allLeetcode={allLeetcode} />
-            {/* <div className="flex w-full flex-col overflow-hidden">
-              <TabsContainer /> {children}
-            </div> */}
-          {children}
+          <ActivityBar sections={allSections} allApps={allApps} allLeetcode={allLeetcode} />
+          <div className="flex w-full flex-col overflow-hidden">
+            <TabsContainer />
+            {children}
+          </div>
         </main>
         <BottomBar />
+        <NavigationChange allPaths={[]} />
       </body>
     </html>
   );

@@ -2,7 +2,7 @@ import { CloseAll, NewFile, SaveAll } from '@/icons';
 import SubCollapsableMenu from './SubCollapsableMenu';
 import useExplorerStore, { SubMenu } from '@/lib/store/useExplorerStore';
 
-export default function Editors() {
+const Editors = () => {
   const { editor } = useExplorerStore();
 
   return (
@@ -21,3 +21,5 @@ export default function Editors() {
     </SubCollapsableMenu>
   );
 }
+
+export default Editors;

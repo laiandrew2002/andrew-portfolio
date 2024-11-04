@@ -46,7 +46,7 @@ const rightItems = [
   },
 ];
 
-export default function BottomBar() {
+const BottomBar = () => {
   return (
     <div className="flex justify-between border-t-2 border-dark_border text-gray-500 text-sm select-none">
       <div className="flex items-center cursor-pointer gap-1">
@@ -87,7 +87,19 @@ export default function BottomBar() {
   );
 }
 
-function Tooltip({ icon, text, position, className }: { icon: JSX.Element; text: string; position: 'left' | 'right' | 'center'; className?: string }) {
+export default BottomBar;
+
+const Tooltip = ({
+  icon,
+  text,
+  position,
+  className,
+}: {
+  icon: JSX.Element;
+  text: string;
+  position: 'left' | 'right' | 'center';
+  className?: string;
+}) => {
   const [toolTipActive, setToolTipActive] = useState<boolean>(false);
 
   const handleMouseIn: React.MouseEventHandler = useCallback(() => {

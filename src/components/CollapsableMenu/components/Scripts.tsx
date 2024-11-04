@@ -1,7 +1,7 @@
 import useExplorerStore, { SubMenu } from '@/lib/store/useExplorerStore';
 import SubCollapsableMenu from './SubCollapsableMenu';
 
-export default function Scripts() {
+const Scripts = () => {
   const { scripts } = useExplorerStore();
   return (
     <SubCollapsableMenu
@@ -15,3 +15,5 @@ export default function Scripts() {
     </SubCollapsableMenu>
   );
 }
+
+export default Scripts;

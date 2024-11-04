@@ -1,14 +1,14 @@
 'use client';
+
 import { useCallback, useEffect, useState } from 'react';
 import { Accounts, Debug, Explorer, Extensions, Gear, Search, SourceControl } from '@/icons';
-// import { App, Leetcode, MDXEntry } from '@/lib/mdx';
-// import { Menu, Section, SubMenu, expandableSlice, explorerSlice, sectionSlice, selectExpanded, selectInitialLoad, selectMenu, useDispatch, useSelector } from '@/lib/redux';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import ToolTip from './ToolTip';
-import useExpandableStore, { Menu } from '@/lib/store/useExpandableStore';
 import CollapsableMenu from './CollapsableMenu';
-import useExplorerStore from '@/lib/store/useExplorerStore';
+import useExpandableStore, { Menu } from '@/lib/store/useExpandableStore';
+import useExplorerStore, { SubMenu } from '@/lib/store/useExplorerStore';
+import useSectionStore from '@/lib/store/useSectionStore';
 
 const barItems = [
   {
@@ -40,31 +40,28 @@ interface TooltipProps {
   handleMouseClick: React.MouseEventHandler;
 }
 
-export default function ActivityBar({
+const ActivityBar = ({
     sections,
     allApps,
     allLeetcode,
 }: {
-  // sections: Record<string, Array<Section>>;
-  // allApps: MDXEntry<App>[];
-  // allLeetcode: MDXEntry<Leetcode>[];
   sections: any;
   allApps: any;
   allLeetcode: any;
-}) {
-  const { value, menu, closeIfOpen, toggleMenu } = useExpandableStore();
-  console.log(value);
-//   const activeMenu = useSelector(selectMenu);
+}) => {
+  const { menu, toggleMenu } = useExpandableStore();
+  const { toggleMenu: toggleExplorer } = useExplorerStore();
+  const { setSections } = useSectionStore();
   const { initial: initialLoad, setInitialLoad } = useExplorerStore();
   const pathname = usePathname();
 
-//   useEffect(() => {
-//     dispatch(sectionSlice.actions.setSections({ sections: sections[pathname] }));
-//   }, [pathname, dispatch, sections]);
+  // useEffect(() => {
+  //   setSections(sections[pathname]);
+  // }, [pathname, setSections]);
 
   return (
     <div className="relative md:flex z-30 ">
-      <div className="max-w-fit text-gray-500 flex flex-col justify-between h-full border-r-2 border-r-dark_border">
+      <div className="max-w-fit text-gray-500 flex flex-col justify-between h-full border-r-dark_border bg-topbar_dark_bg">
         <div className="cursor-pointer">
           <Tooltip
             icon={<Explorer />}
@@ -76,11 +73,10 @@ export default function ActivityBar({
               if (!initialLoad || window.innerWidth >= 768) return;
 
               setInitialLoad();
-              // dispatch(explorerSlice.actions.setInitialLoad());
 
-              // setTimeout(() => {
-              //   dispatch(explorerSlice.actions.toggleMenu({ subMenu: SubMenu.PORTFOLIO }));
-              // }, 200);
+              setTimeout(() => {
+                toggleExplorer(SubMenu.PORTFOLIO);
+              }, 200);
             }}
           />
           {barItems.map((item, index) => (
@@ -105,7 +101,9 @@ export default function ActivityBar({
   );
 }
 
-function Tooltip({ icon, text, active, handleMouseClick }: TooltipProps) {
+export default ActivityBar;
+
+const Tooltip = ({ icon, text, active, handleMouseClick }: TooltipProps) => {
   const [toolTipActive, setToolTipActive] = useState<boolean>(false);
 
   const handleMouseIn: React.MouseEventHandler = useCallback(() => {

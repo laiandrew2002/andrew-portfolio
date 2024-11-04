@@ -6,7 +6,7 @@ interface TooltipProps {
   text: string;
 }
 
-export default function ToolTip({ active, className, text }: TooltipProps) {
+const ToolTip = ({ active, className, text }: TooltipProps) => {
   return (
     <span
       className={clsx(
@@ -20,3 +20,4 @@ export default function ToolTip({ active, className, text }: TooltipProps) {
   );
 }
 
+export default ToolTip;

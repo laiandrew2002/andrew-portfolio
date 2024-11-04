@@ -19,7 +19,7 @@ interface SubCollapsableMenuButtonProps {
 }
 
 
-export default function SubCollapsableMenu({
+const SubCollapsableMenu = ({
   subMenuTitle,
   subMenuButtons,
   children,
@@ -27,7 +27,7 @@ export default function SubCollapsableMenu({
   open,
   maxHeight,
   height,
-}: SubCollapsableMenuProps) {
+}: SubCollapsableMenuProps) => {
   const [focused, setFocused] = useState<boolean>(false);
   const [hovered, setHovered] = useState<boolean>(false);
   const contentRef = useRef<HTMLDivElement | null>(null);
@@ -57,7 +57,7 @@ export default function SubCollapsableMenu({
   );
 
   return (
-    <div onMouseEnter={handleMouseIn} onMouseLeave={handleMouseOut} className="bg-dark_bg">
+    <div onMouseEnter={handleMouseIn} onMouseLeave={handleMouseOut}>
       <div className="relative">
         <button
           onFocus={handleFocusIn}
@@ -98,4 +98,6 @@ export default function SubCollapsableMenu({
     </div>
   );
 }
+
+export default SubCollapsableMenu;
 

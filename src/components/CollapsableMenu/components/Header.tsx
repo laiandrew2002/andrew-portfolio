@@ -3,10 +3,7 @@ interface HeaderProps {
   children: React.ReactNode;
 }
 
-export default function Header({
-  menuTitle,
-  children,
-}: HeaderProps) {
+const Header = ({ menuTitle, children }: HeaderProps) => {
   return (
     <div className="flex uppercase text-xs ml-5 mr-3 my-2 select-none items-center justify-between">
       <h1>{menuTitle}</h1>
@@ -14,3 +11,5 @@ export default function Header({
     </div>
   );
 }
+
+export default Header;
