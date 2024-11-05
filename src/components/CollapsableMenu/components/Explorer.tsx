@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import { Ellipsis } from '@/icons';
@@ -9,11 +10,10 @@ import Scripts from './Scripts';
 import Portfolio from './Portfolio';
 
 const Explorer = ({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   allApps,
-  allLeetcode,
 }: {
   allApps: any;
-  allLeetcode: any;
 }) => {
   return (
     <>

@@ -43,21 +43,21 @@ interface TooltipProps {
 const ActivityBar = ({
     sections,
     allApps,
-    allLeetcode,
 }: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   sections: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   allApps: any;
-  allLeetcode: any;
 }) => {
   const { menu, toggleMenu } = useExpandableStore();
   const { toggleMenu: toggleExplorer } = useExplorerStore();
-  const { setSections } = useSectionStore();
   const { initial: initialLoad, setInitialLoad } = useExplorerStore();
+  const { setSections } = useSectionStore();
   const pathname = usePathname();
 
-  // useEffect(() => {
-  //   setSections(sections[pathname]);
-  // }, [pathname, setSections]);
+  useEffect(() => {
+    setSections(sections[pathname]);
+  }, [pathname, sections, setSections]);
 
   return (
     <div className="relative md:flex z-30 ">
@@ -96,7 +96,7 @@ const ActivityBar = ({
           <Tooltip icon={<Gear />} text="Manage" active={false} handleMouseClick={() => {}} />
         </div>
       </div>
-      <CollapsableMenu allApps={allApps} allLeetcode={allLeetcode} />
+      <CollapsableMenu allApps={allApps} />
     </div>
   );
 }

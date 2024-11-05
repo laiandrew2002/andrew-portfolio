@@ -70,6 +70,8 @@ import UntoggledSidebar from './untoggled-sidebar';
 import VSCode from './vscode';
 import Warning from './warning';
 import WorkExperience from './work-experience';
+import LinkedInIcon from './linkedin';
+import GithubIcon from './github';
 
 export {
   AboutMe,
@@ -102,11 +104,13 @@ export {
   FavIcon,
   Gear,
   Git,
+  GithubIcon,
   GitCompare,
   Info,
   Leetcode,
   Lib,
   LibOpen,
+  LinkedInIcon,
   LogIcon,
   NewFile,
   NewFolder,

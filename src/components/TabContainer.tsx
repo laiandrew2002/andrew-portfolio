@@ -114,7 +114,8 @@ const Tab = ({ href, title, type, active }: TabData & { active: boolean }) => {
     }),
   }));
 
-  const [collectedDrag, dragRef]: any = useDrag(() => ({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [, dragRef]: any = useDrag(() => ({
     type: 'tab',
     item: { href },
     collect: (monitor) => ({

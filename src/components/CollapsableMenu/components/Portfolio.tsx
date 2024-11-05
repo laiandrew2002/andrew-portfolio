@@ -1,7 +1,5 @@
 import {
   AboutMe,
-  App,
-  AppOpen,
   BottomLeftArrow,
   BottomRightArrow,
   ChallengeIcon,
@@ -12,9 +10,6 @@ import {
   Eslint,
   FavIcon,
   Git,
-  Leetcode,
-  Lib,
-  LibOpen,
   LogIcon,
   NewFile,
   NewFolder,
@@ -25,19 +20,14 @@ import {
   Projects,
   Public,
   PublicOpen,
-  ReactIcon,
   Refresh,
   SolutionIcon,
-  Src,
-  SrcOpen,
-  Svelte,
   TailwindCSS,
   Technologies,
   TechnologiesIcon,
   TopLeftArrow,
   TopRigthArrow,
   TsConfig,
-  Tsx,
   WorkExperience,
 } from '@/icons';
 import clsx from 'clsx';
@@ -61,13 +51,13 @@ const staticFiles = [
   { name: 'tsconfig.json', icon: <TsConfig /> },
 ];
 
-const fileType = {
-  ['react' as string]: <ReactIcon />,
-  ['typescript' as string]: <Tsx />,
-  ['next' as string]: <NextConfig />,
-  ['svelte' as string]: <Svelte />,
-  ['leetcode' as string]: <Leetcode />,
-};
+// const fileType = {
+//   ['react' as string]: <ReactIcon />,
+//   ['typescript' as string]: <Tsx />,
+//   ['next' as string]: <NextConfig />,
+//   ['svelte' as string]: <Svelte />,
+//   ['leetcode' as string]: <Leetcode />,
+// };
 
 const subSectionsIcons: { [key: string]: JSX.Element } = {
   'about-me': <AboutMe />,
@@ -136,7 +126,7 @@ interface FolderProps {
 const Folder = ({ name, openIcon, closedIcon, disabled, indent, children, segmentActive }: FolderProps) => {
   const [open, setOpen] = useState(true);
 
-  const onToggleFolder: React.MouseEventHandler = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+  const onToggleFolder: React.MouseEventHandler = useCallback(() => {
     setOpen((prev) => !prev);
   }, []);
 

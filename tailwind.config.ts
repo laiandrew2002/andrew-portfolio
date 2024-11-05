@@ -15,6 +15,7 @@ const config: Config = {
         topbar_dark_bg: '#323233',
         activity_dark_bg: '#252526',
         about_me_green: '#7ee787',
+        about_me_blue: '#008bc9',
         work_experience_orange: '#ffa28b',
         skills_purple: '#939aff',
         my_work_yellow: '#ffdc8b',
