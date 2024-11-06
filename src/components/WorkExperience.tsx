@@ -2,40 +2,97 @@ import clsx from 'clsx';
 import { default as Image } from 'next/image';
 import { FadeIn, FadeInStagger } from './FadeIn';
 import Border from './Border';
+import Link from 'next/link';
 
-const experience = [
+interface ExperienceDescription {
+  text: string | React.ReactNode;
+  subText?: string[];
+}
+
+interface Experience {
+  title: string;
+  date: string;
+  description: ExperienceDescription[];
+  image: { url: string; className: string; height: number; width: number };
+}
+
+const experience: Experience[] = [
   {
     title: 'Cake Group | Software Engineer.',
     date: 'April 2021 - Oct 2024',
     description: [
-      'Spearheaded development and maintenance for high-traffic web applications, delivering a seamless user experience across https://bake.io and  https://app.bake.io using React (TypeScript), Redux, and Node.js (Express/TypeScript), Postgres Database and Redis.',
-      'Enhanced the company admin panel with React Admin and React Query, improving data accessibility for internal teams.',
+      {
+        text: (
+          <>
+            Spearheaded development and maintenance for high-traffic web applications, delivering a seamless user experience across{' '}
+            <Link href="https://bake.io" target="_blank" className="text-blue-500 underline">
+              https://bake.io
+            </Link>{' '}
+            and{' '}
+            <Link href="https://app.bake.io" target="_blank" className="text-blue-500 underline">
+              https://app.bake.io
+            </Link>{' '}
+            using React (TypeScript), Redux, and Node.js (Express/TypeScript), Postgres Database and Redis.
+          </>
+        ),
+      },
+      {
+        text: 'Enhanced the company admin panel with React Admin and React Query, improving data accessibility for internal teams.',
+      },
+      {
+        text: 'Key achievements:',
+        subText: [
+          'Increased sign up and login rate by 30% by SSO(Facebook/Google/Apple).',
+          'Increased security through continuously monitor/upgrade on authentication & authorization flows.',
+          'Reduced the KYC processing time by 80% by implementing automation KYC process with third party provider (Sumsub) and Singpass Myinfo for Singapore users.',
+          'Developed features to comply with country-specific restrictions, improving platform adaptability for diverse user bases.',
+          'Developed a CMS on Admin panel that optimized content delivery speed, enhancing user experience and reducing load times.',
+        ],
+      },
     ],
-    image: { url: '/workExperience/cake_logo.jpeg', height: 96, width: 96, className: 'rounded-none' },
+    image: { url: '/workExperience/cake_logo.jpeg', height: 96, width: 96, className: '' },
   },
   {
     title: 'Ufinity Pte Ltd | Software Engineer.',
     date: 'Nov 2020 - Mar 2021',
     description: [
-      'Contributed to the LifeSG mobile application (iOS & Android) with React Native (TypeScript), enhancing user experience through performance optimization and clean UI design.',
-      'Played a pivotal role in agile development, with a focus on TDD and high-quality code production through pair programming.',
-      'Recognized for delivering programming estimates with high accuracy, enabling efficient resource allocation.',
+      {
+        text: 'Contributed to the LifeSG mobile application (iOS & Android) with React Native (TypeScript), enhancing user experience through performance optimization and clean UI design.',
+        subText: [],
+      },
+      {
+        text: 'Played a pivotal role in agile development, with a focus on TDD and high-quality code production through pair programming.',
+        subText: [],
+      },
+      {
+        text: 'Recognized for delivering programming estimates with high accuracy, enabling efficient resource allocation.',
+        subText: [],
+      },
     ],
-    image: { url: '/workExperience/ufinity_logo.jpeg', height: 96, width: 96, className: 'rounded-none' },
+    image: { url: '/workExperience/ufinity_logo.jpeg', height: 96, width: 96, className: '' },
   },
   {
     title: 'DXC Technology | Associate Professional Programmer Analyst.',
     date: 'Feb 2019 - Nov 2020',
     description: [
-      'Involved in the development of the front end of an API gateway using React.js & Redux.',
-      'Developed a REST API generator using loopback in Node.js',
-      'Involved in the development of integration of a microservice to provide Singpass OIDC authentication for clients. (Node.js & Express.js).',
+      {
+        text: 'Involved in the development of the front end of an API gateway using React.js & Redux.',
+        subText: [],
+      },
+      {
+        text: 'Developed a REST API generator using loopback in Node.js',
+        subText: [],
+      },
+      {
+        text: 'Involved in the development of integration of a microservice to provide Singpass OIDC authentication for clients. (Node.js & Express.js).',
+        subText: [],
+      },
     ],
     image: { url: '/workExperience/dxc_logo.jpg', height: 96, width: 96, className: '' },
   },
 ];
 
-export default function WorkExperience() {
+const WorkExperience = () => {
   return (
     <div className="mt-24 text-gray-500 relative z-10 @container">
       <FadeIn
@@ -50,10 +107,23 @@ export default function WorkExperience() {
       <FadeInStagger>
         {experience.map((item, index) => (
           <WorkRole key={index} title={item.title} date={item.date} image={item.image}>
-            {item.description.map((desc, index) => (
-              <li key={index} className="py-1">
-                {desc}
-              </li>
+            {item.description.map(({ text, subText }, index) => (
+              <div key={index} className="py-1">
+                <ul className="list-disc pl-4">
+                  <li className="text-gray-500 text-sm">
+                    {typeof text === 'string' ? text : text}
+                    {subText && subText.length > 0 && (
+                      <ul className="list-disc pl-6 mt-1">
+                        {subText.map((subTextItem, subIndex) => (
+                          <li key={subIndex} className="text-sm py-1">
+                            {subTextItem}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                </ul>
+              </div>
             ))}
           </WorkRole>
         ))}
@@ -62,7 +132,17 @@ export default function WorkExperience() {
   );
 }
 
-function WorkRole({ children, title, date, image }: { children: React.ReactNode; title: string; date?: string; image: { url: string; className: string; height: number; width: number } }) {
+const WorkRole = ({
+  children,
+  title,
+  date,
+  image,
+}: {
+  children: React.ReactNode;
+  title: string;
+  date?: string;
+  image: { url: string; className: string; height: number; width: number };
+}) => {
   return (
     <FadeIn className="flex group mt-8 first:mt-0 px-3">
       <div className="hidden @lg:flex @lg:flex-col">
@@ -104,3 +184,5 @@ function WorkRole({ children, title, date, image }: { children: React.ReactNode;
     </FadeIn>
   );
 }
+
+export default WorkExperience;

@@ -28,7 +28,6 @@ const fileType = {
 
 export default function TabsContainer() {
   const { open: openTabs, current: currentTab } = useTabsStore();
-  console.log(openTabs, currentTab)
   const router = useRouter();
   
   const navigateTo = useCallback(() => {

@@ -148,6 +148,69 @@
   filter: blur(18px);
 }
 
+.mouse {
+	width: 30px;
+	height: 55px;
+	border: 2px solid #b6b6b6;
+	border-radius: 60px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+	animation: down 1.5s infinite;
+	&::before {
+		content: '';
+		width: 8px;
+		height: 8px;
+		position: absolute;
+		top: 10px;
+		left: 50%;
+		transform: translateX(-50%);
+		background-color: #b6b6b6;
+		border-radius: 50%;
+		opacity: 1;
+		animation: wheel 1.5s infinite;
+		-webkit-animation: wheel 1.5s infinite;
+	}
+}
+
+@keyframes wheel {
+	to {
+		opacity: 0;
+		top: 40px;
+	}
+}
+
+@-webkit-keyframes wheel {
+	to {
+		opacity: 0;
+		top: 40px;
+	}
+}
+
+@keyframes down {
+	0% {
+		transform: translate(0);
+	}
+	20% {
+		transform: translateY(15px);
+	}
+	40% {
+		transform: translate(0);
+	}
+}
+
+@-webkit-keyframes down {
+	0% {
+		transform: translate(0);
+	}
+	20% {
+		transform: translateY(15px);
+	}
+	40% {
+		transform: translate(0);
+	}
+}
+
 .scroll-down {
   position: absolute;
   top: 80%;

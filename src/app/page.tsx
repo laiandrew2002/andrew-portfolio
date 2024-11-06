@@ -4,9 +4,10 @@ import Container from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
 import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
+import Skills from "@/components/Skills";
 import Socials from "@/components/Socials";
 import WorkExperience from "@/components/WorkExperience";
-import { BriefCase } from "@/icons";
+import { BookOpen, BriefCase, Envelope } from "@/icons";
 
 export const sections = [
   { index: 0, title: 'About Me', id: 'about-me' },
@@ -45,6 +46,43 @@ const content: contentSection[] = [
     },
     mainContent: <WorkExperience />,
   },
+  {
+    id: sections[2].id,
+    sectionHeader: {
+      icon: (
+        <>
+          <BookOpen height="28" width="28" />
+          <span className="bg-skills_purple icon-blur absolute inset-0 -z-10"></span>
+        </>
+      ),
+      title: 'Skills',
+      description: (
+        <div>
+          <span className="text-skills_purple">Full Stack</span> software engineer with experience in <span className="text-skills_purple">Front-End</span> and{' '}
+          <span className="text-skills_purple">Back-End</span> technologies
+        </div>
+      ),
+    },
+    mainContent: <Skills />,
+  },
+  {
+    id: sections[4].id,
+    sectionHeader: {
+      icon: (
+        <>
+          <Envelope height="28" width="28" />
+          <span className="bg-blue-400 icon-blur absolute inset-0 -z-10"></span>
+        </>
+      ),
+      title: 'Contact Me',
+      description: (
+        <div>
+          Let's <span className="text-blue-400">talk</span> and <span className="text-blue-400">work together</span>
+        </div>
+      ),
+    },
+    mainContent: <></>,
+  },
 ];
 
 export default function Home() {
@@ -62,9 +100,7 @@ export default function Home() {
               </p>
             </FadeIn>
             <Socials />
-            <div className="scroll-down">
-              <span></span>
-              <span></span>
+            <div className="mouse">
             </div>
           </div>
           <AboutMe />
