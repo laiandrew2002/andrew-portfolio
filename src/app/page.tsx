@@ -77,7 +77,7 @@ const content: contentSection[] = [
       title: 'Contact Me',
       description: (
         <div>
-          Let's <span className="text-blue-400">talk</span> and <span className="text-blue-400">work together</span>
+          Let&apos;s <span className="text-blue-400">talk</span> and <span className="text-blue-400">work together</span>
         </div>
       ),
     },

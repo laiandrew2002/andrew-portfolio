@@ -11,8 +11,8 @@ import {
 import { useEffect, useLayoutEffect, useRef } from 'react';
 
 function Glow({ mouseX, mouseY, width, className }: { mouseX: MotionValue<number>; mouseY: MotionValue<number>; width: MotionValue<number>; className: string }) {
-  let maskImage = useMotionTemplate`radial-gradient(${width.get() * 0.7}px at ${mouseX}px ${mouseY}px, white, transparent)`;
-  let style = { maskImage, WebkitMaskImage: maskImage };
+  const maskImage = useMotionTemplate`radial-gradient(${width.get() * 0.7}px at ${mouseX}px ${mouseY}px, white, transparent)`;
+  const style = { maskImage, WebkitMaskImage: maskImage };
 
   return (
     <div className="pointer-events-none">
@@ -37,7 +37,7 @@ const GlowCard = ({
   const intervalRef = useRef<null | NodeJS.Timeout>(null);
 
   const onMouseMove: React.MouseEventHandler<HTMLDivElement> = ({ currentTarget, clientX, clientY }: React.MouseEvent<HTMLDivElement>) => {
-    let { left, top } = currentTarget.getBoundingClientRect();
+    const { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
   };
