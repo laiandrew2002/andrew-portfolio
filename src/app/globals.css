@@ -154,7 +154,7 @@
 	border: 2px solid #b6b6b6;
 	border-radius: 60px;
   position: absolute;
-  top: 80%;
+  top: 75%;
   left: 50%;
 	animation: down 1.5s infinite;
 	&::before {

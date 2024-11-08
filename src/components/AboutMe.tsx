@@ -12,7 +12,7 @@ const AboutMe = () => {
         icon={
           <>
             <Accounts height="28" width="28" />
-            <span className="bg-about_me_green icon-blur absolute inset-0 -z-10"></span>
+            <span className="bg-about_me_blue icon-blur absolute inset-0 -z-10"></span>
           </>
         }
         title="About Me"

@@ -75,12 +75,16 @@ const skills = [
         image: '/logos/express-logo.png',
       },
       {
-        name: 'MongoDB',
-        image: '/logos/mongodb-logo.webp',
-      },
-      {
         name: 'PostgresSql',
         image: '/logos/postgres-logo.png',
+      },
+      {
+        name: 'Redis',
+        image: '/logos/redis-logo.png',
+      },
+      {
+        name: 'MongoDB',
+        image: '/logos/mongodb-logo.webp',
       },
     ],
   },
@@ -121,7 +125,7 @@ export default function Skills() {
       <FadeInStagger faster animate={controls} className="relative z-10 flex flex-col gap-4 mt-20">
         {skills.map(({ name, logos: skills }, index) => (
           <div key={index}>
-            <div className="flex items-center mb-8">
+            <div className="flex items-center mb-6">
               <h3 className="text-center text-2xl font-semibold">{name}</h3>
             </div>
             <div className='flex flex-row flex-wrap gap-4'>

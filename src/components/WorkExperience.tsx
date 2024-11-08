@@ -3,6 +3,7 @@ import { default as Image } from 'next/image';
 import { FadeIn, FadeInStagger } from './FadeIn';
 import Border from './Border';
 import Link from 'next/link';
+import Pill from './Pill';
 
 interface ExperienceDescription {
   text: string | React.ReactNode;
@@ -14,6 +15,7 @@ interface Experience {
   date: string;
   description: ExperienceDescription[];
   image: { url: string; className: string; height: number; width: number };
+  tech?: string[];
 }
 
 const experience: Experience[] = [
@@ -26,11 +28,11 @@ const experience: Experience[] = [
           <>
             Spearheaded development and maintenance for high-traffic web applications, delivering a seamless user experience across{' '}
             <Link href="https://bake.io" target="_blank" className="text-blue-500 underline">
-              https://bake.io
+              Bake website
             </Link>{' '}
             and{' '}
             <Link href="https://app.bake.io" target="_blank" className="text-blue-500 underline">
-              https://app.bake.io
+              Bake web application
             </Link>{' '}
             using React (TypeScript), Redux, and Node.js (Express/TypeScript), Postgres Database and Redis.
           </>
@@ -51,25 +53,52 @@ const experience: Experience[] = [
       },
     ],
     image: { url: '/workExperience/cake_logo.jpeg', height: 96, width: 96, className: '' },
+    tech: [
+      'TypeScript',
+      'Gatsby',
+      'React',
+      'Redux',
+      'Node.js',
+      'Express.js',
+      'PostgreSQL',
+      'Redis',
+      'React Admin',
+      'React Query',
+    ],
   },
   {
     title: 'Ufinity Pte Ltd | Software Engineer.',
     date: 'Nov 2020 - Mar 2021',
     description: [
       {
-        text: 'Contributed to the LifeSG mobile application (iOS & Android) with React Native (TypeScript), enhancing user experience through performance optimization and clean UI design.',
-        subText: [],
+        text: (
+          <>
+            Contributed to the{' '}
+            <Link href="https://www.life.gov.sg/app" target="_blank" className="text-blue-500 underline">
+              LifeSG mobile application 
+            </Link>{' '}
+            (iOS & Android) with React Native (TypeScript), enhancing user experience through performance optimization and clean UI design.
+          </>
+        ),
       },
       {
         text: 'Played a pivotal role in agile development, with a focus on TDD and high-quality code production through pair programming.',
-        subText: [],
       },
       {
         text: 'Recognized for delivering programming estimates with high accuracy, enabling efficient resource allocation.',
-        subText: [],
       },
     ],
     image: { url: '/workExperience/ufinity_logo.jpeg', height: 96, width: 96, className: '' },
+    tech: [
+      'JavaScript',
+      'TypeScript',
+      'React Native',
+      'Redux',
+      'Node.js',
+      'Koa.js',
+      'PostgreSQL',
+      'Redis',
+    ],
   },
   {
     title: 'DXC Technology | Associate Professional Programmer Analyst.',
@@ -77,18 +106,23 @@ const experience: Experience[] = [
     description: [
       {
         text: 'Involved in the development of the front end of an API gateway using React.js & Redux.',
-        subText: [],
       },
       {
         text: 'Developed a REST API generator using loopback in Node.js',
-        subText: [],
       },
       {
         text: 'Involved in the development of integration of a microservice to provide Singpass OIDC authentication for clients. (Node.js & Express.js).',
-        subText: [],
       },
     ],
     image: { url: '/workExperience/dxc_logo.jpg', height: 96, width: 96, className: '' },
+    tech: [
+      'JavaScript',
+      'React',
+      'Redux',
+      'Node.js',
+      'Loopback.js',
+      'MySQL',
+    ],
   },
 ];
 
@@ -110,12 +144,12 @@ const WorkExperience = () => {
             {item.description.map(({ text, subText }, index) => (
               <div key={index} className="py-1">
                 <ul className="list-disc pl-4">
-                  <li className="text-gray-500 text-sm">
+                  <li className="text-gray-500 text-md">
                     {typeof text === 'string' ? text : text}
                     {subText && subText.length > 0 && (
                       <ul className="list-disc pl-6 mt-1">
                         {subText.map((subTextItem, subIndex) => (
-                          <li key={subIndex} className="text-sm py-1">
+                          <li key={subIndex} className="text-md py-1">
                             {subTextItem}
                           </li>
                         ))}
@@ -125,6 +159,11 @@ const WorkExperience = () => {
                 </ul>
               </div>
             ))}
+            <div className='flex flex-row flex-wrap gap-2 mt-2'>
+              {item.tech?.map((tech, index) => (
+                <Pill key={index} text={tech} color="text-work_experience_orange" background="bg-work_experience_brown"/>
+              ))}
+            </div>
           </WorkRole>
         ))}
       </FadeInStagger>

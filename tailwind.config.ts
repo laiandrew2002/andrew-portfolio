@@ -17,6 +17,7 @@ const config: Config = {
         about_me_green: '#7ee787',
         about_me_blue: '#008bc9',
         work_experience_orange: '#ffa28b',
+        work_experience_brown: '#412a25',
         skills_purple: '#939aff',
         my_work_yellow: '#ffdc8b',
         white: '#FFF',
