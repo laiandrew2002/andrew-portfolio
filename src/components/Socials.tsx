@@ -14,9 +14,10 @@ export const socialMediaProfiles = [
 
 export default function Socials({
   className,
+  showContactMe = true
 }: {
   className?: string;
-  invert?: boolean;
+  showContactMe?: boolean;
 }) {
   return (
     <FadeInStagger role="list" className={clsx('flex gap-x-4 text-white mt-5', className)}>
@@ -28,11 +29,11 @@ export default function Socials({
           </Link>
         </FadeIn>
       ))}
-      <FadeIn>
+      {showContactMe && <FadeIn>
         <Button className="flex items-center gap-x-2" href="/#contact" variant="secondary" arrow="right">
           Contact Me
         </Button>
-      </FadeIn>
+      </FadeIn>}
     </FadeInStagger>
   );
 }

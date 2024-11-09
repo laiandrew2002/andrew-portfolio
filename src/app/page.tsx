@@ -1,5 +1,6 @@
 import AboutMe from "@/components/AboutMe";
 import Border from "@/components/Border";
+import ContactMe from "@/components/ContactMe";
 import Container from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
 import Section from "@/components/Section";
@@ -81,7 +82,7 @@ const content: contentSection[] = [
         </div>
       ),
     },
-    mainContent: <></>,
+    mainContent: <ContactMe />,
   },
 ];
 
