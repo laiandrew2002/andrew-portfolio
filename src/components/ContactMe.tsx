@@ -12,7 +12,7 @@ const ContactMe = () => {
   const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
   console.log(mailtoLink);
   return (
-    <div className="@container">
+    <div className="container">
       <FadeInStagger faster className="relative z-10 flex flex-col gap-4 mt-20 mb-60">
         <div className="flex flex-row items-center gap-4 text-center">
           <ContactMeIcon />

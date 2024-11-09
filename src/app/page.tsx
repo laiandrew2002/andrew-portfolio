@@ -3,12 +3,13 @@ import Border from "@/components/Border";
 import ContactMe from "@/components/ContactMe";
 import Container from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
+import MyWork from "@/components/MyWork";
 import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
 import Skills from "@/components/Skills";
 import Socials from "@/components/Socials";
 import WorkExperience from "@/components/WorkExperience";
-import { BookOpen, BriefCase, Envelope } from "@/icons";
+import { Archive, BookOpen, BriefCase, Envelope } from "@/icons";
 
 export const sections = [
   { index: 0, title: 'About Me', id: 'about-me' },
@@ -65,6 +66,24 @@ const content: contentSection[] = [
       ),
     },
     mainContent: <Skills />,
+  },
+  {
+    id: sections[3].id,
+    sectionHeader: {
+      icon: (
+        <>
+          <Archive height="28" width="28" />
+          <span className="bg-my_work_yellow icon-blur absolute inset-0 -z-10"></span>
+        </>
+      ),
+      title: 'My Work',
+      description: (
+        <div>
+          My <span className="text-my_work_yellow">top projects</span> as a full stack <span className="text-my_work_yellow">web</span> software engineer
+        </div>
+      ),
+    },
+    mainContent: <MyWork />,
   },
   {
     id: sections[4].id,

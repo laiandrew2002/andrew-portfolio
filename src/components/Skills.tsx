@@ -121,7 +121,7 @@ export default function Skills() {
   const controls = useAnimationControls();
 
   return (
-    <div className="@container">
+    <div className="container">
       <FadeInStagger faster animate={controls} className="relative z-10 flex flex-col gap-4 mt-20">
         {skills.map(({ name, logos: skills }, index) => (
           <div key={index}>

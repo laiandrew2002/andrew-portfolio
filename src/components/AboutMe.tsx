@@ -22,7 +22,7 @@ const AboutMe = () => {
           </div>
         }
       />
-      <div className="@container">
+      <div className="container">
         <div className="flex flex-col lg:flex-row gap-8 mt-20 justify-between">
           <div className="max-w-xl flex-auto">
             <h3 className="text-lg font-semibold leading-8 tracking-tight text-white">Andrew Lai</h3>
@@ -36,7 +36,7 @@ const AboutMe = () => {
             <Image className="rounded-full object-cover" src="/andrew.jpg" alt="" height={208} width={208} />
           </div>
         </div>
-        <div className="@container">
+        <div className="container">
           <div className="flex gap-5 mt-16 flex-col @3xl:flex-row justify-between">
             <div>
               <FadeIn
