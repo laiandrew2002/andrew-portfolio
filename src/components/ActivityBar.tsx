@@ -8,7 +8,8 @@ import ToolTip from './ToolTip';
 import CollapsableMenu from './CollapsableMenu';
 import useExpandableStore, { Menu } from '@/lib/store/useExpandableStore';
 import useExplorerStore, { SubMenu } from '@/lib/store/useExplorerStore';
-import useSectionStore from '@/lib/store/useSectionStore';
+import useSectionStore, { Section } from '@/lib/store/useSectionStore';
+import { MyWork } from '@/app/layout';
 
 const barItems = [
   {
@@ -42,12 +43,10 @@ interface TooltipProps {
 
 const ActivityBar = ({
     sections,
-    allApps,
+    myWork,
 }: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  sections: any;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  allApps: any;
+  sections: Record<string, Array<Section>>;
+  myWork: MyWork[];
 }) => {
   const { menu, toggleMenu } = useExpandableStore();
   const { toggleMenu: toggleExplorer } = useExplorerStore();
@@ -96,7 +95,7 @@ const ActivityBar = ({
           <Tooltip icon={<Gear />} text="Manage" active={false} handleMouseClick={() => {}} />
         </div>
       </div>
-      <CollapsableMenu allApps={allApps} />
+      <CollapsableMenu myWork={myWork} />
     </div>
   );
 }

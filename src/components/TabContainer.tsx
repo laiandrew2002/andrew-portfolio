@@ -97,7 +97,6 @@ const DropEnd = () => {
 };
 
 const Tab = ({ href, title, type, active }: TabData & { active: boolean }) => {
-  // const dispatch = useDispatch();
   const { moveTab, closeTab } = useTabsStore();
   const router = useRouter();
 
@@ -130,13 +129,11 @@ const Tab = ({ href, title, type, active }: TabData & { active: boolean }) => {
     e.stopPropagation();
     e.preventDefault();
     closeTab(href);
-    // dispatch(tabsSlice.actions.closeTab({ href }));
   };
 
   const handleCloseWithWheel: React.MouseEventHandler<HTMLDivElement> = (e) => {
     if (e.button === 1) {
       closeTab(href);
-      // dispatch(tabsSlice.actions.closeTab({ href }));
       return;
     }
   };

@@ -72,6 +72,7 @@ import Warning from './warning';
 import WorkExperience from './work-experience';
 import LinkedInIcon from './linkedin';
 import GithubIcon from './github';
+import PictureIcon from './picture-icon';
 
 export {
   AboutMe,
@@ -118,6 +119,7 @@ export {
   NextConfig,
   NodeJs,
   NodeModules,
+  PictureIcon,
   Projects,
   Public,
   PublicOpen,

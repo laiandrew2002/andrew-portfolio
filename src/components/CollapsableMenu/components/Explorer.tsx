@@ -2,6 +2,7 @@
 'use client';
 
 import { Ellipsis } from '@/icons';
+import { MyWork } from '@/app/layout';
 import Header from './Header';
 import Editors from './Editors';
 import Outline from './Outline';
@@ -10,10 +11,9 @@ import Scripts from './Scripts';
 import Portfolio from './Portfolio';
 
 const Explorer = ({
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  allApps,
+  myWork,
 }: {
-  allApps: any;
+  myWork: MyWork[];
 }) => {
   return (
     <>
@@ -24,8 +24,7 @@ const Explorer = ({
       </Header>
       <div id="subMenusContainer" className="divide-dark_border divide-y-2 flex flex-col mx-[1px] flex-1 select-none">
         <Editors />
-        <Portfolio />
-        {/* <Portfolio allApps={allApps} allLeetcode={allLeetcode} /> */}
+        <Portfolio myWork={myWork} />
         <Outline />
         <Timeline />
         <Scripts />

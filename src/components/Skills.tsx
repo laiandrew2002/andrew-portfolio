@@ -136,7 +136,7 @@ export default function Skills() {
                       <Image
                         src={skill.image}
                         className="object-contain rounded-md m-auto"
-                        alt=""
+                        alt={`${skill.name} logo`}
                         height={64}
                         width={64}
                         style={{

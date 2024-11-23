@@ -10,7 +10,7 @@ const ContactMe = () => {
   // const body = 'Hello, I would like to reach out from your portfolio.';
 
   const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
-  console.log(mailtoLink);
+
   return (
     <div className="container">
       <FadeInStagger faster className="relative z-10 flex flex-col gap-4 mt-20 mb-60">

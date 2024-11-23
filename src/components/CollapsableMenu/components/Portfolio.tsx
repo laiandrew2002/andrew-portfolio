@@ -1,5 +1,7 @@
 import {
   AboutMe,
+  App,
+  AppOpen,
   BottomLeftArrow,
   BottomRightArrow,
   ChallengeIcon,
@@ -17,17 +19,22 @@ import {
   NextConfig,
   NodeJs,
   NodeModules,
+  PictureIcon,
   Projects,
   Public,
   PublicOpen,
+  ReactIcon,
   Refresh,
   SolutionIcon,
+  Src,
+  SrcOpen,
   TailwindCSS,
   Technologies,
   TechnologiesIcon,
   TopLeftArrow,
   TopRigthArrow,
   TsConfig,
+  Tsx,
   WorkExperience,
 } from '@/icons';
 import clsx from 'clsx';
@@ -40,6 +47,7 @@ import useExplorerStore, { SubMenu } from '@/lib/store/useExplorerStore';
 import useExpandableStore from '@/lib/store/useExpandableStore';
 import useSectionStore, { Section } from '@/lib/store/useSectionStore';
 import { FadeIn, FadeInStagger } from '@/components/FadeIn';
+import { MyWork } from '@/app/layout';
 
 const staticFiles = [
   { name: '.eslintrc.json', icon: <Eslint /> },
@@ -51,13 +59,13 @@ const staticFiles = [
   { name: 'tsconfig.json', icon: <TsConfig /> },
 ];
 
-// const fileType = {
-//   ['react' as string]: <ReactIcon />,
-//   ['typescript' as string]: <Tsx />,
-//   ['next' as string]: <NextConfig />,
-//   ['svelte' as string]: <Svelte />,
-//   ['leetcode' as string]: <Leetcode />,
-// };
+const fileType = {
+  ['react' as string]: <ReactIcon />,
+  ['typescript' as string]: <Tsx />,
+  ['next' as string]: <NextConfig />,
+  // ['svelte' as string]: <Svelte />,
+  // ['leetcode' as string]: <Leetcode />,
+};
 
 const subSectionsIcons: { [key: string]: JSX.Element } = {
   'about-me': <AboutMe />,
@@ -66,7 +74,8 @@ const subSectionsIcons: { [key: string]: JSX.Element } = {
   'my-work': <Projects />,
   contact: <ContactMe />,
   about: <LogIcon />,
-  challenge: <ChallengeIcon />,
+  requirements: <ChallengeIcon />,
+  screenshots: <PictureIcon />,
   solution: <SolutionIcon />,
   technologies: <TechnologiesIcon />,
   easy: <div className="bg-green-500 rounded-full h-[16px] w-[16px] blur-[1px]" />,
@@ -74,7 +83,7 @@ const subSectionsIcons: { [key: string]: JSX.Element } = {
   hard: <div className="bg-red-500 rounded-full h-[16px] w-[16px] blur-[1px]" />,
 };
 
-const Portfolio = () => {
+const Portfolio = ({ myWork }: { myWork: MyWork[] }) => {
   const pathname = usePathname();
   const { portfolio } = useExplorerStore();
   const { value: expanded } = useExpandableStore();
@@ -101,6 +110,20 @@ const Portfolio = () => {
           <Folder name="node_modules" openIcon={<></>} closedIcon={<NodeModules />} disabled indent={0} segmentActive={false} />
           <Folder name="public" openIcon={<PublicOpen />} closedIcon={<Public />} indent={0} segmentActive={segments.length === 0}>
             <File name="about_me.ts" icon={<FavIcon />} url="/" indent={1} sections={pathname === '/' ? sections : []} />
+          </Folder>
+          <Folder name="src" openIcon={<SrcOpen />} closedIcon={<Src />} indent={0} segmentActive={false}>
+            <Folder name="my_work" openIcon={<AppOpen />} closedIcon={<App />} indent={1} segmentActive={segments[0] === 'apps'}>
+              {myWork.map((work) => (
+                <File
+                  key={work.pathname}
+                  name={work.title}
+                  icon={fileType[work.framework]}
+                  url={work.pathname}
+                  indent={2}
+                  sections={pathname === work.pathname ? sections : []}
+                />
+              ))}
+            </Folder>
           </Folder>
           {staticFiles.map((file) => (
             <File key={file.name} name={file.name} icon={file.icon} indent={0} sections={[]} />

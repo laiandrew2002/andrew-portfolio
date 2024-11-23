@@ -7,6 +7,7 @@ import ActivityBar from "@/components/ActivityBar";
 import TabsContainer from "@/components/TabContainer";
 import NavigationChange from "@/components/NavigationChange";
 import { sections } from "./page";
+import { sections as dappWalletTransferSections } from "@/app/apps/dapp-wallet-transfer/page";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,6 +25,15 @@ export const metadata: Metadata = {
   description: "Andrew Lai - Portfolio",
 };
 
+export interface MyWork {
+  title: string;
+  description: string;
+  url: string;
+  pathname: string;
+  href: string;
+  framework: string;
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,9 +41,22 @@ export default function RootLayout({
 }>) {
   const mainSection = {
     '/': sections,
+    '/apps/dapp-wallet-transfer': dappWalletTransferSections,
+    // '/apps/bake-io': sections,
+    // '/apps/bake-web-app': sections,
   };
 
-  const allApps = null;
+  const myWork: MyWork[] = [
+    {
+      title: 'DApp-Wallet-Transfer',
+      description: 'A decentralized application (DApp) that connects to Metamask and enables users to transfer cryptocurrencies to other wallets.',
+      url: 'https://dapp-wallet-transfer.vercel.app/',
+      pathname: '/apps/dapp-wallet-transfer',
+      href: '/apps/dapp-wallet-transfer',
+      framework: 'react',
+    },
+  ];
+
   return (
     <html lang="en">
       <body
@@ -41,14 +64,14 @@ export default function RootLayout({
       >
         <TopBar />
         <main className="flex-1 flex overflow-hidden relative">
-          <ActivityBar sections={mainSection} allApps={allApps} />
+          <ActivityBar sections={mainSection} myWork={myWork} />
           <div className="flex w-full flex-col overflow-hidden">
             <TabsContainer />
             {children}
           </div>
         </main>
         <BottomBar />
-        <NavigationChange allPaths={[]} />
+        <NavigationChange allPaths={[...myWork]} />
       </body>
     </html>
   );
