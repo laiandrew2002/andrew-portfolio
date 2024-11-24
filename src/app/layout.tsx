@@ -48,7 +48,7 @@ export default function RootLayout({
 
   const myWork: MyWork[] = [
     {
-      title: 'DApp-Wallet-Transfer',
+      title: 'DApp-Wallet-Transfer.tsx',
       description: 'A decentralized application (DApp) that connects to Metamask and enables users to transfer cryptocurrencies to other wallets.',
       url: 'https://dapp-wallet-transfer.vercel.app/',
       pathname: '/apps/dapp-wallet-transfer',
