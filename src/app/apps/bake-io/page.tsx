@@ -11,12 +11,12 @@ import AppPageHeader from '@/components/CollapsableMenu/components/AppPageHeader
 
 export const sections = [
   { index: 0, title: 'About', id: 'about' },
-  { index: 1, title: 'Requirements', id: 'requirements' },
+  { index: 1, title: 'Features', id: 'features' },
   { index: 2, title: 'Screenshots', id: 'screenshots' },
   { index: 3, title: 'Technologies', id: 'technologies' },
 ];
 
-const dappWalletTransferTech = [
+const bakeIoTech = [
   {
     name: 'Gatsby.js',
     image: '/logos/gatsby-logo.png',
@@ -88,9 +88,9 @@ const BakeIo = () => {
         <Border className='pt-10' />
 
         <FadeIn>
-          <Section id="requirements">
+          <Section id="features">
             <div className='flex flex-col pt-10 mb-20'>
-              <AppPageHeader icon={<ChallengeIcon width='28' height='28'/>} title="Requirements" />
+              <AppPageHeader icon={<ChallengeIcon width='28' height='28'/>} title="Features" />
               <ul className="list-disc pl-6 mt-1 text-gray-500">
                 <li className="text-md py-1">
                   Built with Gatsby.js with responsive design and mobile-friendly.
@@ -143,7 +143,7 @@ const BakeIo = () => {
             <div className='flex flex-col pt-10'>
               <AppPageHeader icon={<TechnologiesIcon width='28' height='28' fill='white'/>} title="Technologies" />
               <FadeInStagger className="flex gap-4 mt-6 mb-10 flex-wrap" faster once>
-                {dappWalletTransferTech.map(({ name, image, link }) => (
+                {bakeIoTech.map(({ name, image, link }) => (
                   <FadeIn key={name} className="w-24 flex flex-col self-start">
                     <div className="mt-auto">
                       <Link href={link} target="_blank" rel="noopener noreferrer">

@@ -34,7 +34,7 @@ const projects: Project[] = [
     image: { src: bakeio },
   },
   {
-    // href: '/apps/bake-web-app',
+    href: '/apps/bake-web-app',
     name: 'Bake Web App',
     full: true,
     description: 'A web application built with React.js and Redux to allow users to use Bake products and services. The backend of the products and services are running on Node.js. with PostgreSQL and Redis.',

@@ -46,8 +46,10 @@ import SubCollapsableMenu from './SubCollapsableMenu';
 import useExplorerStore, { SubMenu } from '@/lib/store/useExplorerStore';
 import useExpandableStore from '@/lib/store/useExpandableStore';
 import useSectionStore, { Section } from '@/lib/store/useSectionStore';
-import { FadeIn, FadeInStagger } from '@/components/FadeIn';
+import { FadeInStagger } from '@/components/FadeIn';
 import { MyWork } from '@/app/layout';
+import { MdOutlineFeaturedPlayList } from "react-icons/md";
+import { TbCircleKeyFilled } from "react-icons/tb";
 
 const staticFiles = [
   { name: '.eslintrc.json', icon: <Eslint /> },
@@ -75,6 +77,9 @@ const subSectionsIcons: { [key: string]: JSX.Element } = {
   contact: <ContactMe />,
   about: <LogIcon />,
   requirements: <ChallengeIcon />,
+  features: <ChallengeIcon />,
+  featuresOwned: <MdOutlineFeaturedPlayList fill='#41d985' />,
+  keyOutcomes: <TbCircleKeyFilled fill='#ed8864' />,
   screenshots: <PictureIcon />,
   solution: <SolutionIcon />,
   technologies: <TechnologiesIcon />,
@@ -187,7 +192,7 @@ const File = ({ name, icon, url, indent, sections }: FileWrapperProps) => {
           <FadeInStagger className="w-max" role="list">
             {sections.map((section) => (
               // <FadeIn key={section.id}>
-                <FileSection id={section.id} title={section.title} url={url ? url : ''} />
+                <FileSection key={section.id} id={section.id} title={section.title} url={url ? url : ''} />
               // </FadeIn>
             ))}
           </FadeInStagger>

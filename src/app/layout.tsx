@@ -9,6 +9,7 @@ import NavigationChange from "@/components/NavigationChange";
 import { sections } from "./page";
 import { sections as dappWalletTransferSections } from "@/app/apps/dapp-wallet-transfer/page";
 import { sections as bakeIoSections } from "@/app/apps/bake-io/page";
+import { sections as bakeWebAppSections } from "@/app/apps/bake-web-app/page";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -44,7 +45,7 @@ export default function RootLayout({
     '/': sections,
     '/apps/dapp-wallet-transfer': dappWalletTransferSections,
     '/apps/bake-io': bakeIoSections,
-    // '/apps/bake-web-app': sections,
+    '/apps/bake-web-app': bakeWebAppSections,
   };
 
   const myWork: MyWork[] = [
@@ -62,6 +63,14 @@ export default function RootLayout({
       url: 'https://bake.io',
       pathname: '/apps/bake-io',
       href: '/apps/bake-io',
+      framework: 'react',
+    },
+    {
+      title: 'Bake-Web-App.tsx',
+      description: 'A web application built with React.js and Redux to allow users to use Bake products and services. The backend of the products and services are running on Node.js. with PostgreSQL and Redis.',
+      url: 'https://app.bake.io',
+      pathname: '/apps/bake-web-app',
+      href: '/apps/bake-web-app',
       framework: 'react',
     }
   ];
