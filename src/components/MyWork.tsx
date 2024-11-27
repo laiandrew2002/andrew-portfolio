@@ -27,7 +27,7 @@ const projects: Project[] = [
     image: { src: dappWalletTransfer },
   },
   {
-    // href: '/apps/bake-io',
+    href: '/apps/bake-io',
     name: 'Bake.io',
     full: true,
     description: 'A static website built with Gatsby.js to allow new users to browse Bake products and services.',

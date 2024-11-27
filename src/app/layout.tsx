@@ -8,6 +8,7 @@ import TabsContainer from "@/components/TabContainer";
 import NavigationChange from "@/components/NavigationChange";
 import { sections } from "./page";
 import { sections as dappWalletTransferSections } from "@/app/apps/dapp-wallet-transfer/page";
+import { sections as bakeIoSections } from "@/app/apps/bake-io/page";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -42,7 +43,7 @@ export default function RootLayout({
   const mainSection = {
     '/': sections,
     '/apps/dapp-wallet-transfer': dappWalletTransferSections,
-    // '/apps/bake-io': sections,
+    '/apps/bake-io': bakeIoSections,
     // '/apps/bake-web-app': sections,
   };
 
@@ -55,6 +56,14 @@ export default function RootLayout({
       href: '/apps/dapp-wallet-transfer',
       framework: 'react',
     },
+    {
+      title: 'Bake.io.tsx',
+      description: 'A static website built with Gatsby.js to allow new users to browse Bake products and services.',
+      url: 'https://bake.io',
+      pathname: '/apps/bake-io',
+      href: '/apps/bake-io',
+      framework: 'react',
+    }
   ];
 
   return (
