@@ -1,6 +1,12 @@
 import { FadeIn } from "@/components/FadeIn";
 
-const AppPageHeader = ({ icon, title }: { icon: JSX.Element; title: string }) => {
+const AppPageHeader = ({
+  icon,
+  title,
+}: {
+  icon: JSX.Element;
+  title: string;
+}) => {
   return (
     <div className="flex gap-6 mb-4">
       <FadeIn
@@ -25,6 +31,6 @@ const AppPageHeader = ({ icon, title }: { icon: JSX.Element; title: string }) =>
       </FadeIn>
     </div>
   );
-}
+};
 
 export default AppPageHeader;

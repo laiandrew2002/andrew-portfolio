@@ -1,6 +1,11 @@
 export default function Eslint() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 300 300">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      viewBox="0 0 300 300"
+    >
       <path
         fill="#7986cb"
         d="M97.478 120.86l50.098-28.924a4.052 4.052 0 014.053 0l50.1 28.924a4.055 4.055 0 012.026 3.51v57.848a4.06 4.06 0 01-2.027 3.51l-50.099 28.924a4.052 4.052 0 01-4.053 0l-50.098-28.924a4.055 4.055 0 01-2.026-3.51V124.37a4.057 4.057 0 012.026-3.51"

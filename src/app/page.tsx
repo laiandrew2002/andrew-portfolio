@@ -12,11 +12,11 @@ import WorkExperience from "@/components/WorkExperience";
 import { Archive, BookOpen, BriefCase, Envelope } from "@/icons";
 
 export const sections = [
-  { index: 0, title: 'About Me', id: 'about-me' },
-  { index: 1, title: 'Work Experience', id: 'work-experience' },
-  { index: 2, title: 'Skills', id: 'skills' },
-  { index: 3, title: 'My Work', id: 'my-work' },
-  { index: 4, title: 'Contact Me', id: 'contact' },
+  { index: 0, title: "About Me", id: "about-me" },
+  { index: 1, title: "Work Experience", id: "work-experience" },
+  { index: 2, title: "Skills", id: "skills" },
+  { index: 3, title: "My Work", id: "my-work" },
+  { index: 4, title: "Contact Me", id: "contact" },
 ];
 
 interface contentSection {
@@ -39,10 +39,14 @@ const content: contentSection[] = [
           <span className="bg-work_experience_orange icon-blur absolute inset-0 -z-10"></span>
         </>
       ),
-      title: 'Work Experience',
+      title: "Work Experience",
       description: (
         <div>
-          <span className="text-work_experience_orange">Senior Software Engineer</span> with <span className="text-work_experience_orange">5+ years</span> of experience in the software industry
+          <span className="text-work_experience_orange">
+            Senior Software Engineer
+          </span>{" "}
+          with <span className="text-work_experience_orange">5+ years</span> of
+          experience in the software industry
         </div>
       ),
     },
@@ -57,10 +61,12 @@ const content: contentSection[] = [
           <span className="bg-skills_purple icon-blur absolute inset-0 -z-10"></span>
         </>
       ),
-      title: 'Skills',
+      title: "Skills",
       description: (
         <div>
-          <span className="text-skills_purple">Full Stack</span> software engineer with experience in <span className="text-skills_purple">Front-End</span> and{' '}
+          <span className="text-skills_purple">Full Stack</span> software
+          engineer with experience in{" "}
+          <span className="text-skills_purple">Front-End</span> and{" "}
           <span className="text-skills_purple">Back-End</span> technologies
         </div>
       ),
@@ -76,10 +82,12 @@ const content: contentSection[] = [
           <span className="bg-my_work_yellow icon-blur absolute inset-0 -z-10"></span>
         </>
       ),
-      title: 'My Work',
+      title: "My Work",
       description: (
         <div>
-          My <span className="text-my_work_yellow">top projects</span> as a full stack <span className="text-my_work_yellow">web</span> software engineer
+          My <span className="text-my_work_yellow">top projects</span> as a full
+          stack <span className="text-my_work_yellow">web</span> software
+          engineer
         </div>
       ),
     },
@@ -94,10 +102,11 @@ const content: contentSection[] = [
           <span className="bg-blue-400 icon-blur absolute inset-0 -z-10"></span>
         </>
       ),
-      title: 'Contact Me',
+      title: "Contact Me",
       description: (
         <div>
-          Let&apos;s <span className="text-blue-400">talk</span> and <span className="text-blue-400">work together</span>
+          Let&apos;s <span className="text-blue-400">talk</span> and{" "}
+          <span className="text-blue-400">work together</span>
         </div>
       ),
     },
@@ -113,15 +122,15 @@ export default function Home() {
           <div className="min-h-screen relative">
             <FadeIn className="max-w-5xl pt-40 md:pt-[20vh] 2xl:pt-[30vh]">
               <h1 className="font-display text-5xl font-medium tracking-tight [text-wrap:balance] sm:text-6xl mb-6">
-                Andrew Lai<span className="pl-4 wave">👋</span>
+                Andrew Lai<span className="pl-4 wave">👨🏻‍💻</span>
               </h1>
               <p className="max-w-3xl">
-                Software engineer with a 5 years experience in Front-End and Back-End technologies.
+                Software engineer with a 5 years experience in Front-End and
+                Back-End technologies.
               </p>
             </FadeIn>
             <Socials />
-            <div className="mouse">
-            </div>
+            <div className="mouse"></div>
           </div>
           <AboutMe />
         </Container>

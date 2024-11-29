@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
   ChromeClose,
   Ellipsis,
@@ -9,27 +9,27 @@ import {
   ReactIcon,
   Svelte,
   UntoggledSidebar,
-} from '@/icons';
-import useTabsStore, { TabData } from '@/lib/store/useTabsStore';
-import clsx from 'clsx';
-import { useRouter } from 'next/navigation';
-import { useCallback, useEffect } from 'react';
-import { DndProvider, useDrag, useDrop } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-import { mergeRefs } from 'react-merge-refs';
+} from "@/icons";
+import useTabsStore, { TabData } from "@/lib/store/useTabsStore";
+import clsx from "clsx";
+import { useRouter } from "next/navigation";
+import { useCallback, useEffect } from "react";
+import { DndProvider, useDrag, useDrop } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { mergeRefs } from "react-merge-refs";
 
 const fileType = {
-  ['react' as string]: <ReactIcon />,
-  ['about' as string]: <FavIcon />,
-  ['next' as string]: <NextConfig />,
-  ['svelte' as string]: <Svelte />,
-  ['leetcode' as string]: <Leetcode />,
+  ["react" as string]: <ReactIcon />,
+  ["about" as string]: <FavIcon />,
+  ["next" as string]: <NextConfig />,
+  ["svelte" as string]: <Svelte />,
+  ["leetcode" as string]: <Leetcode />,
 };
 
 export default function TabsContainer() {
   const { open: openTabs, current: currentTab } = useTabsStore();
   const router = useRouter();
-  
+
   const navigateTo = useCallback(() => {
     router.push(currentTab);
   }, [router, currentTab]);
@@ -76,7 +76,7 @@ const DropEnd = () => {
   const { moveToEnd } = useTabsStore();
 
   const [collectedDrop, drop] = useDrop(() => ({
-    accept: 'tab',
+    accept: "tab",
     drop(item: { href: string }) {
       moveToEnd(item.href);
     },
@@ -90,10 +90,15 @@ const DropEnd = () => {
     drop(node);
   };
 
-  return <div
-    ref={dropRef}
-    className={clsx('flex-1', collectedDrop.item && collectedDrop.hover && 'bg-gray-200')}
-  />;
+  return (
+    <div
+      ref={dropRef}
+      className={clsx(
+        "flex-1",
+        collectedDrop.item && collectedDrop.hover && "bg-gray-200",
+      )}
+    />
+  );
 };
 
 const Tab = ({ href, title, type, active }: TabData & { active: boolean }) => {
@@ -101,7 +106,7 @@ const Tab = ({ href, title, type, active }: TabData & { active: boolean }) => {
   const router = useRouter();
 
   const [collectedDrop, drop] = useDrop(() => ({
-    accept: 'tab',
+    accept: "tab",
     drop(item: { href: string }) {
       if (item.href === href) return;
       moveTab(item.href, href);
@@ -114,7 +119,7 @@ const Tab = ({ href, title, type, active }: TabData & { active: boolean }) => {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [, dragRef]: any = useDrag(() => ({
-    type: 'tab',
+    type: "tab",
     item: { href },
     collect: (monitor) => ({
       dragging: monitor.isDragging(),
@@ -149,16 +154,32 @@ const Tab = ({ href, title, type, active }: TabData & { active: boolean }) => {
       onClick={handleClickNavigation}
       onMouseDown={handleCloseWithWheel}
       className={clsx(
-        'w-max relative p-2 border-r border-dark_2_border group cursor-pointer',
-        collectedDrop.item && collectedDrop.item.href !== href && collectedDrop.hover && 'bg-gray-200',
-        active && 'bg-dark_bg'
+        "w-max relative p-2 border-r border-dark_2_border group cursor-pointer",
+        collectedDrop.item &&
+          collectedDrop.item.href !== href &&
+          collectedDrop.hover &&
+          "bg-gray-200",
+        active && "bg-dark_bg",
       )}
     >
       {/* {active && <span className="after:bg-blue-300 after:absolute after:bottom-0 after:translate-y-[2px] after:left-0 after:right-0 after:h-[4px]" />} */}
       <div className="flex items-center gap-2">
         {fileType[type]}
-        <p className={clsx('whitespace-nowrap select-none', active && 'text-blue-100')}>{title}</p>
-        <div className={clsx('hover:bg-gray-500/20 rounded-md p-1 opacity-0 group-hover:opacity-100', active && 'opacity-100')} onClick={handleCloseTab}>
+        <p
+          className={clsx(
+            "whitespace-nowrap select-none",
+            active && "text-blue-100",
+          )}
+        >
+          {title}
+        </p>
+        <div
+          className={clsx(
+            "hover:bg-gray-500/20 rounded-md p-1 opacity-0 group-hover:opacity-100",
+            active && "opacity-100",
+          )}
+          onClick={handleCloseTab}
+        >
           <ChromeClose />
         </div>
       </div>

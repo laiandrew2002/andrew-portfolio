@@ -1,34 +1,42 @@
-'use client';
+"use client";
 
-import { useCallback, useEffect, useState } from 'react';
-import { Accounts, Debug, Explorer, Extensions, Gear, Search, SourceControl } from '@/icons';
-import clsx from 'clsx';
-import { usePathname } from 'next/navigation';
-import ToolTip from './ToolTip';
-import CollapsableMenu from './CollapsableMenu';
-import useExpandableStore, { Menu } from '@/lib/store/useExpandableStore';
-import useExplorerStore, { SubMenu } from '@/lib/store/useExplorerStore';
-import useSectionStore, { Section } from '@/lib/store/useSectionStore';
-import { MyWork } from '@/app/layout';
+import { useCallback, useEffect, useState } from "react";
+import {
+  Accounts,
+  Debug,
+  Explorer,
+  Extensions,
+  Gear,
+  Search,
+  SourceControl,
+} from "@/icons";
+import clsx from "clsx";
+import { usePathname } from "next/navigation";
+import ToolTip from "./ToolTip";
+import CollapsableMenu from "./CollapsableMenu";
+import useExpandableStore, { Menu } from "@/lib/store/useExpandableStore";
+import useExplorerStore, { SubMenu } from "@/lib/store/useExplorerStore";
+import useSectionStore, { Section } from "@/lib/store/useSectionStore";
+import { MyWork } from "@/app/layout";
 
 const barItems = [
   {
-    hoverText: 'Search (Ctrl + Shift + F)',
+    hoverText: "Search (Ctrl + Shift + F)",
     icon: <Search />,
     menu: Menu.SEARCH,
   },
   {
-    hoverText: 'Source Control (Ctrl + Shift + G)',
+    hoverText: "Source Control (Ctrl + Shift + G)",
     icon: <SourceControl height={32} width={32} />,
     menu: Menu.SOURCE_CONTROL,
   },
   {
-    hoverText: 'Run and Debug (Ctrl + Shift + D)',
+    hoverText: "Run and Debug (Ctrl + Shift + D)",
     icon: <Debug />,
     menu: Menu.DEBUG,
   },
   {
-    hoverText: 'Extensions (Ctrl + Shift + X)',
+    hoverText: "Extensions (Ctrl + Shift + X)",
     icon: <Extensions />,
     menu: Menu.EXTENSIONS,
   },
@@ -42,8 +50,8 @@ interface TooltipProps {
 }
 
 const ActivityBar = ({
-    sections,
-    myWork,
+  sections,
+  myWork,
 }: {
   sections: Record<string, Array<Section>>;
   myWork: MyWork[];
@@ -91,14 +99,24 @@ const ActivityBar = ({
           ))}
         </div>
         <div className="cursor-pointer">
-          <Tooltip icon={<Accounts width="32" height="32" />} text="Accounts" active={false} handleMouseClick={() => {}} />
-          <Tooltip icon={<Gear />} text="Manage" active={false} handleMouseClick={() => {}} />
+          <Tooltip
+            icon={<Accounts width="32" height="32" />}
+            text="Accounts"
+            active={false}
+            handleMouseClick={() => {}}
+          />
+          <Tooltip
+            icon={<Gear />}
+            text="Manage"
+            active={false}
+            handleMouseClick={() => {}}
+          />
         </div>
       </div>
       <CollapsableMenu myWork={myWork} />
     </div>
   );
-}
+};
 
 export default ActivityBar;
 
@@ -109,10 +127,13 @@ const Tooltip = ({ icon, text, active, handleMouseClick }: TooltipProps) => {
     setToolTipActive(true);
   }, []);
 
-  const handleMouseOut: React.MouseEventHandler = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
-    e.currentTarget.blur();
-    setToolTipActive(false);
-  }, []);
+  const handleMouseOut: React.MouseEventHandler = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.currentTarget.blur();
+      setToolTipActive(false);
+    },
+    [],
+  );
 
   const handleFocus: React.FocusEventHandler = useCallback(() => {
     setToolTipActive(false);
@@ -125,11 +146,18 @@ const Tooltip = ({ icon, text, active, handleMouseClick }: TooltipProps) => {
         onClick={handleMouseClick}
         onMouseEnter={handleMouseIn}
         onMouseLeave={handleMouseOut}
-        className={clsx(active ? 'border-gray-500' : 'opacity-50 hover:opacity-90', 'p-3 relative border-l-2 border-dark_bg')}
+        className={clsx(
+          active ? "border-gray-500" : "opacity-50 hover:opacity-90",
+          "p-3 relative border-l-2 border-dark_bg",
+        )}
       >
         {icon}
       </button>
-      <ToolTip className="top-1/2 -translate-y-1/2 right-0 translate-x-full" active={toolTipActive} text={text} />
+      <ToolTip
+        className="top-1/2 -translate-y-1/2 right-0 translate-x-full"
+        active={toolTipActive}
+        text={text}
+      />
     </div>
   );
-}
+};

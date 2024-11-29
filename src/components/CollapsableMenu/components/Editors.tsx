@@ -1,6 +1,6 @@
-import { CloseAll, NewFile, SaveAll } from '@/icons';
-import SubCollapsableMenu from './SubCollapsableMenu';
-import useExplorerStore, { SubMenu } from '@/lib/store/useExplorerStore';
+import { CloseAll, NewFile, SaveAll } from "@/icons";
+import SubCollapsableMenu from "./SubCollapsableMenu";
+import useExplorerStore, { SubMenu } from "@/lib/store/useExplorerStore";
 
 const Editors = () => {
   const { editor } = useExplorerStore();
@@ -20,6 +20,6 @@ const Editors = () => {
       <></>
     </SubCollapsableMenu>
   );
-}
+};
 
 export default Editors;

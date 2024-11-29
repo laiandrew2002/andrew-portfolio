@@ -1,9 +1,17 @@
-'use client';
-import useSectionStore from '@/lib/store/useSectionStore';
-import { useInView } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+"use client";
+import useSectionStore from "@/lib/store/useSectionStore";
+import { useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
 
-const Section = ({ children, id, className }: { children: React.ReactNode; id: string; className?: string }) => {
+const Section = ({
+  children,
+  id,
+  className,
+}: {
+  children: React.ReactNode;
+  id: string;
+  className?: string;
+}) => {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref);
   const { setVisible, setHidden } = useSectionStore();
@@ -22,6 +30,6 @@ const Section = ({ children, id, className }: { children: React.ReactNode; id: s
       {children}
     </section>
   );
-}
+};
 
 export default Section;

@@ -36,56 +36,62 @@ import {
   TsConfig,
   Tsx,
   WorkExperience,
-} from '@/icons';
-import clsx from 'clsx';
-import { AnimatePresence, motion } from 'framer-motion';
-import Link from 'next/link';
-import { usePathname, useSelectedLayoutSegments } from 'next/navigation';
-import { useCallback, useState } from 'react';
-import SubCollapsableMenu from './SubCollapsableMenu';
-import useExplorerStore, { SubMenu } from '@/lib/store/useExplorerStore';
-import useExpandableStore from '@/lib/store/useExpandableStore';
-import useSectionStore, { Section } from '@/lib/store/useSectionStore';
-import { FadeInStagger } from '@/components/FadeIn';
-import { MyWork } from '@/app/layout';
+} from "@/icons";
+import clsx from "clsx";
+import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
+import { usePathname, useSelectedLayoutSegments } from "next/navigation";
+import { useCallback, useState } from "react";
+import SubCollapsableMenu from "./SubCollapsableMenu";
+import useExplorerStore, { SubMenu } from "@/lib/store/useExplorerStore";
+import useExpandableStore from "@/lib/store/useExpandableStore";
+import useSectionStore, { Section } from "@/lib/store/useSectionStore";
+import { FadeInStagger } from "@/components/FadeIn";
+import { MyWork } from "@/app/layout";
 import { MdOutlineFeaturedPlayList } from "react-icons/md";
 import { TbCircleKeyFilled } from "react-icons/tb";
 
 const staticFiles = [
-  { name: '.eslintrc.json', icon: <Eslint /> },
-  { name: '.gitignore', icon: <Git /> },
-  { name: 'next.config.js', icon: <NextConfig /> },
-  { name: 'package-lock.json', icon: <NodeJs /> },
-  { name: 'package.json', icon: <NodeJs /> },
-  { name: 'tailwind.config.ts', icon: <TailwindCSS /> },
-  { name: 'tsconfig.json', icon: <TsConfig /> },
+  { name: ".eslintrc.json", icon: <Eslint /> },
+  { name: ".gitignore", icon: <Git /> },
+  { name: "next.config.js", icon: <NextConfig /> },
+  { name: "package-lock.json", icon: <NodeJs /> },
+  { name: "package.json", icon: <NodeJs /> },
+  { name: "tailwind.config.ts", icon: <TailwindCSS /> },
+  { name: "tsconfig.json", icon: <TsConfig /> },
 ];
 
 const fileType = {
-  ['react' as string]: <ReactIcon />,
-  ['typescript' as string]: <Tsx />,
-  ['next' as string]: <NextConfig />,
+  ["react" as string]: <ReactIcon />,
+  ["typescript" as string]: <Tsx />,
+  ["next" as string]: <NextConfig />,
   // ['svelte' as string]: <Svelte />,
   // ['leetcode' as string]: <Leetcode />,
 };
 
 const subSectionsIcons: { [key: string]: JSX.Element } = {
-  'about-me': <AboutMe />,
-  'work-experience': <WorkExperience />,
+  "about-me": <AboutMe />,
+  "work-experience": <WorkExperience />,
   skills: <Technologies />,
-  'my-work': <Projects />,
+  "my-work": <Projects />,
   contact: <ContactMe />,
   about: <LogIcon />,
   requirements: <ChallengeIcon />,
   features: <ChallengeIcon />,
-  featuresOwned: <MdOutlineFeaturedPlayList fill='#41d985' />,
-  keyOutcomes: <TbCircleKeyFilled fill='#ed8864' />,
+  featuresOwned: <MdOutlineFeaturedPlayList fill="#41d985" />,
+  keyOutcomes: <TbCircleKeyFilled fill="#ed8864" />,
   screenshots: <PictureIcon />,
   solution: <SolutionIcon />,
   technologies: <TechnologiesIcon />,
-  easy: <div className="bg-green-500 rounded-full h-[16px] w-[16px] blur-[1px]" />,
-  medium: <div className="bg-yellow-500 rounded-full h-[16px] w-[16px] blur-[1px]" />,
-  hard: <div className="bg-red-500 rounded-full h-[16px] w-[16px] blur-[1px]" />,
+  easy: (
+    <div className="bg-green-500 rounded-full h-[16px] w-[16px] blur-[1px]" />
+  ),
+  medium: (
+    <div className="bg-yellow-500 rounded-full h-[16px] w-[16px] blur-[1px]" />
+  ),
+  hard: (
+    <div className="bg-red-500 rounded-full h-[16px] w-[16px] blur-[1px]" />
+  ),
 };
 
 const Portfolio = ({ myWork }: { myWork: MyWork[] }) => {
@@ -111,13 +117,51 @@ const Portfolio = ({ myWork }: { myWork: MyWork[] }) => {
     >
       {expanded && (
         <>
-          <Folder name=".next" openIcon={<></>} closedIcon={<Next />} disabled indent={0} segmentActive={false} />
-          <Folder name="node_modules" openIcon={<></>} closedIcon={<NodeModules />} disabled indent={0} segmentActive={false} />
-          <Folder name="public" openIcon={<PublicOpen />} closedIcon={<Public />} indent={0} segmentActive={segments.length === 0}>
-            <File name="about_me.ts" icon={<FavIcon />} url="/" indent={1} sections={pathname === '/' ? sections : []} />
+          <Folder
+            name=".next"
+            openIcon={<></>}
+            closedIcon={<Next />}
+            disabled
+            indent={0}
+            segmentActive={false}
+          />
+          <Folder
+            name="node_modules"
+            openIcon={<></>}
+            closedIcon={<NodeModules />}
+            disabled
+            indent={0}
+            segmentActive={false}
+          />
+          <Folder
+            name="public"
+            openIcon={<PublicOpen />}
+            closedIcon={<Public />}
+            indent={0}
+            segmentActive={segments.length === 0}
+          >
+            <File
+              name="about_me.ts"
+              icon={<FavIcon />}
+              url="/"
+              indent={1}
+              sections={pathname === "/" ? sections : []}
+            />
           </Folder>
-          <Folder name="src" openIcon={<SrcOpen />} closedIcon={<Src />} indent={0} segmentActive={false}>
-            <Folder name="my_work" openIcon={<AppOpen />} closedIcon={<App />} indent={1} segmentActive={segments[0] === 'apps'}>
+          <Folder
+            name="src"
+            openIcon={<SrcOpen />}
+            closedIcon={<Src />}
+            indent={0}
+            segmentActive={false}
+          >
+            <Folder
+              name="my_work"
+              openIcon={<AppOpen />}
+              closedIcon={<App />}
+              indent={1}
+              segmentActive={segments[0] === "apps"}
+            >
               {myWork.map((work) => (
                 <File
                   key={work.pathname}
@@ -131,7 +175,13 @@ const Portfolio = ({ myWork }: { myWork: MyWork[] }) => {
             </Folder>
           </Folder>
           {staticFiles.map((file) => (
-            <File key={file.name} name={file.name} icon={file.icon} indent={0} sections={[]} />
+            <File
+              key={file.name}
+              name={file.name}
+              icon={file.icon}
+              indent={0}
+              sections={[]}
+            />
           ))}
         </>
       )}
@@ -139,7 +189,8 @@ const Portfolio = ({ myWork }: { myWork: MyWork[] }) => {
   );
 };
 
-const itemsCSS = 'flex w-full hover:bg-dark_border items-center py-[2px] cursor-pointer transition-all duration-200';
+const itemsCSS =
+  "flex w-full hover:bg-dark_border items-center py-[2px] cursor-pointer transition-all duration-200";
 
 interface FolderProps {
   name: string;
@@ -151,7 +202,15 @@ interface FolderProps {
   children?: JSX.Element | JSX.Element[];
 }
 
-const Folder = ({ name, openIcon, closedIcon, disabled, indent, children, segmentActive }: FolderProps) => {
+const Folder = ({
+  name,
+  openIcon,
+  closedIcon,
+  disabled,
+  indent,
+  children,
+  segmentActive,
+}: FolderProps) => {
   const [open, setOpen] = useState(true);
 
   const onToggleFolder: React.MouseEventHandler = useCallback(() => {
@@ -160,17 +219,41 @@ const Folder = ({ name, openIcon, closedIcon, disabled, indent, children, segmen
 
   return (
     <div className="overflow-hidden">
-      <motion.div layout="position" transition={{ duration: 0.1 }} className={clsx('folder-container', segmentActive ? 'folder-active' : '')}>
-        <button style={{ paddingLeft: indent * 16 }} onClick={onToggleFolder} disabled={disabled} className={itemsCSS}>
-          <div className="mr-1 ml-4">{open && !disabled ? <ChevronDown /> : <ChevronRight />}</div>
-          <div className="mr-2">{open && !disabled ? openIcon : closedIcon}</div> <p className={clsx(disabled ? 'opacity-40' : 'opacity-100')}>{name}</p>
+      <motion.div
+        layout="position"
+        transition={{ duration: 0.1 }}
+        className={clsx(
+          "folder-container",
+          segmentActive ? "folder-active" : "",
+        )}
+      >
+        <button
+          style={{ paddingLeft: indent * 16 }}
+          onClick={onToggleFolder}
+          disabled={disabled}
+          className={itemsCSS}
+        >
+          <div className="mr-1 ml-4">
+            {open && !disabled ? <ChevronDown /> : <ChevronRight />}
+          </div>
+          <div className="mr-2">
+            {open && !disabled ? openIcon : closedIcon}
+          </div>{" "}
+          <p className={clsx(disabled ? "opacity-40" : "opacity-100")}>
+            {name}
+          </p>
         </button>
         {open && children}
-        {open && !disabled && <span className="line-before-folder" style={{ left: indent === 0 ? indent * 16 + 24 : indent * 16 + 24 }} />}
+        {open && !disabled && (
+          <span
+            className="line-before-folder"
+            style={{ left: indent === 0 ? indent * 16 + 24 : indent * 16 + 24 }}
+          />
+        )}
       </motion.div>
     </div>
   );
-}
+};
 
 interface FileProps {
   name: string;
@@ -186,13 +269,27 @@ interface FileWrapperProps extends FileProps {
 const File = ({ name, icon, url, indent, sections }: FileWrapperProps) => {
   return (
     <>
-      <FileContent name={name} icon={icon} url={url} indent={indent} active={sections.length > 0} />
+      <FileContent
+        name={name}
+        icon={icon}
+        url={url}
+        indent={indent}
+        active={sections.length > 0}
+      />
       {sections.length > 0 && (
-        <div style={{ paddingLeft: indent * 16 + 22 }} className="flex flex-col ml-7 relative py-1">
+        <div
+          style={{ paddingLeft: indent * 16 + 22 }}
+          className="flex flex-col ml-7 relative py-1"
+        >
           <FadeInStagger className="w-max" role="list">
             {sections.map((section) => (
               // <FadeIn key={section.id}>
-                <FileSection key={section.id} id={section.id} title={section.title} url={url ? url : ''} />
+              <FileSection
+                key={section.id}
+                id={section.id}
+                title={section.title}
+                url={url ? url : ""}
+              />
               // </FadeIn>
             ))}
           </FadeInStagger>
@@ -200,15 +297,23 @@ const File = ({ name, icon, url, indent, sections }: FileWrapperProps) => {
       )}
     </>
   );
-}
+};
 
-const FileSection = ({ id, title, url }: { id: string; title: string; url: string }) => {
+const FileSection = ({
+  id,
+  title,
+  url,
+}: {
+  id: string;
+  title: string;
+  url: string;
+}) => {
   const { sectionsOrder, visible } = useSectionStore();
   const isVisible = visible[id];
-  const [ firstVisible ] = sectionsOrder;
+  const [firstVisible] = sectionsOrder;
   const lastVisible = sectionsOrder.at(-1);
 
-  const splitId = id.split('.')[1] ? id.split('.')[1] : id;
+  const splitId = id.split(".")[1] ? id.split(".")[1] : id;
 
   return (
     <AnimatePresence mode="popLayout" initial={true}>
@@ -221,51 +326,87 @@ const FileSection = ({ id, title, url }: { id: string; title: string; url: strin
         exit={{
           transition: { duration: 0.2 },
         }}
-        className={'relative bg-dark_bg my-1'}
+        className={"relative bg-dark_bg my-1"}
       >
         {firstVisible && firstVisible.id === id && (
-          <motion.span layoutId="arrow-top-left" className="top-arrows left-arrow">
+          <motion.span
+            layoutId="arrow-top-left"
+            className="top-arrows left-arrow"
+          >
             <TopLeftArrow />
           </motion.span>
         )}
         {firstVisible && firstVisible.id === id && (
-          <motion.span layoutId="arrow-top-right" className="top-arrows right-arrow">
+          <motion.span
+            layoutId="arrow-top-right"
+            className="top-arrows right-arrow"
+          >
             <TopRigthArrow />
           </motion.span>
         )}
         {lastVisible && lastVisible.id === id && (
-          <motion.span layoutId="arrow-bottom-left" className="bottom-arrows left-arrow">
+          <motion.span
+            layoutId="arrow-bottom-left"
+            className="bottom-arrows left-arrow"
+          >
             <BottomLeftArrow />
           </motion.span>
         )}
         {lastVisible && lastVisible.id === id && (
-          <motion.span layoutId="arrow-bottom-right" className="bottom-arrows right-arrow">
+          <motion.span
+            layoutId="arrow-bottom-right"
+            className="bottom-arrows right-arrow"
+          >
             <BottomRightArrow />
           </motion.span>
         )}
-        <Link href={`${url}#${id}`} className={clsx('flex items-center hover:text-gray-500 px-[4px] transition-colors duration-300', isVisible ? 'text-blue-100' : 'text-gray-500')}>
-          {subSectionsIcons[splitId] ? <div className="mr-2">{subSectionsIcons[splitId]}</div> : <div className="mr-3 w-4" />}
+        <Link
+          href={`${url}#${id}`}
+          className={clsx(
+            "flex items-center hover:text-gray-500 px-[4px] transition-colors duration-300",
+            isVisible ? "text-blue-100" : "text-gray-500",
+          )}
+        >
+          {subSectionsIcons[splitId] ? (
+            <div className="mr-2">{subSectionsIcons[splitId]}</div>
+          ) : (
+            <div className="mr-3 w-4" />
+          )}
           <p className="leading-5">{title}</p>
         </Link>
       </motion.div>
     </AnimatePresence>
   );
-}
+};
 
-const FileContent = ({ name, icon, url, indent, active }: FileProps & { active: boolean }) => {
+const FileContent = ({
+  name,
+  icon,
+  url,
+  indent,
+  active,
+}: FileProps & { active: boolean }) => {
   if (!url) {
     return (
-      <button style={{ paddingLeft: indent * 16 + 22 }} className={clsx(itemsCSS)}>
+      <button
+        style={{ paddingLeft: indent * 16 + 22 }}
+        className={clsx(itemsCSS)}
+      >
         <div className="ml-4 mr-2">{icon}</div> {name}
       </button>
     );
   }
 
   return (
-    <Link href={url} scroll={false} style={{ paddingLeft: indent * 16 + 22 }} className={clsx(itemsCSS, active && 'bg-gray-200')}>
+    <Link
+      href={url}
+      scroll={false}
+      style={{ paddingLeft: indent * 16 + 22 }}
+      className={clsx(itemsCSS, active && "bg-gray-200")}
+    >
       <div className="ml-4 mr-2 relative">{icon}</div> <p>{name}</p>
     </Link>
   );
-}
+};
 
 export default Portfolio;

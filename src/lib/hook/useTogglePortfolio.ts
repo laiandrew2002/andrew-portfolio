@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import useExpandableStore, { Menu } from '../store/useExpandableStore';
-import useExplorerStore, { SubMenu } from '../store/useExplorerStore';
+import { useEffect } from "react";
+import useExpandableStore, { Menu } from "../store/useExpandableStore";
+import useExplorerStore, { SubMenu } from "../store/useExplorerStore";
 
 export function useTogglePortfolio() {
   const { toggleMenu } = useExpandableStore();

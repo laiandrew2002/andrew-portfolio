@@ -1,14 +1,21 @@
-import clsx from 'clsx';
-import { FadeIn, Stagger } from './FadeIn';
+import clsx from "clsx";
+import { FadeIn, Stagger } from "./FadeIn";
 
 const SectionHeader = ({
   icon,
   title,
   description,
   className,
-}: { icon: React.ReactNode; className?: string; title: string; description: React.ReactNode }) => {
+}: {
+  icon: React.ReactNode;
+  className?: string;
+  title: string;
+  description: React.ReactNode;
+}) => {
   return (
-    <Stagger className={clsx('flex flex-col gap-6 pl-5 sm:pl-0 mt-12', className)}>
+    <Stagger
+      className={clsx("flex flex-col gap-6 pl-5 sm:pl-0 mt-12", className)}
+    >
       <div className="flex gap-6">
         <FadeIn
           variants={{
@@ -41,7 +48,6 @@ const SectionHeader = ({
       </div>
     </Stagger>
   );
-}
+};
 
 export default SectionHeader;
-

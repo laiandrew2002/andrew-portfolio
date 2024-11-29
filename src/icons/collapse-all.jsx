@@ -1,7 +1,16 @@
 export default function CollapseAll() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 18 18">
-      <path fill="currentColor" d="M10.125 10.125H4.5v1.125h5.625v-1.125z"></path>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      fill="none"
+      viewBox="0 0 18 18"
+    >
+      <path
+        fill="currentColor"
+        d="M10.125 10.125H4.5v1.125h5.625v-1.125z"
+      ></path>
       <path
         fill="currentColor"
         fillRule="evenodd"

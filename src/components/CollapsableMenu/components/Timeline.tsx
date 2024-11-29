@@ -1,5 +1,5 @@
-import useExplorerStore, { SubMenu } from '@/lib/store/useExplorerStore';
-import SubCollapsableMenu from './SubCollapsableMenu';
+import useExplorerStore, { SubMenu } from "@/lib/store/useExplorerStore";
+import SubCollapsableMenu from "./SubCollapsableMenu";
 
 const Timeline = () => {
   const { timeline } = useExplorerStore();
@@ -14,6 +14,6 @@ const Timeline = () => {
       <></>
     </SubCollapsableMenu>
   );
-}
+};
 
 export default Timeline;

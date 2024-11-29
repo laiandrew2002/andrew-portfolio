@@ -42,37 +42,40 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const mainSection = {
-    '/': sections,
-    '/apps/dapp-wallet-transfer': dappWalletTransferSections,
-    '/apps/bake-io': bakeIoSections,
-    '/apps/bake-web-app': bakeWebAppSections,
+    "/": sections,
+    "/apps/dapp-wallet-transfer": dappWalletTransferSections,
+    "/apps/bake-io": bakeIoSections,
+    "/apps/bake-web-app": bakeWebAppSections,
   };
 
   const myWork: MyWork[] = [
     {
-      title: 'DApp-Wallet-Transfer.tsx',
-      description: 'A decentralized application (DApp) that connects to Metamask and enables users to transfer cryptocurrencies to other wallets.',
-      url: 'https://dapp-wallet-transfer.vercel.app/',
-      pathname: '/apps/dapp-wallet-transfer',
-      href: '/apps/dapp-wallet-transfer',
-      framework: 'react',
+      title: "Bake-Web-App.tsx",
+      description:
+        "A web application built with React.js and Redux to allow users to use Bake products and services. The backend of the products and services are running on Node.js. with PostgreSQL and Redis.",
+      url: "https://app.bake.io",
+      pathname: "/apps/bake-web-app",
+      href: "/apps/bake-web-app",
+      framework: "react",
     },
     {
-      title: 'Bake.io.tsx',
-      description: 'A static website built with Gatsby.js to allow new users to browse Bake products and services.',
-      url: 'https://bake.io',
-      pathname: '/apps/bake-io',
-      href: '/apps/bake-io',
-      framework: 'react',
+      title: "DApp-Wallet-Transfer.tsx",
+      description:
+        "A decentralized application (DApp) that connects to Metamask and enables users to transfer cryptocurrencies to other wallets.",
+      url: "https://dapp-wallet-transfer.vercel.app/",
+      pathname: "/apps/dapp-wallet-transfer",
+      href: "/apps/dapp-wallet-transfer",
+      framework: "react",
     },
     {
-      title: 'Bake-Web-App.tsx',
-      description: 'A web application built with React.js and Redux to allow users to use Bake products and services. The backend of the products and services are running on Node.js. with PostgreSQL and Redis.',
-      url: 'https://app.bake.io',
-      pathname: '/apps/bake-web-app',
-      href: '/apps/bake-web-app',
-      framework: 'react',
-    }
+      title: "Bake.io.tsx",
+      description:
+        "A static website built with Gatsby.js to allow new users to browse Bake products and services.",
+      url: "https://bake.io",
+      pathname: "/apps/bake-io",
+      href: "/apps/bake-io",
+      framework: "react",
+    },
   ];
 
   return (

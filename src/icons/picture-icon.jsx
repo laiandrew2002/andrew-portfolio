@@ -1,6 +1,11 @@
-import React from 'react';
+import React from "react";
 
-const PictureIcon = ({ width = '18', height = '18', fill = "#5e47d1", ...props }) => (
+const PictureIcon = ({
+  width = "18",
+  height = "18",
+  fill = "#5e47d1",
+  ...props
+}) => (
   <svg
     fill={fill}
     width={width}

@@ -1,24 +1,27 @@
-'use client';
+"use client";
 
-import { Variants, motion } from 'framer-motion';
-import { RefObject, createContext, useContext } from 'react';
+import { Variants, motion } from "framer-motion";
+import { RefObject, createContext, useContext } from "react";
 
 const FadeInStaggerContext = createContext(false);
 
-const viewport = { margin: '0px 0px -150px' };
+const viewport = { margin: "0px 0px -150px" };
 
 interface ViewportOptions {
   root?: RefObject<Element>;
   once?: boolean;
   margin?: string;
-  amount?: 'some' | 'all' | number;
+  amount?: "some" | "all" | number;
 }
 
 const FadeIn = ({
   variants,
   viewportProp,
   ...props
-}: React.ComponentPropsWithoutRef<typeof motion.div> & { variants?: Variants; viewportProp?: ViewportOptions }) => {
+}: React.ComponentPropsWithoutRef<typeof motion.div> & {
+  variants?: Variants;
+  viewportProp?: ViewportOptions;
+}) => {
   const isInStaggerGroup = useContext(FadeInStaggerContext);
 
   return (
@@ -28,14 +31,14 @@ const FadeIn = ({
         variants
           ? variants
           : isInStaggerGroup
-          ? {
-              hidden: { opacity: 0, y: 16 },
-              visible: { opacity: 1, y: 0 },
-            }
-          : {
-              hidden: { opacity: 0 },
-              visible: { opacity: 1 },
-            }
+            ? {
+                hidden: { opacity: 0, y: 16 },
+                visible: { opacity: 1, y: 0 },
+              }
+            : {
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }
       }
       transition={{ duration: 0.5 }}
       {...(isInStaggerGroup
@@ -43,20 +46,23 @@ const FadeIn = ({
             viewport: viewportProp || {},
           }
         : {
-            initial: 'hidden',
-            whileInView: 'visible',
+            initial: "hidden",
+            whileInView: "visible",
             viewport: viewportProp || viewport,
           })}
       {...props}
     />
   );
-}
+};
 
 const FadeInStagger = ({
   faster = false,
   once = false,
   ...props
-}: React.ComponentPropsWithoutRef<typeof motion.div> & { faster?: boolean; once?: boolean }) => {
+}: React.ComponentPropsWithoutRef<typeof motion.div> & {
+  faster?: boolean;
+  once?: boolean;
+}) => {
   return (
     <FadeInStaggerContext.Provider value={true}>
       <motion.div
@@ -74,23 +80,23 @@ const FadeInStagger = ({
       />
     </FadeInStaggerContext.Provider>
   );
-}
+};
 
 const Stagger = ({
   faster = false,
   ...props
-}: React.ComponentPropsWithoutRef<typeof motion.div> & { faster?: boolean }) => {
-  return <motion.div
-    initial="hidden"
-    whileInView="visible"
-    viewport={viewport}
-    transition={{ staggerChildren: faster ? 0.2 : 0.4 }}
-    {...props}
-  />;
-}
+}: React.ComponentPropsWithoutRef<typeof motion.div> & {
+  faster?: boolean;
+}) => {
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewport}
+      transition={{ staggerChildren: faster ? 0.2 : 0.4 }}
+      {...props}
+    />
+  );
+};
 
-export {
-  FadeIn,
-  FadeInStagger,
-  Stagger,
-}
+export { FadeIn, FadeInStagger, Stagger };

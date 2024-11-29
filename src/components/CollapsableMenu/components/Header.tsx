@@ -10,6 +10,6 @@ const Header = ({ menuTitle, children }: HeaderProps) => {
       <div className="flex">{children}</div>
     </div>
   );
-}
+};
 
 export default Header;

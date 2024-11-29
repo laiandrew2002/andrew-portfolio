@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   ChromeClose,
@@ -10,10 +10,19 @@ import {
   ToggledSidebar,
   UntoggledSidebar,
   VSCode,
-} from '@/icons';
-import { useTogglePortfolio } from '@/lib/hook/useTogglePortfolio';
-import useExpandableStore from '@/lib/store/useExpandableStore';
-const menuItems = ['File', 'Edit', 'Selection', 'View', 'Go', 'Run', 'Terminal', 'Help'];
+} from "@/icons";
+import { useTogglePortfolio } from "@/lib/hook/useTogglePortfolio";
+import useExpandableStore from "@/lib/store/useExpandableStore";
+const menuItems = [
+  "File",
+  "Edit",
+  "Selection",
+  "View",
+  "Go",
+  "Run",
+  "Terminal",
+  "Help",
+];
 
 export default function TopBar() {
   const { value } = useExpandableStore();
@@ -22,7 +31,9 @@ export default function TopBar() {
   return (
     <div className="flex justify-between text-gray-500 items-center bg-topbar_dark_bg">
       <MenuBar />
-      <h1 className="text-sm py-3 pointer-events-none select-none hidden sm:block">Andrew Lai - Portfolio</h1>
+      <h1 className="text-sm py-3 pointer-events-none select-none hidden sm:block">
+        Andrew Lai - Portfolio
+      </h1>
       <div className="flex">
         <ToggleButtons menuExpanded={value} />
         <ControlButtons />
@@ -35,12 +46,9 @@ const MenuBar = () => {
   // const initialLoad = useSelector(selectInitialLoad);
 
   const toggleMenu: React.MouseEventHandler<HTMLDivElement> = () => {
-    
     // dispatch(expandableSlice.actions.toggleMenu({ menu: Menu.EXPLORER }));
-
     // if (!initialLoad) return;
     // dispatch(explorerSlice.actions.setInitialLoad());
-
     // setTimeout(() => {
     //   dispatch(explorerSlice.actions.toggleMenu({ subMenu: SubMenu.PORTFOLIO }));
     // }, 200);
@@ -53,19 +61,28 @@ const MenuBar = () => {
       </div>
       <div className="p-1 ml-2 hidden lg:block">
         {menuItems.map((item) => (
-          <button key={item} className="py-1 px-2 hover:bg-gray-300 rounded-lg cursor-default">
+          <button
+            key={item}
+            className="py-1 px-2 hover:bg-gray-300 rounded-lg cursor-default"
+          >
             {item}
           </button>
         ))}
       </div>
-      <div className="flex items-center ml-4 lg:hidden hover:bg-gray-300 px-4 rounded-md py-2" onClick={toggleMenu}>
+      <div
+        className="flex items-center ml-4 lg:hidden hover:bg-gray-300 px-4 rounded-md py-2"
+        onClick={toggleMenu}
+      >
         <ChromeMenu />
       </div>
     </div>
   );
-}
+};
 
-const toggleButtons = [{ icon: <SplitVerticalUntoggled /> }, { icon: <SplitHorizontal /> }];
+const toggleButtons = [
+  { icon: <SplitVerticalUntoggled /> },
+  { icon: <SplitHorizontal /> },
+];
 
 const ToggleButtons = ({ menuExpanded }: { menuExpanded: boolean }) => {
   const { toggleMenu } = useExpandableStore();
@@ -73,11 +90,17 @@ const ToggleButtons = ({ menuExpanded }: { menuExpanded: boolean }) => {
   return (
     <div className="flex py-2 mx-1">
       {menuExpanded ? (
-        <button onClick={() => toggleMenu()} className="hover:bg-gray-300 p-1 rounded-md">
+        <button
+          onClick={() => toggleMenu()}
+          className="hover:bg-gray-300 p-1 rounded-md"
+        >
           <ToggledSidebar />
         </button>
       ) : (
-        <button onClick={() => toggleMenu()} className="hover:bg-gray-300 p-1 rounded-md">
+        <button
+          onClick={() => toggleMenu()}
+          className="hover:bg-gray-300 p-1 rounded-md"
+        >
           <UntoggledSidebar />
         </button>
       )}
@@ -88,7 +111,7 @@ const ToggleButtons = ({ menuExpanded }: { menuExpanded: boolean }) => {
       ))}
     </div>
   );
-}
+};
 
 const ControlButtons = () => {
   return (
@@ -104,4 +127,4 @@ const ControlButtons = () => {
       </div>
     </div>
   );
-}
+};

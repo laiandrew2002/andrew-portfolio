@@ -1,20 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-'use client';
+"use client";
 
-import { Ellipsis } from '@/icons';
-import { MyWork } from '@/app/layout';
-import Header from './Header';
-import Editors from './Editors';
-import Outline from './Outline';
-import Timeline from './Timeline';
-import Scripts from './Scripts';
-import Portfolio from './Portfolio';
+import { Ellipsis } from "@/icons";
+import { MyWork } from "@/app/layout";
+import Header from "./Header";
+import Editors from "./Editors";
+import Outline from "./Outline";
+import Timeline from "./Timeline";
+import Scripts from "./Scripts";
+import Portfolio from "./Portfolio";
 
-const Explorer = ({
-  myWork,
-}: {
-  myWork: MyWork[];
-}) => {
+const Explorer = ({ myWork }: { myWork: MyWork[] }) => {
   return (
     <>
       <Header menuTitle="EXPLORER">
@@ -22,7 +18,10 @@ const Explorer = ({
           <Ellipsis />
         </button>
       </Header>
-      <div id="subMenusContainer" className="divide-dark_border divide-y-2 flex flex-col mx-[1px] flex-1 select-none">
+      <div
+        id="subMenusContainer"
+        className="divide-dark_border divide-y-2 flex flex-col mx-[1px] flex-1 select-none"
+      >
         <Editors />
         <Portfolio myWork={myWork} />
         <Outline />
@@ -31,6 +30,6 @@ const Explorer = ({
       </div>
     </>
   );
-}
+};
 
 export default Explorer;
