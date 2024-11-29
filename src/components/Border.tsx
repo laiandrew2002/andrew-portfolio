@@ -6,8 +6,8 @@ type BorderProps<T extends React.ElementType> = {
   position?: "top" | "left";
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function Border<T extends React.ElementType = "div">({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   as,
   className,
   position = "top",
