@@ -18,9 +18,9 @@ const AboutMe = () => {
         description={
           <div>
             A <span className="text-about_me_blue">software engineer</span>{" "}
-            specialized on{" "}
-            <span className="text-about_me_blue">Web development</span> and{" "}
-            <span className="text-about_me_blue">mobile app development</span>.
+            with expertise in{" "}
+            <span className="text-about_me_blue">Web</span> and{" "}
+            <span className="text-about_me_blue">Mobile development</span>.
           </div>
         }
       />
@@ -31,11 +31,11 @@ const AboutMe = () => {
               Andrew Lai
             </h3>
             <p className="text-base leading-7 text-about_me_blue">
-              Full-stack software engineer
+              Full stack software engineer
             </p>
             <p className="mt-4 text-lg text-gray-500">
               Result-oriented software engineer with 5+ years of expertise in
-              building responsive, high- performance web and mobile applications
+              building responsive, high-performance web and mobile applications
               using React, TypeScript, and Node.js.
             </p>
             <p className="mt-4 text-lg text-gray-500">

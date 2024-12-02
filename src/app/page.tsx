@@ -125,7 +125,7 @@ export default function Home() {
                 Andrew Lai<span className="pl-4 wave">👨🏻‍💻</span>
               </h1>
               <p className="max-w-3xl">
-                Software engineer with a 5 years experience in Front-End and
+                Software engineer with a 5-year experience in Front-End and
                 Back-End technologies.
               </p>
             </FadeIn>
