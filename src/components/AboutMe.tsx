@@ -17,9 +17,8 @@ const AboutMe = () => {
         title="About Me"
         description={
           <div>
-            A <span className="text-about_me_blue">software engineer</span>{" "}
-            with expertise in{" "}
-            <span className="text-about_me_blue">Web</span> and{" "}
+            A <span className="text-about_me_blue">software engineer</span> with
+            expertise in <span className="text-about_me_blue">Web</span> and{" "}
             <span className="text-about_me_blue">Mobile development</span>.
           </div>
         }
