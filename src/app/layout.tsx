@@ -10,6 +10,7 @@ import { sections } from "./page";
 import { sections as dappWalletTransferSections } from "@/app/apps/dapp-wallet-transfer/page";
 import { sections as bakeIoSections } from "@/app/apps/bake-io/page";
 import { sections as bakeWebAppSections } from "@/app/apps/bake-web-app/page";
+import { sections as fintrackWebAppSections } from "@/app/apps/fintrack-web-app/page";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,7 +25,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Andrew Lai - Portfolio",
-  description: "Andrew Lai - Portfolio",
+  description: "A portfolio website to showcase my skills and experience.",
 };
 
 export interface MyWork {
@@ -46,9 +47,19 @@ export default function RootLayout({
     "/apps/dapp-wallet-transfer": dappWalletTransferSections,
     "/apps/bake-io": bakeIoSections,
     "/apps/bake-web-app": bakeWebAppSections,
+    "/apps/fintrack-web-app": fintrackWebAppSections,
   };
 
   const myWork: MyWork[] = [
+    {
+      title: "FinTrack-Web-App.tsx",
+      description:
+        "A web application powered by AI and built with Next.js and Hono.js to allow users to track their expenses and incomes.",
+      url: "https://finance-tracker-pied-tau.vercel.app/",
+      pathname: "/apps/fintrack-web-app",
+      href: "/apps/fintrack-web-app",
+      framework: "react",
+    },
     {
       title: "Bake-Web-App.tsx",
       description:

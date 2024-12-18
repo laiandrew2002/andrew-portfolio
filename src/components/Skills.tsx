@@ -75,6 +75,10 @@ const skills = [
         image: "/logos/express-logo.png",
       },
       {
+        name: "Hono.js",
+        image: "/logos/hono-logo.png",
+      },
+      {
         name: "PostgresSql",
         image: "/logos/postgres-logo.png",
       },

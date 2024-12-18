@@ -4,6 +4,7 @@ import clsx from "clsx";
 import Image, { StaticImageData } from "next/image";
 import GlowCard from "./GlowCard";
 import dappWalletTransfer from "../../public/projects/dapp-wallet-transfer.png";
+import finTrackWebApp from "../../public/projects/finance-2.png";
 import bakeio from "../../public/projects/bake-io.png";
 import bakeWebApp from "../../public/projects/bake-web-app.png";
 import Button from "./Button";
@@ -19,6 +20,14 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    href: "/apps/fintrack-web-app",
+    name: "FinTrack Web App",
+    full: true,
+    description:
+      "A full-stack Income and Expenses Tracker SaaS web application built with Next.js, featuring AI-powered personalized financial advice to help users manage their finances effectively.",
+    image: { src: finTrackWebApp },
+  },
   {
     href: "/apps/bake-web-app",
     name: "Bake Web App",
