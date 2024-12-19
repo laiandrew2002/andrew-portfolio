@@ -122,7 +122,7 @@ export default function Home() {
           <div className="min-h-screen relative">
             <FadeIn className="max-w-5xl pt-40 md:pt-[20vh] 2xl:pt-[30vh]">
               <h1 className="font-display text-5xl font-medium tracking-tight [text-wrap:balance] sm:text-6xl mb-6">
-                Andrew Lai<span className="pl-4 wave">👨🏻‍💻</span>
+                Andrew Lai<span className="pl-4">👨🏻‍💻</span>
               </h1>
               <p className="max-w-3xl">
                 Software engineer with a 5-year experience in Front-End and
