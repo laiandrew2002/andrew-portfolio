@@ -8,6 +8,7 @@ import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
 import Skills from "@/components/Skills";
 import Socials from "@/components/Socials";
+import { BackgroundLines } from "@/components/ui/background-lines";
 import WorkExperience from "@/components/WorkExperience";
 import { Archive, BookOpen, BriefCase, Envelope } from "@/icons";
 
@@ -119,19 +120,26 @@ export default function Home() {
     <div className="w-full overflow-y-auto overflow-x-hidden">
       <Section id={sections[0].id}>
         <Container>
-          <div className="min-h-screen relative">
-            <FadeIn className="max-w-5xl pt-40 md:pt-[20vh] 2xl:pt-[30vh]">
-              <h1 className="font-display text-5xl font-medium tracking-tight [text-wrap:balance] sm:text-6xl mb-6">
+          <BackgroundLines className="min-h-screen relative">
+            <FadeIn className="max-w-5xl pt-60 md:pt-[20vh] 2xl:pt-[30vh]">
+              <h2 className="bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-4xl md:text-7xl lg:text-7xl py-2 md:py-10 relative z-20 font-bold tracking-tight">
+                Andrew Lai
+              </h2>
+              <p className="max-w-xl mx-auto text-md md:text-lg text-neutral-700 dark:text-neutral-400 text-center">
+                Software engineer with a 5-year experience in Front-End and
+                Back-End technologies.
+              </p>
+              {/* <h1 className="font-display text-5xl font-medium tracking-tight [text-wrap:balance] sm:text-6xl mb-6">
                 Andrew Lai<span className="pl-4">👨🏻‍💻</span>
               </h1>
               <p className="max-w-3xl">
                 Software engineer with a 5-year experience in Front-End and
                 Back-End technologies.
-              </p>
+              </p> */}
             </FadeIn>
-            <Socials />
             <div className="mouse"></div>
-          </div>
+            <Socials className="items-center justify-center" />
+          </BackgroundLines>
           <AboutMe />
         </Container>
       </Section>
