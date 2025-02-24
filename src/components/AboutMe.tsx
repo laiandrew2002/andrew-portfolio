@@ -61,7 +61,9 @@ const AboutMe = () => {
                   visible: { opacity: 1, x: 0 },
                 }}
               >
-                <h4 className="text-about_me_blue mb-1 font-bold">Languages</h4>
+                <h4 className="text-about_me_blue mb-1 font-bold text-xl">
+                  Languages
+                </h4>
                 <div className="border-y py-2 border-gray-500/30 mb-6">
                   <div className="flex flex-wrap gap-x-6">
                     <div className="text-lg font-bold leading-9 tracking-tight flex gap-1">

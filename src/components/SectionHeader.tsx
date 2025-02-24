@@ -41,7 +41,7 @@ const SectionHeader = ({
             hidden: { opacity: 0, x: -20 },
             visible: { opacity: 1, x: 0 },
           }}
-          className="mt-6 text-5xl"
+          className="mt-6 text-4xl md:text-5xl"
         >
           {description}
         </FadeIn>

@@ -129,13 +129,6 @@ export default function Home() {
                 Software engineer with a 5-year experience in Front-End and
                 Back-End technologies.
               </p>
-              {/* <h1 className="font-display text-5xl font-medium tracking-tight [text-wrap:balance] sm:text-6xl mb-6">
-                Andrew Lai<span className="pl-4">👨🏻‍💻</span>
-              </h1>
-              <p className="max-w-3xl">
-                Software engineer with a 5-year experience in Front-End and
-                Back-End technologies.
-              </p> */}
             </FadeIn>
             <div className="mouse"></div>
             <Socials className="items-center justify-center" />
