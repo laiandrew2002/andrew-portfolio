@@ -63,7 +63,7 @@ const ActivityBar = ({
   const pathname = usePathname();
 
   useEffect(() => {
-    setSections(sections[pathname]);
+    setSections(sections[pathname] || []);
   }, [pathname, sections, setSections]);
 
   return (

@@ -166,7 +166,7 @@ const Portfolio = ({ myWork }: { myWork: MyWork[] }) => {
                 <File
                   key={work.pathname}
                   name={work.title}
-                  icon={fileType[work.framework]}
+                  icon={fileType[work.framework] || <ReactIcon />}
                   url={work.pathname}
                   indent={2}
                   sections={pathname === work.pathname ? sections : []}
@@ -313,7 +313,7 @@ const FileSection = ({
   const [firstVisible] = sectionsOrder;
   const lastVisible = sectionsOrder.at(-1);
 
-  const splitId = id.split('.')[1] ? id.split('.')[1] : id;
+  const splitId = id.split('.')[1] || id;
 
   return (
     <AnimatePresence mode="popLayout" initial={true}>
@@ -367,7 +367,7 @@ const FileSection = ({
             isVisible ? 'text-blue-100' : 'text-gray-500'
           )}
         >
-          {subSectionsIcons[splitId] ? (
+          {splitId && subSectionsIcons[splitId] ? (
             <div className="mr-2">{subSectionsIcons[splitId]}</div>
           ) : (
             <div className="mr-3 w-4" />

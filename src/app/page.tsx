@@ -32,7 +32,7 @@ interface contentSection {
 
 const content: contentSection[] = [
   {
-    id: sections[1].id,
+    id: sections[1]?.id || 'work-experience',
     sectionHeader: {
       icon: (
         <>
@@ -54,7 +54,7 @@ const content: contentSection[] = [
     mainContent: <WorkExperience />,
   },
   {
-    id: sections[2].id,
+    id: sections[2]?.id || 'skills',
     sectionHeader: {
       icon: (
         <>
@@ -75,7 +75,7 @@ const content: contentSection[] = [
     mainContent: <Skills />,
   },
   {
-    id: sections[3].id,
+    id: sections[3]?.id || 'my-work',
     sectionHeader: {
       icon: (
         <>
@@ -95,7 +95,7 @@ const content: contentSection[] = [
     mainContent: <MyWork />,
   },
   {
-    id: sections[4].id,
+    id: sections[4]?.id || 'contact',
     sectionHeader: {
       icon: (
         <>
@@ -118,7 +118,7 @@ const content: contentSection[] = [
 export default function Home() {
   return (
     <div className="w-full overflow-y-auto overflow-x-hidden">
-      <Section id={sections[0].id}>
+      <Section id={sections[0]?.id || 'about-me'}>
         <Container>
           <BackgroundLines className="relative min-h-screen">
             <FadeIn className="max-w-5xl pt-60 md:pt-[20vh] 2xl:pt-[30vh]">

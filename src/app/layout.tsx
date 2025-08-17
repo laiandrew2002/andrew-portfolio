@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
-import TopBar from '@/components/TopBar';
-import BottomBar from '@/components/BottomBar';
-import ActivityBar from '@/components/ActivityBar';
-import TabsContainer from '@/components/TabContainer';
+import {
+  TopBar,
+  BottomBar,
+  ActivityBar,
+  TabContainer,
+} from '@/components/layout';
 import NavigationChange from '@/components/NavigationChange';
 import { sections } from './page';
 import { sections as dappWalletTransferSections } from '@/app/apps/dapp-wallet-transfer/page';
@@ -98,7 +100,7 @@ export default function RootLayout({
         <main className="relative flex flex-1 overflow-hidden">
           <ActivityBar sections={mainSection} myWork={myWork} />
           <div className="flex w-full flex-col overflow-hidden">
-            <TabsContainer />
+            <TabContainer />
             {children}
           </div>
         </main>

@@ -45,7 +45,7 @@ const useTabsStore = create<
         const closingTabIndex = state.open.findIndex(tab => tab.href === href);
         newCurrent =
           closingTabIndex > 0
-            ? state.open[closingTabIndex - 1].href
+            ? state.open[closingTabIndex - 1]?.href || ''
             : state.open[closingTabIndex + 1]?.href || '';
       }
 
@@ -64,11 +64,13 @@ const useTabsStore = create<
 
       if (initialIndex !== -1 && finalIndex !== -1) {
         const [movedTab] = updatedOpen.splice(initialIndex, 1);
-        updatedOpen.splice(
-          finalIndex + (initialIndex < finalIndex ? 1 : 0),
-          0,
-          movedTab
-        );
+        if (movedTab) {
+          updatedOpen.splice(
+            finalIndex + (initialIndex < finalIndex ? 1 : 0),
+            0,
+            movedTab
+          );
+        }
       }
 
       return { open: updatedOpen };
@@ -82,7 +84,9 @@ const useTabsStore = create<
 
       const updatedOpen = [...state.open];
       const [movedTab] = updatedOpen.splice(index, 1);
-      updatedOpen.push(movedTab);
+      if (movedTab) {
+        updatedOpen.push(movedTab);
+      }
 
       return { open: updatedOpen };
     }),

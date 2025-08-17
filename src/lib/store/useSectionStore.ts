@@ -48,14 +48,21 @@ const useSectionStore = create<SectionState>((set, get) => ({
     const newArr = [...sectionsOrder];
     if (newArr.length === 0) {
       newArr.push(item);
-    } else if (newArr[0].index > item.index) {
-      newArr.splice(0, 0, item);
     } else {
-      let i = 1;
-      while (i < newArr.length && newArr[i].index < item.index) {
-        i++;
+      const firstItem = newArr[0];
+      if (firstItem && firstItem.index > item.index) {
+        newArr.splice(0, 0, item);
+      } else {
+        let i = 1;
+        while (i < newArr.length) {
+          const currentItem = newArr[i];
+          if (!currentItem || currentItem.index >= item.index) {
+            break;
+          }
+          i++;
+        }
+        newArr.splice(i, 0, item);
       }
-      newArr.splice(i, 0, item);
     }
 
     set(state => ({
