@@ -1,15 +1,17 @@
-import AboutMe from '@/components/AboutMe';
 import Border from '@/components/Border';
-import ContactMe from '@/components/ContactMe';
 import Container from '@/components/Container';
 import { FadeIn } from '@/components/FadeIn';
-import MyWork from '@/components/MyWork';
 import Section from '@/components/Section';
 import SectionHeader from '@/components/SectionHeader';
-import Skills from '@/components/Skills';
 import Socials from '@/components/Socials';
 import { BackgroundLines } from '@/components/ui/background-lines';
-import WorkExperience from '@/components/WorkExperience';
+import {
+  AboutSection,
+  WorkExperienceSection,
+  SkillsSection,
+  ProjectsSection,
+  ContactSection,
+} from '@/components/sections';
 import { Archive, BookOpen, BriefCase, Envelope } from '@/icons';
 
 export const sections = [
@@ -51,7 +53,7 @@ const content: contentSection[] = [
         </div>
       ),
     },
-    mainContent: <WorkExperience />,
+    mainContent: <WorkExperienceSection />,
   },
   {
     id: sections[2]?.id || 'skills',
@@ -72,7 +74,7 @@ const content: contentSection[] = [
         </div>
       ),
     },
-    mainContent: <Skills />,
+    mainContent: <SkillsSection />,
   },
   {
     id: sections[3]?.id || 'my-work',
@@ -92,7 +94,7 @@ const content: contentSection[] = [
         </div>
       ),
     },
-    mainContent: <MyWork />,
+    mainContent: <ProjectsSection />,
   },
   {
     id: sections[4]?.id || 'contact',
@@ -111,7 +113,7 @@ const content: contentSection[] = [
         </div>
       ),
     },
-    mainContent: <ContactMe />,
+    mainContent: <ContactSection />,
   },
 ];
 
@@ -133,7 +135,7 @@ export default function Home() {
             <div className="mouse"></div>
             <Socials className="items-center justify-center" />
           </BackgroundLines>
-          <AboutMe />
+          <AboutSection />
         </Container>
       </Section>
       <div id="stars-container" className="relative">
