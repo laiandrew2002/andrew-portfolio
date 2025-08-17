@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 // Tab Data Type
 export type TabData = {
@@ -21,14 +21,14 @@ const useTabsStore = create<
     moveTab: (from: string, to: string) => void;
     moveToEnd: (href: string) => void;
   }
->((set) => ({
-  current: "",
+>(set => ({
+  current: '',
   open: [],
 
   // Set Current Tab
-  setCurrentTab: (current) =>
-    set((state) => {
-      const isTabOpen = state.open.some((tab) => tab.href === current.href);
+  setCurrentTab: current =>
+    set(state => {
+      const isTabOpen = state.open.some(tab => tab.href === current.href);
       return {
         current: current.href,
         open: isTabOpen ? state.open : [...state.open, current],
@@ -36,32 +36,30 @@ const useTabsStore = create<
     }),
 
   // Close Tab
-  closeTab: (href) =>
-    set((state) => {
-      const updatedOpen = state.open.filter((tab) => tab.href !== href);
+  closeTab: href =>
+    set(state => {
+      const updatedOpen = state.open.filter(tab => tab.href !== href);
       let newCurrent = state.current;
 
       if (state.current === href) {
-        const closingTabIndex = state.open.findIndex(
-          (tab) => tab.href === href,
-        );
+        const closingTabIndex = state.open.findIndex(tab => tab.href === href);
         newCurrent =
           closingTabIndex > 0
             ? state.open[closingTabIndex - 1].href
-            : state.open[closingTabIndex + 1]?.href || "";
+            : state.open[closingTabIndex + 1]?.href || '';
       }
 
       return {
         open: updatedOpen,
-        current: updatedOpen.length ? newCurrent : "",
+        current: updatedOpen.length ? newCurrent : '',
       };
     }),
 
   // Move Tab
   moveTab: (from, to) =>
-    set((state) => {
-      const initialIndex = state.open.findIndex((tab) => tab.href === from);
-      const finalIndex = state.open.findIndex((tab) => tab.href === to);
+    set(state => {
+      const initialIndex = state.open.findIndex(tab => tab.href === from);
+      const finalIndex = state.open.findIndex(tab => tab.href === to);
       const updatedOpen = [...state.open];
 
       if (initialIndex !== -1 && finalIndex !== -1) {
@@ -69,7 +67,7 @@ const useTabsStore = create<
         updatedOpen.splice(
           finalIndex + (initialIndex < finalIndex ? 1 : 0),
           0,
-          movedTab,
+          movedTab
         );
       }
 
@@ -77,9 +75,9 @@ const useTabsStore = create<
     }),
 
   // Move Tab to End
-  moveToEnd: (href) =>
-    set((state) => {
-      const index = state.open.findIndex((tab) => tab.href === href);
+  moveToEnd: href =>
+    set(state => {
+      const index = state.open.findIndex(tab => tab.href === href);
       if (index === -1 || state.open.length === 1) return state;
 
       const updatedOpen = [...state.open];

@@ -149,66 +149,66 @@
 }
 
 .mouse {
-	width: 30px;
-	height: 55px;
-	border: 2px solid #b6b6b6;
-	border-radius: 60px;
+  width: 30px;
+  height: 55px;
+  border: 2px solid #b6b6b6;
+  border-radius: 60px;
   position: absolute;
   top: 75%;
   left: 50%;
-	animation: down 1.5s infinite;
-	&::before {
-		content: '';
-		width: 8px;
-		height: 8px;
-		position: absolute;
-		top: 10px;
-		left: 50%;
-		transform: translateX(-50%);
-		background-color: #b6b6b6;
-		border-radius: 50%;
-		opacity: 1;
-		animation: wheel 1.5s infinite;
-		-webkit-animation: wheel 1.5s infinite;
-	}
+  animation: down 1.5s infinite;
+  &::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #b6b6b6;
+    border-radius: 50%;
+    opacity: 1;
+    animation: wheel 1.5s infinite;
+    -webkit-animation: wheel 1.5s infinite;
+  }
 }
 
 @keyframes wheel {
-	to {
-		opacity: 0;
-		top: 40px;
-	}
+  to {
+    opacity: 0;
+    top: 40px;
+  }
 }
 
 @-webkit-keyframes wheel {
-	to {
-		opacity: 0;
-		top: 40px;
-	}
+  to {
+    opacity: 0;
+    top: 40px;
+  }
 }
 
 @keyframes down {
-	0% {
-		transform: translate(0);
-	}
-	20% {
-		transform: translateY(15px);
-	}
-	40% {
-		transform: translate(0);
-	}
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translateY(15px);
+  }
+  40% {
+    transform: translate(0);
+  }
 }
 
 @-webkit-keyframes down {
-	0% {
-		transform: translate(0);
-	}
-	20% {
-		transform: translateY(15px);
-	}
-	40% {
-		transform: translate(0);
-	}
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translateY(15px);
+  }
+  40% {
+    transform: translate(0);
+  }
 }
 
 .scroll-down {
@@ -301,7 +301,12 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-image: linear-gradient(-250deg, #8fd16e 0%, #75c565 50%, #31d04e 100%);
+  background-image: linear-gradient(
+    -250deg,
+    #8fd16e 0%,
+    #75c565 50%,
+    #31d04e 100%
+  );
   filter: blur(10px);
   z-index: -1;
   animation: hue 3s linear infinite;
@@ -344,5 +349,10 @@
 
 .app-gradient-bg {
   background-color: #3649aa;
-  background-image: linear-gradient(315deg, #3649aa 0%, #2bd2ff 52%, #2b60ff 90%);
+  background-image: linear-gradient(
+    315deg,
+    #3649aa 0%,
+    #2bd2ff 52%,
+    #2b60ff 90%
+  );
 }

@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
 const Container = ({
   children,
@@ -10,8 +10,8 @@ const Container = ({
   return (
     <div
       className={clsx(
-        "mx-auto max-w-6xl px-4 sm:px-8 lg:px-12 py-6 text-white",
-        className,
+        'mx-auto max-w-6xl px-4 py-6 text-white sm:px-8 lg:px-12',
+        className
       )}
     >
       {children}

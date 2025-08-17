@@ -1,5 +1,5 @@
-import clsx from "clsx";
-import { FadeIn, Stagger } from "./FadeIn";
+import clsx from 'clsx';
+import { FadeIn, Stagger } from './FadeIn';
 
 const SectionHeader = ({
   icon,
@@ -14,7 +14,7 @@ const SectionHeader = ({
 }) => {
   return (
     <Stagger
-      className={clsx("flex flex-col gap-6 pl-5 sm:pl-0 mt-12", className)}
+      className={clsx('mt-12 flex flex-col gap-6 pl-5 sm:pl-0', className)}
     >
       <div className="flex gap-6">
         <FadeIn

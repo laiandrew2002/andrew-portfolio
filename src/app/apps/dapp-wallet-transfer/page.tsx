@@ -1,46 +1,46 @@
-import React from "react";
-import Image from "next/image";
-import Container from "@/components/Container";
-import Border from "@/components/Border";
-import Section from "@/components/Section";
-import { FadeIn, FadeInStagger } from "@/components/FadeIn";
-import Button from "@/components/Button";
-import Link from "next/link";
-import { ChallengeIcon, PictureIcon, TechnologiesIcon } from "@/icons";
-import AppPageHeader from "@/components/CollapsableMenu/components/AppPageHeader";
+import React from 'react';
+import Image from 'next/image';
+import Container from '@/components/Container';
+import Border from '@/components/Border';
+import Section from '@/components/Section';
+import { FadeIn, FadeInStagger } from '@/components/FadeIn';
+import Button from '@/components/Button';
+import Link from 'next/link';
+import { ChallengeIcon, PictureIcon, TechnologiesIcon } from '@/icons';
+import AppPageHeader from '@/components/CollapsableMenu/components/AppPageHeader';
 
 export const sections = [
-  { index: 0, title: "About", id: "about" },
-  { index: 1, title: "Requirements", id: "requirements" },
-  { index: 2, title: "Screenshots", id: "screenshots" },
-  { index: 3, title: "Technologies", id: "technologies" },
+  { index: 0, title: 'About', id: 'about' },
+  { index: 1, title: 'Requirements', id: 'requirements' },
+  { index: 2, title: 'Screenshots', id: 'screenshots' },
+  { index: 3, title: 'Technologies', id: 'technologies' },
 ];
 
 const dappWalletTransferTech = [
   {
-    name: "Next.js",
-    image: "/logos/nextjs-logo.png",
-    link: "https://nextjs.org/",
+    name: 'Next.js',
+    image: '/logos/nextjs-logo.png',
+    link: 'https://nextjs.org/',
   },
   {
-    name: "Ethers.js",
-    image: "/logos/ethers-logo.png",
-    link: "https://docs.ethers.io/v5/",
+    name: 'Ethers.js',
+    image: '/logos/ethers-logo.png',
+    link: 'https://docs.ethers.io/v5/',
   },
   {
-    name: "Metamask",
-    image: "/logos/metamask-logo.png",
-    link: "https://metamask.io/",
+    name: 'Metamask',
+    image: '/logos/metamask-logo.png',
+    link: 'https://metamask.io/',
   },
   {
-    name: "Chakra UI",
-    image: "/logos/chakra-logo.png",
-    link: "https://chakra-ui.com/",
+    name: 'Chakra UI',
+    image: '/logos/chakra-logo.png',
+    link: 'https://chakra-ui.com/',
   },
   {
-    name: "Tailwind CSS",
-    image: "/logos/tailwindcss-logo.png",
-    link: "https://tailwindcss.com/",
+    name: 'Tailwind CSS',
+    image: '/logos/tailwindcss-logo.png',
+    link: 'https://tailwindcss.com/',
   },
 ];
 
@@ -52,7 +52,7 @@ const DappWalletTransfer = () => {
           <Section id="about">
             <FadeInStagger once>
               <FadeIn>
-                <div className="flex flex-col justify-center gap-4 pt-20 pb-20">
+                <div className="flex flex-col justify-center gap-4 pb-20 pt-20">
                   <h1 className="text-3xl font-bold">DApp Wallet Transfer</h1>
                   <p className="text-lg text-gray-500">
                     A simple decentralized application (DApp) that connects to
@@ -61,23 +61,23 @@ const DappWalletTransfer = () => {
                   </p>
 
                   <div className="flex flex-col gap-2">
-                    <div className="px-6 py-4 sm:border-l border-gray-500/20">
+                    <div className="border-gray-500/20 px-6 py-4 sm:border-l">
                       <dt className="font-semibold text-blue-100">Industry</dt>
                       <dd>Web3</dd>
                     </div>
-                    <div className="px-6 py-4 sm:border-l border-gray-500/20">
+                    <div className="border-gray-500/20 px-6 py-4 sm:border-l">
                       <dt className="font-semibold text-blue-100">
                         Developed In
                       </dt>
                       <dd>2024</dd>
                     </div>
-                    <div className="px-6 py-4 sm:border-l border-gray-500/20">
+                    <div className="border-gray-500/20 px-6 py-4 sm:border-l">
                       <dt className="font-semibold text-blue-100">
                         Project Type
                       </dt>
                       <dd>Personal</dd>
                     </div>
-                    <div className="px-6 py-4 sm:border-l border-gray-500/20">
+                    <div className="border-gray-500/20 px-6 py-4 sm:border-l">
                       <dt className="font-semibold text-blue-100">Service</dt>
                       <dd>Web Application</dd>
                     </div>
@@ -107,12 +107,12 @@ const DappWalletTransfer = () => {
 
         <FadeIn>
           <Section id="requirements">
-            <div className="flex flex-col pt-10 mb-20">
+            <div className="mb-20 flex flex-col pt-10">
               <AppPageHeader
                 icon={<ChallengeIcon width="28" height="28" />}
                 title="Requirements"
               />
-              <ul className="list-disc pl-6 mt-1 text-gray-500">
+              <ul className="mt-1 list-disc pl-6 text-gray-500">
                 <li className="text-md py-1">
                   Built with Next.js and integrates with Metamask to connect to
                   Sepolia testnet.
@@ -140,7 +140,7 @@ const DappWalletTransfer = () => {
                 icon={<PictureIcon width="28" height="28" fill="white" />}
                 title="Screenshots"
               />
-              <div className="flex flex-col gap-4 mt-6 mb-20 flex-wrap">
+              <div className="mb-20 mt-6 flex flex-col flex-wrap gap-4">
                 <Image
                   src="/projects/dapp-wallet-transfer.png"
                   alt="dapp-wallet-transfer-1"
@@ -170,12 +170,12 @@ const DappWalletTransfer = () => {
                 title="Technologies"
               />
               <FadeInStagger
-                className="flex gap-4 mt-6 mb-10 flex-wrap"
+                className="mb-10 mt-6 flex flex-wrap gap-4"
                 faster
                 once
               >
                 {dappWalletTransferTech.map(({ name, image, link }) => (
-                  <FadeIn key={name} className="w-24 flex flex-col self-start">
+                  <FadeIn key={name} className="flex w-24 flex-col self-start">
                     <div className="mt-auto">
                       <Link
                         href={link}
@@ -184,7 +184,7 @@ const DappWalletTransfer = () => {
                       >
                         <Image
                           src={image}
-                          className="object-contain rounded-md m-auto"
+                          className="m-auto rounded-md object-contain"
                           alt={`${name} logo`}
                           height={64}
                           width={64}
@@ -193,7 +193,7 @@ const DappWalletTransfer = () => {
                             height: 64,
                           }}
                         />
-                        <h4 className="text-sm font-semibold tracking-tight text-gray-500 text-center w-min px-2 m-2 mx-auto">
+                        <h4 className="m-2 mx-auto w-min px-2 text-center text-sm font-semibold tracking-tight text-gray-500">
                           {name}
                         </h4>
                       </Link>

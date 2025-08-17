@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 export interface Section {
   index: number;
@@ -25,23 +25,23 @@ const useSectionStore = create<SectionState>((set, get) => ({
   sectionsOrder: [],
   visible: {},
 
-  setSections: (sections) =>
-    set((state) => ({
+  setSections: sections =>
+    set(state => ({
       sections,
       sectionsOrder: state.sectionsOrder,
       visible: state.visible,
     })),
 
   resetVisible: () =>
-    set((state) => ({
+    set(state => ({
       sections: state.sections,
       sectionsOrder: [],
       visible: {},
     })),
 
-  setVisible: (key) => {
+  setVisible: key => {
     const { sections, sectionsOrder } = get();
-    const item = sections.find((val) => val.id === key);
+    const item = sections.find(val => val.id === key);
 
     if (!item) return; // Avoid setting if item does not exist
 
@@ -58,7 +58,7 @@ const useSectionStore = create<SectionState>((set, get) => ({
       newArr.splice(i, 0, item);
     }
 
-    set((state) => ({
+    set(state => ({
       sections: state.sections,
       sectionsOrder: newArr,
       visible: {
@@ -68,16 +68,16 @@ const useSectionStore = create<SectionState>((set, get) => ({
     }));
   },
 
-  setHidden: (key) => {
+  setHidden: key => {
     const { sectionsOrder } = get();
     const newArr = [...sectionsOrder];
-    const itemIndex = newArr.findIndex((val) => val.id === key);
+    const itemIndex = newArr.findIndex(val => val.id === key);
 
     if (itemIndex !== -1) {
       newArr.splice(itemIndex, 1);
     }
 
-    set((state) => ({
+    set(state => ({
       sections: state.sections,
       sectionsOrder: newArr,
       visible: {

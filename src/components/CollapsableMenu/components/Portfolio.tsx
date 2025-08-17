@@ -36,44 +36,44 @@ import {
   TsConfig,
   Tsx,
   WorkExperience,
-} from "@/icons";
-import clsx from "clsx";
-import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
-import { usePathname, useSelectedLayoutSegments } from "next/navigation";
-import { useCallback, useState } from "react";
-import SubCollapsableMenu from "./SubCollapsableMenu";
-import useExplorerStore, { SubMenu } from "@/lib/store/useExplorerStore";
-import useExpandableStore from "@/lib/store/useExpandableStore";
-import useSectionStore, { Section } from "@/lib/store/useSectionStore";
-import { FadeInStagger } from "@/components/FadeIn";
-import { MyWork } from "@/app/layout";
-import { MdOutlineFeaturedPlayList } from "react-icons/md";
-import { TbCircleKeyFilled } from "react-icons/tb";
+} from '@/icons';
+import clsx from 'clsx';
+import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
+import { usePathname, useSelectedLayoutSegments } from 'next/navigation';
+import { useCallback, useState } from 'react';
+import SubCollapsableMenu from './SubCollapsableMenu';
+import useExplorerStore, { SubMenu } from '@/lib/store/useExplorerStore';
+import useExpandableStore from '@/lib/store/useExpandableStore';
+import useSectionStore, { Section } from '@/lib/store/useSectionStore';
+import { FadeInStagger } from '@/components/FadeIn';
+import { MyWork } from '@/app/layout';
+import { MdOutlineFeaturedPlayList } from 'react-icons/md';
+import { TbCircleKeyFilled } from 'react-icons/tb';
 
 const staticFiles = [
-  { name: ".eslintrc.json", icon: <Eslint /> },
-  { name: ".gitignore", icon: <Git /> },
-  { name: "next.config.js", icon: <NextConfig /> },
-  { name: "package-lock.json", icon: <NodeJs /> },
-  { name: "package.json", icon: <NodeJs /> },
-  { name: "tailwind.config.ts", icon: <TailwindCSS /> },
-  { name: "tsconfig.json", icon: <TsConfig /> },
+  { name: '.eslintrc.json', icon: <Eslint /> },
+  { name: '.gitignore', icon: <Git /> },
+  { name: 'next.config.js', icon: <NextConfig /> },
+  { name: 'package-lock.json', icon: <NodeJs /> },
+  { name: 'package.json', icon: <NodeJs /> },
+  { name: 'tailwind.config.ts', icon: <TailwindCSS /> },
+  { name: 'tsconfig.json', icon: <TsConfig /> },
 ];
 
 const fileType = {
-  ["react" as string]: <ReactIcon />,
-  ["typescript" as string]: <Tsx />,
-  ["next" as string]: <NextConfig />,
+  ['react' as string]: <ReactIcon />,
+  ['typescript' as string]: <Tsx />,
+  ['next' as string]: <NextConfig />,
   // ['svelte' as string]: <Svelte />,
   // ['leetcode' as string]: <Leetcode />,
 };
 
 const subSectionsIcons: { [key: string]: JSX.Element } = {
-  "about-me": <AboutMe />,
-  "work-experience": <WorkExperience />,
+  'about-me': <AboutMe />,
+  'work-experience': <WorkExperience />,
   skills: <Technologies />,
-  "my-work": <Projects />,
+  'my-work': <Projects />,
   contact: <ContactMe />,
   about: <LogIcon />,
   requirements: <ChallengeIcon />,
@@ -84,13 +84,13 @@ const subSectionsIcons: { [key: string]: JSX.Element } = {
   solution: <SolutionIcon />,
   technologies: <TechnologiesIcon />,
   easy: (
-    <div className="bg-green-500 rounded-full h-[16px] w-[16px] blur-[1px]" />
+    <div className="h-[16px] w-[16px] rounded-full bg-green-500 blur-[1px]" />
   ),
   medium: (
-    <div className="bg-yellow-500 rounded-full h-[16px] w-[16px] blur-[1px]" />
+    <div className="h-[16px] w-[16px] rounded-full bg-yellow-500 blur-[1px]" />
   ),
   hard: (
-    <div className="bg-red-500 rounded-full h-[16px] w-[16px] blur-[1px]" />
+    <div className="h-[16px] w-[16px] rounded-full bg-red-500 blur-[1px]" />
   ),
 };
 
@@ -145,7 +145,7 @@ const Portfolio = ({ myWork }: { myWork: MyWork[] }) => {
               icon={<FavIcon />}
               url="/"
               indent={1}
-              sections={pathname === "/" ? sections : []}
+              sections={pathname === '/' ? sections : []}
             />
           </Folder>
           <Folder
@@ -160,9 +160,9 @@ const Portfolio = ({ myWork }: { myWork: MyWork[] }) => {
               openIcon={<AppOpen />}
               closedIcon={<App />}
               indent={1}
-              segmentActive={segments[0] === "apps"}
+              segmentActive={segments[0] === 'apps'}
             >
-              {myWork.map((work) => (
+              {myWork.map(work => (
                 <File
                   key={work.pathname}
                   name={work.title}
@@ -174,7 +174,7 @@ const Portfolio = ({ myWork }: { myWork: MyWork[] }) => {
               ))}
             </Folder>
           </Folder>
-          {staticFiles.map((file) => (
+          {staticFiles.map(file => (
             <File
               key={file.name}
               name={file.name}
@@ -190,7 +190,7 @@ const Portfolio = ({ myWork }: { myWork: MyWork[] }) => {
 };
 
 const itemsCSS =
-  "flex w-full hover:bg-dark_border items-center py-[2px] cursor-pointer transition-all duration-200";
+  'flex w-full hover:bg-dark_border items-center py-[2px] cursor-pointer transition-all duration-200';
 
 interface FolderProps {
   name: string;
@@ -214,7 +214,7 @@ const Folder = ({
   const [open, setOpen] = useState(true);
 
   const onToggleFolder: React.MouseEventHandler = useCallback(() => {
-    setOpen((prev) => !prev);
+    setOpen(prev => !prev);
   }, []);
 
   return (
@@ -223,8 +223,8 @@ const Folder = ({
         layout="position"
         transition={{ duration: 0.1 }}
         className={clsx(
-          "folder-container",
-          segmentActive ? "folder-active" : "",
+          'folder-container',
+          segmentActive ? 'folder-active' : ''
         )}
       >
         <button
@@ -233,13 +233,13 @@ const Folder = ({
           disabled={disabled}
           className={itemsCSS}
         >
-          <div className="mr-1 ml-4">
+          <div className="ml-4 mr-1">
             {open && !disabled ? <ChevronDown /> : <ChevronRight />}
           </div>
           <div className="mr-2">
             {open && !disabled ? openIcon : closedIcon}
-          </div>{" "}
-          <p className={clsx(disabled ? "opacity-40" : "opacity-100")}>
+          </div>{' '}
+          <p className={clsx(disabled ? 'opacity-40' : 'opacity-100')}>
             {name}
           </p>
         </button>
@@ -279,16 +279,16 @@ const File = ({ name, icon, url, indent, sections }: FileWrapperProps) => {
       {sections.length > 0 && (
         <div
           style={{ paddingLeft: indent * 16 + 22 }}
-          className="flex flex-col ml-7 relative py-1"
+          className="relative ml-7 flex flex-col py-1"
         >
           <FadeInStagger className="w-max" role="list">
-            {sections.map((section) => (
+            {sections.map(section => (
               // <FadeIn key={section.id}>
               <FileSection
                 key={section.id}
                 id={section.id}
                 title={section.title}
-                url={url ? url : ""}
+                url={url ? url : ''}
               />
               // </FadeIn>
             ))}
@@ -313,7 +313,7 @@ const FileSection = ({
   const [firstVisible] = sectionsOrder;
   const lastVisible = sectionsOrder.at(-1);
 
-  const splitId = id.split(".")[1] ? id.split(".")[1] : id;
+  const splitId = id.split('.')[1] ? id.split('.')[1] : id;
 
   return (
     <AnimatePresence mode="popLayout" initial={true}>
@@ -326,7 +326,7 @@ const FileSection = ({
         exit={{
           transition: { duration: 0.2 },
         }}
-        className={"relative bg-dark_bg my-1"}
+        className={'relative my-1 bg-dark_bg'}
       >
         {firstVisible && firstVisible.id === id && (
           <motion.span
@@ -363,8 +363,8 @@ const FileSection = ({
         <Link
           href={`${url}#${id}`}
           className={clsx(
-            "flex items-center hover:text-gray-500 px-[4px] transition-colors duration-300",
-            isVisible ? "text-blue-100" : "text-gray-500",
+            'flex items-center px-[4px] transition-colors duration-300 hover:text-gray-500',
+            isVisible ? 'text-blue-100' : 'text-gray-500'
           )}
         >
           {subSectionsIcons[splitId] ? (
@@ -402,9 +402,9 @@ const FileContent = ({
       href={url}
       scroll={false}
       style={{ paddingLeft: indent * 16 + 22 }}
-      className={clsx(itemsCSS, active && "bg-gray-200")}
+      className={clsx(itemsCSS, active && 'bg-gray-200')}
     >
-      <div className="ml-4 mr-2 relative">{icon}</div> <p>{name}</p>
+      <div className="relative ml-4 mr-2">{icon}</div> <p>{name}</p>
     </Link>
   );
 };

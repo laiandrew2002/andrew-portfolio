@@ -1,7 +1,7 @@
-"use client";
-import useSectionStore from "@/lib/store/useSectionStore";
-import { useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
+'use client';
+import useSectionStore from '@/lib/store/useSectionStore';
+import { useInView } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 const Section = ({
   children,

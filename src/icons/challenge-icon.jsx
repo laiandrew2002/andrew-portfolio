@@ -1,4 +1,4 @@
-export default function ChallengeIcon({ height = "18", width = "18" }) {
+export default function ChallengeIcon({ height = '18', width = '18' }) {
   return (
     <svg
       width={width}

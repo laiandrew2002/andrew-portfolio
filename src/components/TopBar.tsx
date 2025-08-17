@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   ChromeClose,
@@ -10,18 +10,18 @@ import {
   ToggledSidebar,
   UntoggledSidebar,
   VSCode,
-} from "@/icons";
-import { useTogglePortfolio } from "@/lib/hook/useTogglePortfolio";
-import useExpandableStore from "@/lib/store/useExpandableStore";
+} from '@/icons';
+import { useTogglePortfolio } from '@/lib/hook/useTogglePortfolio';
+import useExpandableStore from '@/lib/store/useExpandableStore';
 const menuItems = [
-  "File",
-  "Edit",
-  "Selection",
-  "View",
-  "Go",
-  "Run",
-  "Terminal",
-  "Help",
+  'File',
+  'Edit',
+  'Selection',
+  'View',
+  'Go',
+  'Run',
+  'Terminal',
+  'Help',
 ];
 
 export default function TopBar() {
@@ -29,9 +29,9 @@ export default function TopBar() {
   useTogglePortfolio();
 
   return (
-    <div className="flex justify-between text-gray-500 items-center bg-topbar_dark_bg">
+    <div className="flex items-center justify-between bg-topbar_dark_bg text-gray-500">
       <MenuBar />
-      <h1 className="text-sm py-3 pointer-events-none select-none hidden sm:block">
+      <h1 className="pointer-events-none hidden select-none py-3 text-sm sm:block">
         Andrew Lai - Portfolio
       </h1>
       <div className="flex">
@@ -55,22 +55,22 @@ const MenuBar = () => {
   };
 
   return (
-    <div className="p-1 flex">
+    <div className="flex p-1">
       <div className="my-auto flex items-center px-2">
         <VSCode />
       </div>
-      <div className="p-1 ml-2 hidden lg:block">
-        {menuItems.map((item) => (
+      <div className="ml-2 hidden p-1 lg:block">
+        {menuItems.map(item => (
           <button
             key={item}
-            className="py-1 px-2 hover:bg-gray-300 rounded-lg cursor-default"
+            className="cursor-default rounded-lg px-2 py-1 hover:bg-gray-300"
           >
             {item}
           </button>
         ))}
       </div>
       <div
-        className="flex items-center ml-4 lg:hidden hover:bg-gray-300 px-4 rounded-md py-2"
+        className="ml-4 flex items-center rounded-md px-4 py-2 hover:bg-gray-300 lg:hidden"
         onClick={toggleMenu}
       >
         <ChromeMenu />
@@ -88,24 +88,24 @@ const ToggleButtons = ({ menuExpanded }: { menuExpanded: boolean }) => {
   const { toggleMenu } = useExpandableStore();
 
   return (
-    <div className="flex py-2 mx-1">
+    <div className="mx-1 flex py-2">
       {menuExpanded ? (
         <button
           onClick={() => toggleMenu()}
-          className="hover:bg-gray-300 p-1 rounded-md"
+          className="rounded-md p-1 hover:bg-gray-300"
         >
           <ToggledSidebar />
         </button>
       ) : (
         <button
           onClick={() => toggleMenu()}
-          className="hover:bg-gray-300 p-1 rounded-md"
+          className="rounded-md p-1 hover:bg-gray-300"
         >
           <UntoggledSidebar />
         </button>
       )}
       {toggleButtons.map((button, index) => (
-        <button key={index} className="hover:bg-gray-300 p-1 rounded-md">
+        <button key={index} className="rounded-md p-1 hover:bg-gray-300">
           {button.icon}
         </button>
       ))}
@@ -116,13 +116,13 @@ const ToggleButtons = ({ menuExpanded }: { menuExpanded: boolean }) => {
 const ControlButtons = () => {
   return (
     <div className="flex">
-      <div className="hover:bg-gray-300 p-3 transform duration-300">
+      <div className="transform p-3 duration-300 hover:bg-gray-300">
         <ChromeMinimize />
       </div>
-      <div className="hover:bg-gray-300 p-3 transform duration-300">
+      <div className="transform p-3 duration-300 hover:bg-gray-300">
         <ChromeRestore />
       </div>
-      <div className="hover:bg-red-500 hover:text-white p-3 transform duration-300">
+      <div className="transform p-3 duration-300 hover:bg-red-500 hover:text-white">
         <ChromeClose />
       </div>
     </div>

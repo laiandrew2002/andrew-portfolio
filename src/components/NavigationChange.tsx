@@ -1,9 +1,9 @@
-"use client";
-import useExpandableStore from "@/lib/store/useExpandableStore";
-import useSectionStore from "@/lib/store/useSectionStore";
-import useTabsStore from "@/lib/store/useTabsStore";
-import { usePathname } from "next/navigation";
-import { useEffect, useRef } from "react";
+'use client';
+import useExpandableStore from '@/lib/store/useExpandableStore';
+import useSectionStore from '@/lib/store/useSectionStore';
+import useTabsStore from '@/lib/store/useTabsStore';
+import { usePathname } from 'next/navigation';
+import { useEffect, useRef } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const NavigationChange = ({ allPaths }: { allPaths: any[] }) => {
@@ -14,7 +14,7 @@ const NavigationChange = ({ allPaths }: { allPaths: any[] }) => {
   const { resetVisible } = useSectionStore();
 
   useEffect(() => {
-    const currentPath = allPaths.find((path) => path.href === pathname);
+    const currentPath = allPaths.find(path => path.href === pathname);
     setCurrentTab(
       currentPath
         ? {
@@ -23,10 +23,10 @@ const NavigationChange = ({ allPaths }: { allPaths: any[] }) => {
             type: currentPath.framework,
           }
         : {
-            href: "/",
-            title: "About Me",
-            type: "about",
-          },
+            href: '/',
+            title: 'About Me',
+            type: 'about',
+          }
     );
   }, [allPaths, pathname, setCurrentTab]);
 

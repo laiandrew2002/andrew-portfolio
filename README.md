@@ -26,16 +26,19 @@ This portfolio website provides an in-depth view of my professional background a
 First, run the development server:
 
 1. Clone the repository:
+
 ```bash
 git clone <repo_url>
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Start the development server:
+
 ```bash
 npm run dev
 ```

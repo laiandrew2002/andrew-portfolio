@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Production builds
+.next/
+out/
+dist/
+build/
+
+# Environment files
+.env*
+
+# Logs
+*.log
+
+# Package manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

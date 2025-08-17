@@ -1,7 +1,7 @@
 export default function TechnologiesIcon({
-  width = "18",
-  height = "18",
-  fill = "#e53935",
+  width = '18',
+  height = '18',
+  fill = '#e53935',
 }) {
   return (
     <svg

@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from 'react';
 import {
   Accounts,
   Debug,
@@ -9,34 +9,34 @@ import {
   Gear,
   Search,
   SourceControl,
-} from "@/icons";
-import clsx from "clsx";
-import { usePathname } from "next/navigation";
-import ToolTip from "./ToolTip";
-import CollapsableMenu from "./CollapsableMenu";
-import useExpandableStore, { Menu } from "@/lib/store/useExpandableStore";
-import useExplorerStore, { SubMenu } from "@/lib/store/useExplorerStore";
-import useSectionStore, { Section } from "@/lib/store/useSectionStore";
-import { MyWork } from "@/app/layout";
+} from '@/icons';
+import clsx from 'clsx';
+import { usePathname } from 'next/navigation';
+import ToolTip from './ToolTip';
+import CollapsableMenu from './CollapsableMenu';
+import useExpandableStore, { Menu } from '@/lib/store/useExpandableStore';
+import useExplorerStore, { SubMenu } from '@/lib/store/useExplorerStore';
+import useSectionStore, { Section } from '@/lib/store/useSectionStore';
+import { MyWork } from '@/app/layout';
 
 const barItems = [
   {
-    hoverText: "Search (Ctrl + Shift + F)",
+    hoverText: 'Search (Ctrl + Shift + F)',
     icon: <Search />,
     menu: Menu.SEARCH,
   },
   {
-    hoverText: "Source Control (Ctrl + Shift + G)",
+    hoverText: 'Source Control (Ctrl + Shift + G)',
     icon: <SourceControl height={32} width={32} />,
     menu: Menu.SOURCE_CONTROL,
   },
   {
-    hoverText: "Run and Debug (Ctrl + Shift + D)",
+    hoverText: 'Run and Debug (Ctrl + Shift + D)',
     icon: <Debug />,
     menu: Menu.DEBUG,
   },
   {
-    hoverText: "Extensions (Ctrl + Shift + X)",
+    hoverText: 'Extensions (Ctrl + Shift + X)',
     icon: <Extensions />,
     menu: Menu.EXTENSIONS,
   },
@@ -67,8 +67,8 @@ const ActivityBar = ({
   }, [pathname, sections, setSections]);
 
   return (
-    <div className="relative md:flex z-30 ">
-      <div className="max-w-fit text-gray-500 flex flex-col justify-between h-full border-r-dark_border bg-topbar_dark_bg">
+    <div className="relative z-30 md:flex">
+      <div className="flex h-full max-w-fit flex-col justify-between border-r-dark_border bg-topbar_dark_bg text-gray-500">
         <div className="cursor-pointer">
           <Tooltip
             icon={<Explorer />}
@@ -132,7 +132,7 @@ const Tooltip = ({ icon, text, active, handleMouseClick }: TooltipProps) => {
       e.currentTarget.blur();
       setToolTipActive(false);
     },
-    [],
+    []
   );
 
   const handleFocus: React.FocusEventHandler = useCallback(() => {
@@ -147,14 +147,14 @@ const Tooltip = ({ icon, text, active, handleMouseClick }: TooltipProps) => {
         onMouseEnter={handleMouseIn}
         onMouseLeave={handleMouseOut}
         className={clsx(
-          active ? "border-gray-500" : "opacity-50 hover:opacity-90",
-          "p-3 relative border-l-2 border-dark_bg",
+          active ? 'border-gray-500' : 'opacity-50 hover:opacity-90',
+          'relative border-l-2 border-dark_bg p-3'
         )}
       >
         {icon}
       </button>
       <ToolTip
-        className="top-1/2 -translate-y-1/2 right-0 translate-x-full"
+        className="right-0 top-1/2 -translate-y-1/2 translate-x-full"
         active={toolTipActive}
         text={text}
       />

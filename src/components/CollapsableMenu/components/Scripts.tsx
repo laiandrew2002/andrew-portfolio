@@ -1,5 +1,5 @@
-import useExplorerStore, { SubMenu } from "@/lib/store/useExplorerStore";
-import SubCollapsableMenu from "./SubCollapsableMenu";
+import useExplorerStore, { SubMenu } from '@/lib/store/useExplorerStore';
+import SubCollapsableMenu from './SubCollapsableMenu';
 
 const Scripts = () => {
   const { scripts } = useExplorerStore();

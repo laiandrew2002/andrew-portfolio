@@ -1,11 +1,11 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 export enum SubMenu {
-  EDITOR = "editor",
-  PORTFOLIO = "portfolio",
-  OUTLINE = "outline",
-  TIMELINE = "timeline",
-  SCRIPTS = "scripts",
+  EDITOR = 'editor',
+  PORTFOLIO = 'portfolio',
+  OUTLINE = 'outline',
+  TIMELINE = 'timeline',
+  SCRIPTS = 'scripts',
 }
 
 interface ExplorerState {
@@ -35,63 +35,63 @@ interface ExplorerState {
   toggleMenu: (subMenu: SubMenu) => void;
 }
 
-const useExplorerStore = create<ExplorerState>((set) => ({
+const useExplorerStore = create<ExplorerState>(set => ({
   initial: true,
   editor: {
     open: false,
-    maxHeight: "0px",
+    maxHeight: '0px',
   },
   portfolio: {
     open: false,
-    height: "0px",
-    maxHeight: "0px",
+    height: '0px',
+    maxHeight: '0px',
   },
   outline: {
     open: false,
-    maxHeight: "0px",
+    maxHeight: '0px',
   },
   timeline: {
     open: false,
-    maxHeight: "0px",
+    maxHeight: '0px',
   },
   scripts: {
     open: false,
-    maxHeight: "0px",
+    maxHeight: '0px',
   },
 
   setInitialLoad: () => set({ initial: false }),
 
   toggleMenu: (subMenu: SubMenu) =>
-    set((state) => {
+    set(state => {
       const subMenusContainer = document.getElementById(
-        "subMenusContainer",
+        'subMenusContainer'
       ) as HTMLDivElement;
       const subMenuEditor = document.getElementById(
-        "subMenu-" + SubMenu.EDITOR,
+        'subMenu-' + SubMenu.EDITOR
       ) as HTMLDivElement;
       const subMenuPortfolio = document.getElementById(
-        "subMenu-" + SubMenu.PORTFOLIO,
+        'subMenu-' + SubMenu.PORTFOLIO
       ) as HTMLDivElement;
 
       if (state[subMenu].open) {
         if (subMenu === SubMenu.EDITOR) {
           const editorsScrollHeight = subMenuEditor.clientHeight;
-          state.editor.maxHeight = "0px";
+          state.editor.maxHeight = '0px';
 
           if (state.portfolio.open) {
             state.portfolio.height = `${subMenuPortfolio.clientHeight + editorsScrollHeight}px`;
             state.portfolio.maxHeight = `${subMenuPortfolio.scrollHeight + editorsScrollHeight}px`;
           }
         } else if (subMenu === SubMenu.PORTFOLIO) {
-          state.portfolio.height = "0px";
-          state.portfolio.maxHeight = "0px";
+          state.portfolio.height = '0px';
+          state.portfolio.maxHeight = '0px';
         }
       } else {
         if (subMenu === SubMenu.EDITOR) {
           let newHeight = subMenuPortfolio.clientHeight;
 
           if (subMenuEditor.scrollHeight > 100) {
-            state.editor.maxHeight = "100px";
+            state.editor.maxHeight = '100px';
             newHeight -= 100;
           } else {
             state.editor.maxHeight = `${subMenuEditor.scrollHeight}px`;
@@ -110,7 +110,7 @@ const useExplorerStore = create<ExplorerState>((set) => ({
             const element = contentNodes.item(i) as HTMLDivElement;
             contentHeight +=
               element.scrollHeight +
-              Number(getComputedStyle(element).borderTopWidth.split("px")[0]);
+              Number(getComputedStyle(element).borderTopWidth.split('px')[0]);
           }
 
           const availableHeight =

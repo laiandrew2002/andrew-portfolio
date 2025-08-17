@@ -1,7 +1,7 @@
-"use client";
-import { ChevronDown, ChevronRight } from "@/icons";
-import useExplorerStore, { SubMenu } from "@/lib/store/useExplorerStore";
-import { useCallback, useRef, useState } from "react";
+'use client';
+import { ChevronDown, ChevronRight } from '@/icons';
+import useExplorerStore, { SubMenu } from '@/lib/store/useExplorerStore';
+import { useCallback, useRef, useState } from 'react';
 
 interface SubCollapsableMenuProps {
   subMenuTitle: string;
@@ -59,21 +59,21 @@ const SubCollapsableMenu = ({
           onFocus={handleFocusIn}
           onBlur={handleFocusBlur}
           onClick={handleToggleMenu}
-          className="flex w-full focus:ring-[.5px] active:ring-0 ring-gray-500 ring-opacity-20 py-1 justify-between"
+          className="flex w-full justify-between py-1 ring-gray-500 ring-opacity-20 focus:ring-[.5px] active:ring-0"
         >
           <div className="flex">
             {open ? <ChevronDown /> : <ChevronRight />}
-            <span className="text-xs font-extrabold text-gray-500 ml-1">
+            <span className="ml-1 text-xs font-extrabold text-gray-500">
               {subMenuTitle}
             </span>
           </div>
         </button>
         {open && (hovered || focused) && (
-          <div className="flex absolute right-0 top-0 bottom-0 mx-1 my-[1px]">
+          <div className="absolute bottom-0 right-0 top-0 mx-1 my-[1px] flex">
             {subMenuButtons.map((button, index) => (
               <button
                 key={index}
-                className="hover:bg-gray-300 p-[2px] rounded-md"
+                className="rounded-md p-[2px] hover:bg-gray-300"
               >
                 {button.button}
               </button>
@@ -85,15 +85,15 @@ const SubCollapsableMenu = ({
         tabIndex={-1}
         onFocus={handleFocusIn}
         onBlur={handleFocusBlur}
-        className="focus:ring-[.5px] active:ring-0 ring-gray-500 ring-opacity-20 select-none"
+        className="select-none ring-gray-500 ring-opacity-20 focus:ring-[.5px] active:ring-0"
       >
         <div
-          id={"subMenu-" + subMenu}
-          ref={(ref) => {
+          id={'subMenu-' + subMenu}
+          ref={ref => {
             contentRef.current = ref;
           }}
-          className="transition-all content overflow-y-auto"
-          style={{ maxHeight: maxHeight, height: height ? height : "auto" }}
+          className="content overflow-y-auto transition-all"
+          style={{ maxHeight: maxHeight, height: height ? height : 'auto' }}
         >
           {children}
         </div>

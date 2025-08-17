@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
 interface TooltipProps {
   active: boolean;
@@ -10,9 +10,9 @@ const ToolTip = ({ active, className, text }: TooltipProps) => {
   return (
     <span
       className={clsx(
-        active ? "block opacity-100" : "opacity-0 hidden",
+        active ? 'block opacity-100' : 'hidden opacity-0',
         className,
-        "absolute bg-dark_bg border border-dark_border py-1 px-2 whitespace-nowrap text-sm transition-opacity ease-in-out duration-300 select-none z-20",
+        'absolute z-20 select-none whitespace-nowrap border border-dark_border bg-dark_bg px-2 py-1 text-sm transition-opacity duration-300 ease-in-out'
       )}
     >
       {text}

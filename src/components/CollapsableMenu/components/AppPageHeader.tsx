@@ -1,4 +1,4 @@
-import { FadeIn } from "@/components/FadeIn";
+import { FadeIn } from '@/components/FadeIn';
 
 const AppPageHeader = ({
   icon,
@@ -8,7 +8,7 @@ const AppPageHeader = ({
   title: string;
 }) => {
   return (
-    <div className="flex gap-6 mb-4">
+    <div className="mb-4 flex gap-6">
       <FadeIn
         variants={{
           hidden: { opacity: 0 },
@@ -18,7 +18,7 @@ const AppPageHeader = ({
       >
         <div>
           {icon}
-          <span className="bg-white icon-blur absolute inset-2 -z-10"></span>
+          <span className="icon-blur absolute inset-2 -z-10 bg-white"></span>
         </div>
       </FadeIn>
       <FadeIn

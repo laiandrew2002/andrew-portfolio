@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { Variants, motion } from "framer-motion";
-import { RefObject, createContext, useContext } from "react";
+import { Variants, motion } from 'framer-motion';
+import { RefObject, createContext, useContext } from 'react';
 
 const FadeInStaggerContext = createContext(false);
 
-const viewport = { margin: "0px 0px -150px" };
+const viewport = { margin: '0px 0px -150px' };
 
 interface ViewportOptions {
   root?: RefObject<Element>;
   once?: boolean;
   margin?: string;
-  amount?: "some" | "all" | number;
+  amount?: 'some' | 'all' | number;
 }
 
 const FadeIn = ({
@@ -46,8 +46,8 @@ const FadeIn = ({
             viewport: viewportProp || {},
           }
         : {
-            initial: "hidden",
-            whileInView: "visible",
+            initial: 'hidden',
+            whileInView: 'visible',
             viewport: viewportProp || viewport,
           })}
       {...props}

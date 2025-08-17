@@ -1,68 +1,68 @@
-import React from "react";
-import Image from "next/image";
-import Container from "@/components/Container";
-import Border from "@/components/Border";
-import Section from "@/components/Section";
-import { FadeIn, FadeInStagger } from "@/components/FadeIn";
-import Button from "@/components/Button";
-import Link from "next/link";
-import { ChallengeIcon, PictureIcon, TechnologiesIcon } from "@/icons";
-import AppPageHeader from "@/components/CollapsableMenu/components/AppPageHeader";
-import { TbCircleKeyFilled } from "react-icons/tb";
+import React from 'react';
+import Image from 'next/image';
+import Container from '@/components/Container';
+import Border from '@/components/Border';
+import Section from '@/components/Section';
+import { FadeIn, FadeInStagger } from '@/components/FadeIn';
+import Button from '@/components/Button';
+import Link from 'next/link';
+import { ChallengeIcon, PictureIcon, TechnologiesIcon } from '@/icons';
+import AppPageHeader from '@/components/CollapsableMenu/components/AppPageHeader';
+import { TbCircleKeyFilled } from 'react-icons/tb';
 
 export const sections = [
-  { index: 0, title: "About", id: "about" },
-  { index: 1, title: "Features", id: "features" },
-  { index: 3, title: "Challenges", id: "keyOutcomes" },
-  { index: 4, title: "Screenshots", id: "screenshots" },
-  { index: 5, title: "Technologies", id: "technologies" },
+  { index: 0, title: 'About', id: 'about' },
+  { index: 1, title: 'Features', id: 'features' },
+  { index: 3, title: 'Challenges', id: 'keyOutcomes' },
+  { index: 4, title: 'Screenshots', id: 'screenshots' },
+  { index: 5, title: 'Technologies', id: 'technologies' },
 ];
 
 const fintrackWebAppTech = [
   {
-    name: "Next.js",
-    image: "/logos/nextjs-logo.png",
-    link: "https://nextjs.org/",
+    name: 'Next.js',
+    image: '/logos/nextjs-logo.png',
+    link: 'https://nextjs.org/',
   },
   {
-    name: "Zustand",
-    image: "/logos/zustand-logo.png",
-    link: "https://zustand.js.org/",
+    name: 'Zustand',
+    image: '/logos/zustand-logo.png',
+    link: 'https://zustand.js.org/',
   },
   {
-    name: "React Query",
-    image: "/logos/react-query-logo.png",
-    link: "https://react-query.tanstack.com/",
+    name: 'React Query',
+    image: '/logos/react-query-logo.png',
+    link: 'https://react-query.tanstack.com/',
   },
   {
-    name: "Tailwind CSS",
-    image: "/logos/tailwindcss-logo.png",
-    link: "https://tailwindcss.com/",
+    name: 'Tailwind CSS',
+    image: '/logos/tailwindcss-logo.png',
+    link: 'https://tailwindcss.com/',
   },
   {
-    name: "Shadcn UI",
-    image: "/logos/shadcn-logo.png",
-    link: "https://ui.shadcn.com/",
+    name: 'Shadcn UI',
+    image: '/logos/shadcn-logo.png',
+    link: 'https://ui.shadcn.com/',
   },
   {
-    name: "Hono.js",
-    image: "/logos/hono-logo.png",
-    link: "https://honojs.dev/",
+    name: 'Hono.js',
+    image: '/logos/hono-logo.png',
+    link: 'https://honojs.dev/',
   },
   {
-    name: "Drizzle ORM",
-    image: "/logos/drizzle-logo.png",
-    link: "https://drizzle.org/",
+    name: 'Drizzle ORM',
+    image: '/logos/drizzle-logo.png',
+    link: 'https://drizzle.org/',
   },
   {
-    name: "PostgreSQL",
-    image: "/logos/postgres-logo.png",
-    link: "https://www.postgresql.org/",
+    name: 'PostgreSQL',
+    image: '/logos/postgres-logo.png',
+    link: 'https://www.postgresql.org/',
   },
   {
-    name: "Google Generative AI",
-    image: "/logos/google-ai-logo.png",
-    link: "https://cloud.google.com/generative-ai",
+    name: 'Google Generative AI',
+    image: '/logos/google-ai-logo.png',
+    link: 'https://cloud.google.com/generative-ai',
   },
 ];
 
@@ -74,7 +74,7 @@ const FinTrackWebApp = () => {
           <Section id="about">
             <FadeInStagger once>
               <FadeIn>
-                <div className="flex flex-col justify-center gap-4 pt-20 pb-20">
+                <div className="flex flex-col justify-center gap-4 pb-20 pt-20">
                   <h1 className="text-3xl font-bold">
                     FinTrack Expenses & Incomes Tracker Web Application
                   </h1>
@@ -90,23 +90,23 @@ const FinTrackWebApp = () => {
                   </p>
 
                   <div className="flex flex-col gap-2">
-                    <div className="px-6 py-4 sm:border-l border-gray-500/20">
+                    <div className="border-gray-500/20 px-6 py-4 sm:border-l">
                       <dt className="font-semibold text-blue-100">Industry</dt>
                       <dd>Finance</dd>
                     </div>
-                    <div className="px-6 py-4 sm:border-l border-gray-500/20">
+                    <div className="border-gray-500/20 px-6 py-4 sm:border-l">
                       <dt className="font-semibold text-blue-100">
                         Developed In
                       </dt>
                       <dd>2024</dd>
                     </div>
-                    <div className="px-6 py-4 sm:border-l border-gray-500/20">
+                    <div className="border-gray-500/20 px-6 py-4 sm:border-l">
                       <dt className="font-semibold text-blue-100">
                         Project Type
                       </dt>
                       <dd>Personal</dd>
                     </div>
-                    <div className="px-6 py-4 sm:border-l border-gray-500/20">
+                    <div className="border-gray-500/20 px-6 py-4 sm:border-l">
                       <dt className="font-semibold text-blue-100">Service</dt>
                       <dd>Web Application</dd>
                     </div>
@@ -136,12 +136,12 @@ const FinTrackWebApp = () => {
 
         <FadeIn>
           <Section id="features">
-            <div className="flex flex-col pt-10 mb-20">
+            <div className="mb-20 flex flex-col pt-10">
               <AppPageHeader
                 icon={<ChallengeIcon width="28" height="28" />}
                 title="Features"
               />
-              <ul className="list-disc pl-6 mt-1 text-gray-500">
+              <ul className="mt-1 list-disc pl-6 text-gray-500">
                 <li className="text-md py-1">
                   Built with Next.js on the frontend, Hono.js on the backend,
                   and PostgreSQL for database.
@@ -171,12 +171,12 @@ const FinTrackWebApp = () => {
           <Border className="pt-10" />
 
           <Section id="keyOutcomes">
-            <div className="flex flex-col pt-10 mb-20">
+            <div className="mb-20 flex flex-col pt-10">
               <AppPageHeader
                 icon={<TbCircleKeyFilled size={28} fill="#ed8864" />}
                 title="Challenges"
               />
-              <ul className="list-disc pl-6 mt-1 text-gray-500">
+              <ul className="mt-1 list-disc pl-6 text-gray-500">
                 <li className="text-md py-1">
                   Learning to use new frameworks and libraries like Hono.js and
                   Drizzle ORM.
@@ -201,7 +201,7 @@ const FinTrackWebApp = () => {
                 icon={<PictureIcon width="28" height="28" fill="white" />}
                 title="Screenshots"
               />
-              <div className="flex flex-col gap-4 mt-6 mb-20 flex-wrap">
+              <div className="mb-20 mt-6 flex flex-col flex-wrap gap-4">
                 <Image
                   src="/projects/finance-1.png"
                   alt="fintrack-web-app-1"
@@ -231,12 +231,12 @@ const FinTrackWebApp = () => {
                 title="Technologies"
               />
               <FadeInStagger
-                className="flex gap-4 mt-6 mb-10 flex-wrap"
+                className="mb-10 mt-6 flex flex-wrap gap-4"
                 faster
                 once
               >
                 {fintrackWebAppTech.map(({ name, image, link }) => (
-                  <FadeIn key={name} className="w-24 flex flex-col self-start">
+                  <FadeIn key={name} className="flex w-24 flex-col self-start">
                     <div className="mt-auto">
                       <Link
                         href={link}
@@ -245,7 +245,7 @@ const FinTrackWebApp = () => {
                       >
                         <Image
                           src={image}
-                          className="object-contain rounded-md m-auto"
+                          className="m-auto rounded-md object-contain"
                           alt={`${name} logo`}
                           height={64}
                           width={64}
@@ -254,7 +254,7 @@ const FinTrackWebApp = () => {
                             height: 64,
                           }}
                         />
-                        <h4 className="text-sm font-semibold tracking-tight text-gray-500 text-center w-min px-2 m-2 mx-auto">
+                        <h4 className="m-2 mx-auto w-min px-2 text-center text-sm font-semibold tracking-tight text-gray-500">
                           {name}
                         </h4>
                       </Link>

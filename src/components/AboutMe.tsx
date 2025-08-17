@@ -1,8 +1,8 @@
-import { Accounts } from "@/icons";
-import Image from "next/image";
-import { FadeIn } from "./FadeIn";
-import Socials from "./Socials";
-import SectionHeader from "./SectionHeader";
+import { Accounts } from '@/icons';
+import Image from 'next/image';
+import { FadeIn } from './FadeIn';
+import Socials from './Socials';
+import SectionHeader from './SectionHeader';
 
 const AboutMe = () => {
   return (
@@ -11,20 +11,20 @@ const AboutMe = () => {
         icon={
           <>
             <Accounts height="28" width="28" />
-            <span className="bg-about_me_blue icon-blur absolute inset-0 -z-10"></span>
+            <span className="icon-blur absolute inset-0 -z-10 bg-about_me_blue"></span>
           </>
         }
         title="About Me"
         description={
           <div>
             A <span className="text-about_me_blue">software engineer</span> with
-            expertise in <span className="text-about_me_blue">Web</span> and{" "}
+            expertise in <span className="text-about_me_blue">Web</span> and{' '}
             <span className="text-about_me_blue">Mobile development</span>.
           </div>
         }
       />
       <div className="container">
-        <div className="flex flex-col lg:flex-row gap-8 mt-20 justify-between">
+        <div className="mt-20 flex flex-col justify-between gap-8 lg:flex-row">
           <div className="max-w-xl flex-auto">
             <h3 className="text-lg font-semibold leading-8 tracking-tight text-white">
               Andrew Lai
@@ -42,7 +42,7 @@ const AboutMe = () => {
               teams to drive innovation and deliver measurable results.
             </p>
           </div>
-          <div className="flex-none mx-auto">
+          <div className="mx-auto flex-none">
             <Image
               className="rounded-full object-cover"
               src="/andrew.jpg"
@@ -53,7 +53,7 @@ const AboutMe = () => {
           </div>
         </div>
         <div className="container">
-          <div className="flex gap-5 mt-16 flex-col @3xl:flex-row justify-between">
+          <div className="@3xl:flex-row mt-16 flex flex-col justify-between gap-5">
             <div>
               <FadeIn
                 variants={{
@@ -61,21 +61,21 @@ const AboutMe = () => {
                   visible: { opacity: 1, x: 0 },
                 }}
               >
-                <h4 className="text-about_me_blue mb-1 font-bold text-xl">
+                <h4 className="mb-1 text-xl font-bold text-about_me_blue">
                   Languages
                 </h4>
-                <div className="border-y py-2 border-gray-500/30 mb-6">
+                <div className="mb-6 border-y border-gray-500/30 py-2">
                   <div className="flex flex-wrap gap-x-6">
-                    <div className="text-lg font-bold leading-9 tracking-tight flex gap-1">
-                      <p className="text-white">Mandarin / Chinese</p> -{" "}
+                    <div className="flex gap-1 text-lg font-bold leading-9 tracking-tight">
+                      <p className="text-white">Mandarin / Chinese</p> -{' '}
                       <p className="text-gray-500">Advanced</p>
                     </div>
-                    <div className="text-lg font-bold leading-9 tracking-tight flex gap-1">
-                      <p className="text-white">English</p> -{" "}
+                    <div className="flex gap-1 text-lg font-bold leading-9 tracking-tight">
+                      <p className="text-white">English</p> -{' '}
                       <p className="text-gray-500">Advanced</p>
                     </div>
-                    <div className="text-lg font-bold leading-9 tracking-tight flex gap-1">
-                      <p className="text-white">Malay</p> -{" "}
+                    <div className="flex gap-1 text-lg font-bold leading-9 tracking-tight">
+                      <p className="text-white">Malay</p> -{' '}
                       <p className="text-gray-500">Moderate</p>
                     </div>
                   </div>

@@ -1,7 +1,7 @@
 export default function Archive({
   height,
   width,
-}: React.ComponentPropsWithoutRef<"svg">) {
+}: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -11,7 +11,7 @@ export default function Archive({
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-6 h-6"
+      className="h-6 w-6"
     >
       <path
         strokeLinecap="round"

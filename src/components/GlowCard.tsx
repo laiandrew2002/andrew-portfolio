@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import clsx from "clsx";
+import clsx from 'clsx';
 import {
   motion,
   useMotionTemplate,
   useMotionValue,
   useTransform,
   type MotionValue,
-} from "framer-motion";
-import { useEffect, useLayoutEffect, useRef } from "react";
+} from 'framer-motion';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 
 function Glow({
   mouseX,
@@ -28,8 +28,8 @@ function Glow({
     <div className="pointer-events-none">
       <motion.div
         className={clsx(
-          "absolute inset-0 bg-gradient-to-r blur-lg opacity-0 transition duration-700 group-hover:opacity-20",
-          className,
+          'absolute inset-0 bg-gradient-to-r opacity-0 blur-lg transition duration-700 group-hover:opacity-20',
+          className
         )}
         style={style}
       />
@@ -39,8 +39,8 @@ function Glow({
 
 const GlowCard = ({
   children,
-  className = "",
-  glowClassName = "",
+  className = '',
+  glowClassName = '',
 }: {
   children: React.ReactNode;
   className?: string;
@@ -105,8 +105,8 @@ const GlowCard = ({
       onMouseEnter={onMouseEnter}
       style={style}
       className={clsx(
-        "group overflow-hidden p-6 sm:p-8 lg:p-12 relative z-10 rounded-2xl border border-gray-500/20 bg-gray-900/20 transition-all glow-card-transition-duration hover:shadow-md select-none",
-        className,
+        'glow-card-transition-duration group relative z-10 select-none overflow-hidden rounded-2xl border border-gray-500/20 bg-gray-900/20 p-6 transition-all hover:shadow-md sm:p-8 lg:p-12',
+        className
       )}
     >
       <Glow

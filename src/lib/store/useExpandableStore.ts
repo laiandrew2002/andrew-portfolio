@@ -1,11 +1,11 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 export enum Menu {
-  EXPLORER = "explorer",
-  SEARCH = "search",
-  SOURCE_CONTROL = "source-control",
-  DEBUG = "debug",
-  EXTENSIONS = "extensions",
+  EXPLORER = 'explorer',
+  SEARCH = 'search',
+  SOURCE_CONTROL = 'source-control',
+  DEBUG = 'debug',
+  EXTENSIONS = 'extensions',
 }
 
 interface ExpandableSliceState {
@@ -15,12 +15,12 @@ interface ExpandableSliceState {
   toggleMenu: (menu?: Menu) => void;
 }
 
-const useExpandableStore = create<ExpandableSliceState>((set) => ({
+const useExpandableStore = create<ExpandableSliceState>(set => ({
   value: false,
   menu: Menu.EXPLORER,
 
   closeIfOpen: () =>
-    set((state) => {
+    set(state => {
       if (state.value) {
         return { value: false };
       }
@@ -28,7 +28,7 @@ const useExpandableStore = create<ExpandableSliceState>((set) => ({
     }),
 
   toggleMenu: (menu?: Menu) =>
-    set((state) => {
+    set(state => {
       if (!menu) {
         return { value: !state.value };
       } else if (!state.value) {

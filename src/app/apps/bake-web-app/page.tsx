@@ -1,60 +1,60 @@
-import React from "react";
-import Image from "next/image";
-import Container from "@/components/Container";
-import Border from "@/components/Border";
-import Section from "@/components/Section";
-import { FadeIn, FadeInStagger } from "@/components/FadeIn";
-import Button from "@/components/Button";
-import Link from "next/link";
-import { ChallengeIcon, PictureIcon, TechnologiesIcon } from "@/icons";
-import AppPageHeader from "@/components/CollapsableMenu/components/AppPageHeader";
-import { MdOutlineFeaturedPlayList } from "react-icons/md";
-import { TbCircleKeyFilled } from "react-icons/tb";
+import React from 'react';
+import Image from 'next/image';
+import Container from '@/components/Container';
+import Border from '@/components/Border';
+import Section from '@/components/Section';
+import { FadeIn, FadeInStagger } from '@/components/FadeIn';
+import Button from '@/components/Button';
+import Link from 'next/link';
+import { ChallengeIcon, PictureIcon, TechnologiesIcon } from '@/icons';
+import AppPageHeader from '@/components/CollapsableMenu/components/AppPageHeader';
+import { MdOutlineFeaturedPlayList } from 'react-icons/md';
+import { TbCircleKeyFilled } from 'react-icons/tb';
 
 export const sections = [
-  { index: 0, title: "About", id: "about" },
-  { index: 1, title: "Features", id: "features" },
-  { index: 2, title: "Features Owned", id: "featuresOwned" },
-  { index: 3, title: "Key Outcomes", id: "keyOutcomes" },
-  { index: 4, title: "Screenshots", id: "screenshots" },
-  { index: 5, title: "Technologies", id: "technologies" },
+  { index: 0, title: 'About', id: 'about' },
+  { index: 1, title: 'Features', id: 'features' },
+  { index: 2, title: 'Features Owned', id: 'featuresOwned' },
+  { index: 3, title: 'Key Outcomes', id: 'keyOutcomes' },
+  { index: 4, title: 'Screenshots', id: 'screenshots' },
+  { index: 5, title: 'Technologies', id: 'technologies' },
 ];
 
 const bakeWebAppTech = [
   {
-    name: "React",
-    image: "/logos/react-logo.png",
-    link: "https://reactjs.org/",
+    name: 'React',
+    image: '/logos/react-logo.png',
+    link: 'https://reactjs.org/',
   },
   {
-    name: "Redux",
-    image: "/logos/redux-logo.png",
-    link: "https://redux.js.org/",
+    name: 'Redux',
+    image: '/logos/redux-logo.png',
+    link: 'https://redux.js.org/',
   },
   {
-    name: "Node.js",
-    image: "/logos/nodejs-logo.png",
-    link: "https://nodejs.org/",
+    name: 'Node.js',
+    image: '/logos/nodejs-logo.png',
+    link: 'https://nodejs.org/',
   },
   {
-    name: "Express.js",
-    image: "/logos/express-logo.png",
-    link: "https://expressjs.com/",
+    name: 'Express.js',
+    image: '/logos/express-logo.png',
+    link: 'https://expressjs.com/',
   },
   {
-    name: "PostgreSQL",
-    image: "/logos/postgres-logo.png",
-    link: "https://www.postgresql.org/",
+    name: 'PostgreSQL',
+    image: '/logos/postgres-logo.png',
+    link: 'https://www.postgresql.org/',
   },
   {
-    name: "Redis",
-    image: "/logos/redis-logo.png",
-    link: "https://redis.io/",
+    name: 'Redis',
+    image: '/logos/redis-logo.png',
+    link: 'https://redis.io/',
   },
   {
-    name: "Docker",
-    image: "/logos/docker-logo.png",
-    link: "https://www.docker.com/",
+    name: 'Docker',
+    image: '/logos/docker-logo.png',
+    link: 'https://www.docker.com/',
   },
 ];
 
@@ -66,7 +66,7 @@ const BakeWebApp = () => {
           <Section id="about">
             <FadeInStagger once>
               <FadeIn>
-                <div className="flex flex-col justify-center gap-4 pt-20 pb-20">
+                <div className="flex flex-col justify-center gap-4 pb-20 pt-20">
                   <h1 className="text-3xl font-bold">Bake Wep Application</h1>
                   <p className="text-lg text-gray-500">
                     A web application built with React.js and Redux to allow
@@ -76,23 +76,23 @@ const BakeWebApp = () => {
                   </p>
 
                   <div className="flex flex-col gap-2">
-                    <div className="px-6 py-4 sm:border-l border-gray-500/20">
+                    <div className="border-gray-500/20 px-6 py-4 sm:border-l">
                       <dt className="font-semibold text-blue-100">Industry</dt>
                       <dd>Cryptocurrency & Decentralized Finance</dd>
                     </div>
-                    <div className="px-6 py-4 sm:border-l border-gray-500/20">
+                    <div className="border-gray-500/20 px-6 py-4 sm:border-l">
                       <dt className="font-semibold text-blue-100">
                         Developed In
                       </dt>
                       <dd>2020</dd>
                     </div>
-                    <div className="px-6 py-4 sm:border-l border-gray-500/20">
+                    <div className="border-gray-500/20 px-6 py-4 sm:border-l">
                       <dt className="font-semibold text-blue-100">
                         Project Type
                       </dt>
                       <dd>Company</dd>
                     </div>
-                    <div className="px-6 py-4 sm:border-l border-gray-500/20">
+                    <div className="border-gray-500/20 px-6 py-4 sm:border-l">
                       <dt className="font-semibold text-blue-100">Service</dt>
                       <dd>Web Application</dd>
                     </div>
@@ -122,12 +122,12 @@ const BakeWebApp = () => {
 
         <FadeIn>
           <Section id="features">
-            <div className="flex flex-col pt-10 mb-20">
+            <div className="mb-20 flex flex-col pt-10">
               <AppPageHeader
                 icon={<ChallengeIcon width="28" height="28" />}
                 title="Features"
               />
-              <ul className="list-disc pl-6 mt-1 text-gray-500">
+              <ul className="mt-1 list-disc pl-6 text-gray-500">
                 <li className="text-md py-1">
                   Built with React with Redux on the frontend, Node.js with
                   Express on the backend and PostgreSQL and Redis for database.
@@ -153,15 +153,15 @@ const BakeWebApp = () => {
           <Border className="pt-10" />
 
           <Section id="featuresOwned">
-            <div className="flex flex-col pt-10 mb-20">
+            <div className="mb-20 flex flex-col pt-10">
               <AppPageHeader
                 icon={<MdOutlineFeaturedPlayList size={28} fill="#41d985" />}
                 title="Features Owned and Implemented"
               />
-              <ul className="list-decimal pl-6 mt-1 text-gray-500">
+              <ul className="mt-1 list-decimal pl-6 text-gray-500">
                 <li className="text-md py-1">
                   <h3 className="font-bold">Onboarding Process</h3>
-                  <ul className="list-disc pl-6 mt-1 text-gray-500">
+                  <ul className="mt-1 list-disc pl-6 text-gray-500">
                     <li className="text-md py-1">
                       Designed and implemented sign-up and login workflows for
                       seamless user onboarding.
@@ -179,14 +179,14 @@ const BakeWebApp = () => {
                 </li>
                 <li className="text-md py-1">
                   <h3 className="font-bold">KYC (Know Your Customer) Flows</h3>
-                  <ul className="list-disc pl-6 mt-1 text-gray-500">
+                  <ul className="mt-1 list-disc pl-6 text-gray-500">
                     <li className="text-md py-1">
                       Developed and launched new KYC flows in collaboration with
                       the third-party provider Sumsub.
                     </li>
                     <li className="text-md py-1">
                       Implemented staggered KYC features:
-                      <ul className="list-disc pl-6 mt-1 text-gray-500">
+                      <ul className="mt-1 list-disc pl-6 text-gray-500">
                         <li className="text-md py-1">
                           Tier 1: Proof of Identity (POI) + Selfie verification.
                         </li>
@@ -203,7 +203,7 @@ const BakeWebApp = () => {
                 </li>
                 <li className="text-md py-1">
                   <h3 className="font-bold">Backend Architecture</h3>
-                  <ul className="list-disc pl-6 mt-1 text-gray-500">
+                  <ul className="mt-1 list-disc pl-6 text-gray-500">
                     <li className="text-md py-1">
                       Enhanced security for user authentication and sensitive
                       data.
@@ -216,7 +216,7 @@ const BakeWebApp = () => {
                 </li>
                 <li className="text-md py-1">
                   <h3 className="font-bold">Collaboration</h3>
-                  <ul className="list-disc pl-6 mt-1 text-gray-500">
+                  <ul className="mt-1 list-disc pl-6 text-gray-500">
                     <li className="text-md py-1">
                       Worked closely with UX/UI designers to ensure the flows
                       were intuitive and user-friendly.
@@ -234,12 +234,12 @@ const BakeWebApp = () => {
           <Border className="pt-10" />
 
           <Section id="keyOutcomes">
-            <div className="flex flex-col pt-10 mb-20">
+            <div className="mb-20 flex flex-col pt-10">
               <AppPageHeader
                 icon={<TbCircleKeyFilled size={28} fill="#ed8864" />}
                 title="Key Outcomes"
               />
-              <ul className="list-disc pl-6 mt-1 text-gray-500">
+              <ul className="mt-1 list-disc pl-6 text-gray-500">
                 <li className="text-md py-1">
                   30% improvement in user onboarding time due to SSO
                   integration.
@@ -264,7 +264,7 @@ const BakeWebApp = () => {
                 icon={<PictureIcon width="28" height="28" fill="white" />}
                 title="Screenshots"
               />
-              <div className="flex flex-col gap-4 mt-6 mb-20 flex-wrap">
+              <div className="mb-20 mt-6 flex flex-col flex-wrap gap-4">
                 <Image
                   src="/projects/bake-web-app.png"
                   alt="dapp-wallet-transfer-1"
@@ -286,12 +286,12 @@ const BakeWebApp = () => {
                 title="Technologies"
               />
               <FadeInStagger
-                className="flex gap-4 mt-6 mb-10 flex-wrap"
+                className="mb-10 mt-6 flex flex-wrap gap-4"
                 faster
                 once
               >
                 {bakeWebAppTech.map(({ name, image, link }) => (
-                  <FadeIn key={name} className="w-24 flex flex-col self-start">
+                  <FadeIn key={name} className="flex w-24 flex-col self-start">
                     <div className="mt-auto">
                       <Link
                         href={link}
@@ -300,7 +300,7 @@ const BakeWebApp = () => {
                       >
                         <Image
                           src={image}
-                          className="object-contain rounded-md m-auto"
+                          className="m-auto rounded-md object-contain"
                           alt={`${name} logo`}
                           height={64}
                           width={64}
@@ -309,7 +309,7 @@ const BakeWebApp = () => {
                             height: 64,
                           }}
                         />
-                        <h4 className="text-sm font-semibold tracking-tight text-gray-500 text-center w-min px-2 m-2 mx-auto">
+                        <h4 className="m-2 mx-auto w-min px-2 text-center text-sm font-semibold tracking-tight text-gray-500">
                           {name}
                         </h4>
                       </Link>
