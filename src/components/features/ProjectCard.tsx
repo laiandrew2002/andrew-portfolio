@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import clsx from 'clsx';
 import Image from 'next/image';
 import GlowCard from '../GlowCard';
@@ -9,7 +10,7 @@ interface ProjectCardProps {
   className?: string;
 }
 
-const ProjectCard = ({ project, className }: ProjectCardProps) => {
+const ProjectCard = memo<ProjectCardProps>(({ project, className }) => {
   const heroImage = project.images.find(img => img.isHero) || project.images[0];
 
   return (
@@ -48,6 +49,8 @@ const ProjectCard = ({ project, className }: ProjectCardProps) => {
       </div>
     </GlowCard>
   );
-};
+});
+
+ProjectCard.displayName = 'ProjectCard';
 
 export default ProjectCard;

@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, lazy, Suspense } from 'react';
 import {
   Accounts,
   Debug,
@@ -13,11 +13,14 @@ import {
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import ToolTip from './ToolTip';
-import CollapsableMenu from './CollapsableMenu';
+import { LoadingSpinner } from './ui/LoadingSpinner';
 import useExpandableStore, { Menu } from '@/lib/store/useExpandableStore';
 import useExplorerStore, { SubMenu } from '@/lib/store/useExplorerStore';
 import useSectionStore, { Section } from '@/lib/store/useSectionStore';
 import { MyWork } from '@/app/layout';
+
+// Dynamic import for CollapsableMenu
+const CollapsableMenu = lazy(() => import('./CollapsableMenu'));
 
 const barItems = [
   {
@@ -113,7 +116,15 @@ const ActivityBar = ({
           />
         </div>
       </div>
-      <CollapsableMenu myWork={myWork} />
+      <Suspense
+        fallback={
+          <div className="flex w-[300px] items-center justify-center">
+            <LoadingSpinner size="md" />
+          </div>
+        }
+      >
+        <CollapsableMenu myWork={myWork} />
+      </Suspense>
     </div>
   );
 };

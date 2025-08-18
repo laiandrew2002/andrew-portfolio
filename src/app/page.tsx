@@ -1,3 +1,6 @@
+'use client';
+
+import { lazy, Suspense } from 'react';
 import Border from '@/components/Border';
 import Container from '@/components/Container';
 import { FadeIn } from '@/components/FadeIn';
@@ -5,14 +8,90 @@ import Section from '@/components/Section';
 import SectionHeader from '@/components/SectionHeader';
 import Socials from '@/components/Socials';
 import { BackgroundLines } from '@/components/ui/background-lines';
-import {
-  AboutSection,
-  WorkExperienceSection,
-  SkillsSection,
-  ProjectsSection,
-  ContactSection,
-} from '@/components/sections';
+import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
+import { useContentSections } from '@/lib/hooks/useContentSections';
 import { Archive, BookOpen, BriefCase, Envelope } from '@/icons';
+
+// Dynamic import for AboutSection
+const AboutSection = lazy(() => import('@/components/sections/AboutSection'));
+
+// Helper function to render icons
+const renderIcon = (iconType: string) => {
+  switch (iconType) {
+    case 'briefcase':
+      return (
+        <>
+          <BriefCase height="28" width="28" />
+          <span className="icon-blur absolute inset-0 -z-10 bg-work_experience_orange"></span>
+        </>
+      );
+    case 'book':
+      return (
+        <>
+          <BookOpen height="28" width="28" />
+          <span className="icon-blur absolute inset-0 -z-10 bg-skills_purple"></span>
+        </>
+      );
+    case 'archive':
+      return (
+        <>
+          <Archive height="28" width="28" />
+          <span className="icon-blur absolute inset-0 -z-10 bg-my_work_yellow"></span>
+        </>
+      );
+    case 'envelope':
+      return (
+        <>
+          <Envelope height="28" width="28" />
+          <span className="icon-blur absolute inset-0 -z-10 bg-blue-400"></span>
+        </>
+      );
+    default:
+      return null;
+  }
+};
+
+// Helper function to render descriptions
+const renderDescription = (type: string) => {
+  switch (type) {
+    case 'work-experience':
+      return (
+        <div>
+          <span className="text-work_experience_orange">
+            Senior Software Engineer
+          </span>{' '}
+          with <span className="text-work_experience_orange">5+ years</span> of
+          experience in the software industry
+        </div>
+      );
+    case 'skills':
+      return (
+        <div>
+          <span className="text-skills_purple">Full Stack</span> software
+          engineer with experience in{' '}
+          <span className="text-skills_purple">Front-End</span> and{' '}
+          <span className="text-skills_purple">Back-End</span> technologies
+        </div>
+      );
+    case 'projects':
+      return (
+        <div>
+          My <span className="text-my_work_yellow">top projects</span> as a full
+          stack <span className="text-my_work_yellow">web</span> software
+          engineer
+        </div>
+      );
+    case 'contact':
+      return (
+        <div>
+          Let&apos;s <span className="text-blue-400">talk</span> and{' '}
+          <span className="text-blue-400">work together</span>
+        </div>
+      );
+    default:
+      return null;
+  }
+};
 
 export const sections = [
   { index: 0, title: 'About Me', id: 'about-me' },
@@ -22,102 +101,8 @@ export const sections = [
   { index: 4, title: 'Contact Me', id: 'contact' },
 ];
 
-interface contentSection {
-  id: string;
-  sectionHeader: {
-    icon: React.ReactNode;
-    title: string;
-    description: React.ReactNode;
-  };
-  mainContent: React.ReactNode;
-}
-
-const content: contentSection[] = [
-  {
-    id: sections[1]?.id || 'work-experience',
-    sectionHeader: {
-      icon: (
-        <>
-          <BriefCase height="28" width="28" />
-          <span className="icon-blur absolute inset-0 -z-10 bg-work_experience_orange"></span>
-        </>
-      ),
-      title: 'Work Experience',
-      description: (
-        <div>
-          <span className="text-work_experience_orange">
-            Senior Software Engineer
-          </span>{' '}
-          with <span className="text-work_experience_orange">5+ years</span> of
-          experience in the software industry
-        </div>
-      ),
-    },
-    mainContent: <WorkExperienceSection />,
-  },
-  {
-    id: sections[2]?.id || 'skills',
-    sectionHeader: {
-      icon: (
-        <>
-          <BookOpen height="28" width="28" />
-          <span className="icon-blur absolute inset-0 -z-10 bg-skills_purple"></span>
-        </>
-      ),
-      title: 'Skills',
-      description: (
-        <div>
-          <span className="text-skills_purple">Full Stack</span> software
-          engineer with experience in{' '}
-          <span className="text-skills_purple">Front-End</span> and{' '}
-          <span className="text-skills_purple">Back-End</span> technologies
-        </div>
-      ),
-    },
-    mainContent: <SkillsSection />,
-  },
-  {
-    id: sections[3]?.id || 'my-work',
-    sectionHeader: {
-      icon: (
-        <>
-          <Archive height="28" width="28" />
-          <span className="icon-blur absolute inset-0 -z-10 bg-my_work_yellow"></span>
-        </>
-      ),
-      title: 'My Work',
-      description: (
-        <div>
-          My <span className="text-my_work_yellow">top projects</span> as a full
-          stack <span className="text-my_work_yellow">web</span> software
-          engineer
-        </div>
-      ),
-    },
-    mainContent: <ProjectsSection />,
-  },
-  {
-    id: sections[4]?.id || 'contact',
-    sectionHeader: {
-      icon: (
-        <>
-          <Envelope height="28" width="28" />
-          <span className="icon-blur absolute inset-0 -z-10 bg-blue-400"></span>
-        </>
-      ),
-      title: 'Contact Me',
-      description: (
-        <div>
-          Let&apos;s <span className="text-blue-400">talk</span> and{' '}
-          <span className="text-blue-400">work together</span>
-        </div>
-      ),
-    },
-    mainContent: <ContactSection />,
-  },
-];
-
 export default function Home() {
+  const content = useContentSections();
   return (
     <div className="w-full overflow-y-auto overflow-x-hidden">
       <Section id={sections[0]?.id || 'about-me'}>
@@ -135,18 +120,31 @@ export default function Home() {
             <div className="mouse"></div>
             <Socials className="items-center justify-center" />
           </BackgroundLines>
-          <AboutSection />
+          <Suspense fallback={<LoadingSpinner size="lg" />}>
+            <AboutSection />
+          </Suspense>
         </Container>
       </Section>
       <div id="stars-container" className="relative">
         <Container>
-          {content.map((section: contentSection) => (
-            <Section key={section.id} id={section.id} className="mt-28 pt-24">
-              <Border />
-              <SectionHeader {...section.sectionHeader} />
-              {section.mainContent}
-            </Section>
-          ))}
+          {content.map(section => {
+            const Component = section.mainContent;
+            return (
+              <Section key={section.id} id={section.id} className="mt-28 pt-24">
+                <Border />
+                <SectionHeader
+                  icon={renderIcon(section.sectionHeader.iconType)}
+                  title={section.sectionHeader.title}
+                  description={renderDescription(
+                    section.sectionHeader.description.type
+                  )}
+                />
+                <Suspense fallback={<LoadingSpinner size="lg" />}>
+                  <Component />
+                </Suspense>
+              </Section>
+            );
+          })}
         </Container>
       </div>
     </div>

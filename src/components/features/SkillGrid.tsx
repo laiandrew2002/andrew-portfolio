@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Image from 'next/image';
 import { FadeIn } from '../FadeIn';
 import { Skill } from '@/lib/types/portfolio';
@@ -7,7 +8,7 @@ interface SkillGridProps {
   className?: string;
 }
 
-const SkillGrid = ({ skills, className }: SkillGridProps) => {
+const SkillGrid = memo<SkillGridProps>(({ skills, className }) => {
   return (
     <div className={className}>
       {skills.map((skillCategory, index) => (
@@ -15,13 +16,13 @@ const SkillGrid = ({ skills, className }: SkillGridProps) => {
       ))}
     </div>
   );
-};
+});
 
 interface SkillCategoryProps {
   skill: Skill;
 }
 
-const SkillCategory = ({ skill }: SkillCategoryProps) => {
+const SkillCategory = memo<SkillCategoryProps>(({ skill }) => {
   return (
     <div>
       <div className="mb-6 flex items-center">
@@ -34,7 +35,7 @@ const SkillCategory = ({ skill }: SkillCategoryProps) => {
       </div>
     </div>
   );
-};
+});
 
 interface TechnologyItemProps {
   technology: {
@@ -43,7 +44,7 @@ interface TechnologyItemProps {
   };
 }
 
-const TechnologyItem = ({ technology }: TechnologyItemProps) => {
+const TechnologyItem = memo<TechnologyItemProps>(({ technology }) => {
   return (
     <FadeIn className="flex w-24 flex-col">
       <div>
@@ -64,6 +65,10 @@ const TechnologyItem = ({ technology }: TechnologyItemProps) => {
       </div>
     </FadeIn>
   );
-};
+});
+
+SkillCategory.displayName = 'SkillCategory';
+TechnologyItem.displayName = 'TechnologyItem';
+SkillGrid.displayName = 'SkillGrid';
 
 export default SkillGrid;

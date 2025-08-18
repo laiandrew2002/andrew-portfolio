@@ -8,6 +8,7 @@ import {
   TabContainer,
 } from '@/components/layout';
 import NavigationChange from '@/components/NavigationChange';
+import PerformanceMonitor from '@/components/PerformanceMonitor';
 import { sections } from './page';
 import { sections as dappWalletTransferSections } from '@/app/apps/dapp-wallet-transfer/page';
 import { sections as bakeIoSections } from '@/app/apps/bake-io/page';
@@ -106,6 +107,7 @@ export default function RootLayout({
         </main>
         <BottomBar />
         <NavigationChange allPaths={[...myWork]} />
+        <PerformanceMonitor />
       </body>
     </html>
   );
