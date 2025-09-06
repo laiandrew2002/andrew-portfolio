@@ -1,7 +1,6 @@
 'use client';
 
 import { lazy, Suspense } from 'react';
-import Border from '@/components/Border';
 import Container from '@/components/Container';
 import { FadeIn } from '@/components/FadeIn';
 import Section from '@/components/Section';
@@ -9,11 +8,21 @@ import SectionHeader from '@/components/SectionHeader';
 import Socials from '@/components/Socials';
 import { BackgroundLines } from '@/components/ui/background-lines';
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
-import { useContentSections } from '@/lib/hooks/useContentSections';
+import Border from '@/components/Border';
 import { Archive, BookOpen, BriefCase, Envelope } from '@/icons';
 
-// Dynamic import for AboutSection
+// Dynamic imports for section components
 const AboutSection = lazy(() => import('@/components/sections/AboutSection'));
+const WorkExperienceSection = lazy(
+  () => import('@/components/sections/WorkExperienceSection')
+);
+const SkillsSection = lazy(() => import('@/components/sections/SkillsSection'));
+const ProjectsSection = lazy(
+  () => import('@/components/sections/ProjectsSection')
+);
+const ContactSection = lazy(
+  () => import('@/components/sections/ContactSection')
+);
 
 // Helper function to render icons
 const renderIcon = (iconType: string) => {
@@ -102,9 +111,9 @@ export const sections = [
 ];
 
 export default function Home() {
-  const content = useContentSections();
   return (
     <div className="w-full overflow-y-auto overflow-x-hidden">
+      {/* Hero Section */}
       <Section id={sections[0]?.id || 'about-me'}>
         <Container>
           <BackgroundLines className="relative min-h-screen">
@@ -125,26 +134,61 @@ export default function Home() {
           </Suspense>
         </Container>
       </Section>
+
+      {/* Main Content Sections */}
       <div id="stars-container" className="relative">
         <Container>
-          {content.map(section => {
-            const Component = section.mainContent;
-            return (
-              <Section key={section.id} id={section.id} className="mt-28 pt-24">
-                <Border />
-                <SectionHeader
-                  icon={renderIcon(section.sectionHeader.iconType)}
-                  title={section.sectionHeader.title}
-                  description={renderDescription(
-                    section.sectionHeader.description.type
-                  )}
-                />
-                <Suspense fallback={<LoadingSpinner size="lg" />}>
-                  <Component />
-                </Suspense>
-              </Section>
-            );
-          })}
+          {/* Work Experience Section */}
+          <Section id="work-experience" className="mt-28 pt-24">
+            <Border />
+            <SectionHeader
+              icon={renderIcon('briefcase')}
+              title="Work Experience"
+              description={renderDescription('work-experience')}
+            />
+            <Suspense fallback={<LoadingSpinner size="lg" />}>
+              <WorkExperienceSection />
+            </Suspense>
+          </Section>
+
+          {/* Skills Section */}
+          <Section id="skills" className="mt-28 pt-24">
+            <Border />
+            <SectionHeader
+              icon={renderIcon('book')}
+              title="Skills"
+              description={renderDescription('skills')}
+            />
+            <Suspense fallback={<LoadingSpinner size="lg" />}>
+              <SkillsSection />
+            </Suspense>
+          </Section>
+
+          {/* Projects Section */}
+          <Section id="my-work" className="mt-28 pt-24">
+            <Border />
+            <SectionHeader
+              icon={renderIcon('archive')}
+              title="My Work"
+              description={renderDescription('projects')}
+            />
+            <Suspense fallback={<LoadingSpinner size="lg" />}>
+              <ProjectsSection />
+            </Suspense>
+          </Section>
+
+          {/* Contact Section */}
+          <Section id="contact" className="mt-28 pt-24">
+            <Border />
+            <SectionHeader
+              icon={renderIcon('envelope')}
+              title="Contact Me"
+              description={renderDescription('contact')}
+            />
+            <Suspense fallback={<LoadingSpinner size="lg" />}>
+              <ContactSection />
+            </Suspense>
+          </Section>
         </Container>
       </div>
     </div>

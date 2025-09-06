@@ -1,13 +1,15 @@
 import React from 'react';
-import Image from 'next/image';
-import Container from '@/components/Container';
-import Border from '@/components/Border';
-import Section from '@/components/Section';
-import { FadeIn, FadeInStagger } from '@/components/FadeIn';
-import Button from '@/components/Button';
-import Link from 'next/link';
+import {
+  AppPageLayout,
+  type AppPageMetadata,
+  type AppPageSection,
+} from '@/components/layout';
+import {
+  FeaturesSection,
+  ScreenshotsSection,
+  TechnologiesSection,
+} from '@/components/sections';
 import { ChallengeIcon, PictureIcon, TechnologiesIcon } from '@/icons';
-import AppPageHeader from '@/components/CollapsableMenu/components/AppPageHeader';
 
 export const sections = [
   { index: 0, title: 'About', id: 'about' },
@@ -16,6 +18,19 @@ export const sections = [
   { index: 3, title: 'Technologies', id: 'technologies' },
 ];
 
+// Page metadata
+const metadata: AppPageMetadata = {
+  title: 'DApp Wallet Transfer',
+  description:
+    'A simple decentralized application (DApp) that connects to Metamask and enables users to transfer cryptocurrencies to other wallets.',
+  industry: 'Web3',
+  developedIn: '2024',
+  projectType: 'Personal',
+  service: 'Web Application',
+  websiteUrl: 'https://dapp-wallet-transfer.vercel.app/',
+};
+
+// Technologies data
 const dappWalletTransferTech = [
   {
     name: 'Next.js',
@@ -44,169 +59,44 @@ const dappWalletTransferTech = [
   },
 ];
 
+// Requirements data
+const requirements = [
+  'Built with Next.js and integrates with Metamask to connect to Sepolia testnet.',
+  'Users should be able to connect their ETH wallet on metamask and view their balance and transaction history.',
+  'Users should be able to send and receive ETH tokens on Sepolia testnet.',
+  'UI should be responsive and mobile-friendly.',
+];
+
+// Screenshots data
+const screenshots = [
+  { src: '/projects/dapp-wallet-transfer.png', alt: 'dapp-wallet-transfer-1' },
+  { src: '/work/dapp-wallet-transfer-2.png', alt: 'dapp-wallet-transfer-2' },
+];
+
 const DappWalletTransfer = () => {
-  return (
-    <div className="w-full overflow-y-auto overflow-x-hidden">
-      <Container>
-        <header>
-          <Section id="about">
-            <FadeInStagger once>
-              <FadeIn>
-                <div className="flex flex-col justify-center gap-4 pb-20 pt-20">
-                  <h1 className="text-3xl font-bold">DApp Wallet Transfer</h1>
-                  <p className="text-lg text-gray-500">
-                    A simple decentralized application (DApp) that connects to
-                    Metamask and enables users to transfer cryptocurrencies to
-                    other wallets.
-                  </p>
+  // Define page sections
+  const pageSections: AppPageSection[] = [
+    {
+      id: 'requirements',
+      title: 'Requirements',
+      icon: <ChallengeIcon width="28" height="28" />,
+      content: <FeaturesSection features={requirements} />,
+    },
+    {
+      id: 'screenshots',
+      title: 'Screenshots',
+      icon: <PictureIcon width="28" height="28" fill="white" />,
+      content: <ScreenshotsSection screenshots={screenshots} />,
+    },
+    {
+      id: 'technologies',
+      title: 'Technologies',
+      icon: <TechnologiesIcon width="28" height="28" fill="white" />,
+      content: <TechnologiesSection technologies={dappWalletTransferTech} />,
+    },
+  ];
 
-                  <div className="flex flex-col gap-2">
-                    <div className="border-gray-500/20 px-6 py-4 sm:border-l">
-                      <dt className="font-semibold text-blue-100">Industry</dt>
-                      <dd>Web3</dd>
-                    </div>
-                    <div className="border-gray-500/20 px-6 py-4 sm:border-l">
-                      <dt className="font-semibold text-blue-100">
-                        Developed In
-                      </dt>
-                      <dd>2024</dd>
-                    </div>
-                    <div className="border-gray-500/20 px-6 py-4 sm:border-l">
-                      <dt className="font-semibold text-blue-100">
-                        Project Type
-                      </dt>
-                      <dd>Personal</dd>
-                    </div>
-                    <div className="border-gray-500/20 px-6 py-4 sm:border-l">
-                      <dt className="font-semibold text-blue-100">Service</dt>
-                      <dd>Web Application</dd>
-                    </div>
-                  </div>
-                  <div className="mt-5">
-                    <Button
-                      className="flex items-center gap-x-2"
-                      variant="secondary"
-                      arrow="right"
-                    >
-                      <Link
-                        href="https://dapp-wallet-transfer.vercel.app/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Visit Website
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              </FadeIn>
-            </FadeInStagger>
-          </Section>
-        </header>
-
-        <Border className="pt-10" />
-
-        <FadeIn>
-          <Section id="requirements">
-            <div className="mb-20 flex flex-col pt-10">
-              <AppPageHeader
-                icon={<ChallengeIcon width="28" height="28" />}
-                title="Requirements"
-              />
-              <ul className="mt-1 list-disc pl-6 text-gray-500">
-                <li className="text-md py-1">
-                  Built with Next.js and integrates with Metamask to connect to
-                  Sepolia testnet.
-                </li>
-                <li className="text-md py-1">
-                  Users should be able to connect their ETH wallet on metamask
-                  and view their balance and transaction history.
-                </li>
-                <li className="text-md py-1">
-                  Users should be able to send and receive ETH tokens on Sepolia
-                  testnet.
-                </li>
-                <li className="text-md py-1">
-                  UI should be responsive and mobile-friendly.
-                </li>
-              </ul>
-            </div>
-          </Section>
-
-          <Border className="pt-10" />
-
-          <Section id="screenshots">
-            <div className="flex flex-col pt-10">
-              <AppPageHeader
-                icon={<PictureIcon width="28" height="28" fill="white" />}
-                title="Screenshots"
-              />
-              <div className="mb-20 mt-6 flex flex-col flex-wrap gap-4">
-                <Image
-                  src="/projects/dapp-wallet-transfer.png"
-                  alt="dapp-wallet-transfer-1"
-                  className="rounded-md"
-                  layout="responsive"
-                  width={16} // Aspect ratio width
-                  height={9}
-                />
-                <Image
-                  src="/work/dapp-wallet-transfer-2.png"
-                  alt="dapp-wallet-transfer-2"
-                  className="rounded-md"
-                  layout="responsive"
-                  width={16} // Aspect ratio width
-                  height={9}
-                />
-              </div>
-            </div>
-          </Section>
-
-          <Border className="pt-10" />
-
-          <Section id="technologies">
-            <div className="flex flex-col pt-10">
-              <AppPageHeader
-                icon={<TechnologiesIcon width="28" height="28" fill="white" />}
-                title="Technologies"
-              />
-              <FadeInStagger
-                className="mb-10 mt-6 flex flex-wrap gap-4"
-                faster
-                once
-              >
-                {dappWalletTransferTech.map(({ name, image, link }) => (
-                  <FadeIn key={name} className="flex w-24 flex-col self-start">
-                    <div className="mt-auto">
-                      <Link
-                        href={link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Image
-                          src={image}
-                          className="m-auto rounded-md object-contain"
-                          alt={`${name} logo`}
-                          height={64}
-                          width={64}
-                          style={{
-                            width: 64,
-                            height: 64,
-                          }}
-                        />
-                        <h4 className="m-2 mx-auto w-min px-2 text-center text-sm font-semibold tracking-tight text-gray-500">
-                          {name}
-                        </h4>
-                      </Link>
-                    </div>
-                  </FadeIn>
-                ))}
-              </FadeInStagger>
-            </div>
-          </Section>
-        </FadeIn>
-      </Container>
-    </div>
-  );
+  return <AppPageLayout metadata={metadata} sections={pageSections} />;
 };
 
 export default DappWalletTransfer;

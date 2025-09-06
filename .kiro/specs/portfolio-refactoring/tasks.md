@@ -64,7 +64,7 @@
   - Ensure proper color contrast and focus management
   - _Requirements: 4.3, 4.4, 6.3_
 
-- [ ] 9. Refactor app pages with new component structure
+- [x] 9. Refactor app pages with new component structure
 
   - Refactor main page.tsx to use new section components
   - Refactor app pages (bake-io, dapp-wallet-transfer, etc.) with new structure
