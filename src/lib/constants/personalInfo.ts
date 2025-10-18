@@ -4,13 +4,13 @@
 
 export const PERSONAL_INFO = {
   name: 'Andrew Lai',
-  title: 'Full stack software engineer',
+  title: 'Full-Stack Software Engineer',
   shortBio:
-    'Result-oriented software engineer with 5+ years of expertise in building responsive, high-performance web and mobile applications using React, TypeScript, and Node.js.',
+    'I am a results-driven software engineer with over 5 years of experience designing and developing high-performance web and mobile applications using modern technologies such as React, TypeScript, and Node.js.',
   extendedBio:
-    'Skilled in leading projects and collaborating in cross-functional teams to drive innovation and deliver measurable results.',
+    'I enjoy crafting scalable architectures, optimizing user experience, and leading cross-functional teams to turn complex ideas into impactful products. My work blends technical precision with thoughtful design.',
   profileImage: {
-    src: '/andrew.jpg',
+    src: '/andrew.png',
     alt: 'andrew portrait',
     width: 200,
     height: 208,

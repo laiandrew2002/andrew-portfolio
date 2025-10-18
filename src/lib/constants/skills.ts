@@ -89,6 +89,16 @@ export const SKILLS: Skill[] = [
         category: 'backend',
       },
       {
+        name: 'Temporal',
+        image: '/logos/temporal-logo.jpg',
+        category: 'backend',
+      },
+      {
+        name: 'GraphQL',
+        image: '/logos/graphql-logo.png',
+        category: 'backend',
+      },
+      {
         name: 'Hono.js',
         image: '/logos/hono-logo.png',
         category: 'backend',

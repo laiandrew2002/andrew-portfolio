@@ -80,7 +80,7 @@ const ExperienceItem = ({ experience }: ExperienceItemProps) => {
 
 interface ExperienceAchievementProps {
   achievement: {
-    title: string;
+    title?: string;
     description: string | React.ReactNode;
     impact?: string;
   };
@@ -138,7 +138,12 @@ const ExperienceAchievement = ({ achievement }: ExperienceAchievementProps) => {
         );
       }
 
-      return achievement.description;
+      return (
+        <>
+          <b>{achievement.title ? achievement.title + ': ' : ''}</b>
+          {achievement.description}
+        </>
+      );
     }
 
     return achievement.description;

@@ -122,8 +122,8 @@ export default function Home() {
                 Andrew Lai
               </h2>
               <p className="text-md mx-auto max-w-xl text-center text-neutral-700 md:text-lg dark:text-neutral-400">
-                Software engineer with a 5-year experience in Front-End and
-                Back-End technologies.
+                Software Engineer with 5 years of experience building scalable
+                front-end and back-end systems.
               </p>
             </FadeIn>
             <div className="mouse"></div>

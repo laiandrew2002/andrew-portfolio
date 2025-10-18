@@ -28,10 +28,12 @@ const AboutSection = memo<AboutSectionProps>(({ className }) => {
             title="About Me"
             description={
               <div>
-                A <span className="text-about_me_blue">software engineer</span>{' '}
-                with expertise in{' '}
-                <span className="text-about_me_blue">Web</span> and{' '}
-                <span className="text-about_me_blue">Mobile development</span>.
+                A passionate{' '}
+                <span className="text-about_me_blue">software engineer</span>{' '}
+                specializing in <span className="text-about_me_blue">web</span>{' '}
+                and{' '}
+                <span className="text-about_me_blue">mobile development</span>,
+                dedicated to building seamless digital experiences.
               </div>
             }
           />
@@ -51,9 +53,9 @@ const AboutSection = memo<AboutSectionProps>(({ className }) => {
                   {PERSONAL_INFO.extendedBio}
                 </p>
               </div>
-              <div className="mx-auto flex-none">
+              <div className="mx-auto flex items-center">
                 <Image
-                  className="rounded-full object-cover"
+                  className="rounded-xl object-cover"
                   src={PERSONAL_INFO.profileImage.src}
                   alt={PERSONAL_INFO.profileImage.alt}
                   height={PERSONAL_INFO.profileImage.height}

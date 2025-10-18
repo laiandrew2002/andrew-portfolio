@@ -6,6 +6,85 @@ import { WorkExperience } from '../types/portfolio';
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
+    id: 'xweave',
+    title: 'Senior Software Engineer',
+    company: 'Xweave',
+    position: 'Senior Software Engineer',
+    startDate: 'Jun 2025',
+    endDate: 'Present',
+    description:
+      'Leading the development of the Xweave platform, focusing on the frontend and backend components.',
+    achievements: [
+      {
+        title: 'Platform Development',
+        description:
+          'Lead end-to-end development of cross-border payment corridors and settlement systems that bridge traditional banking rails with stablecoin networks.',
+      },
+      {
+        title: 'Platform Development',
+        description:
+          'Work across the stack — from designing backend workflows and APIs to contributing to frontend features — using RedwoodJS, GraphQL, Fastify, Node.js, Prisma, and PostgreSQL.',
+      },
+      {
+        title: 'Cross-Border Payment Corridors',
+        description:
+          'Designed and implemented new corridors leveraging stablecoins to reduce settlement times and costs.',
+      },
+      {
+        title: 'Automated Settlements',
+        description:
+          'Built fault-tolerant Temporal workflows with intelligent retry mechanisms and state tracking',
+      },
+      {
+        title: 'System Reliability',
+        description:
+          'Enhanced performance and observability of the settlement engine through better indexing, monitoring, and retry logic.',
+      },
+      {
+        title: 'CI/CD & DevOps',
+        description:
+          'Set up GitHub Actions pipelines for continuous integration and deployment, improving release consistency',
+      },
+      {
+        title: 'Mentorship & Collaboration',
+        description:
+          'Mentored junior developers, reviewed code, and improved overall engineering practices across the team.',
+      },
+    ],
+    technologies: [
+      { name: 'TypeScript', image: '/logos/ts-logo.png', category: 'frontend' },
+      { name: 'React', image: '/logos/react-logo.png', category: 'frontend' },
+      {
+        name: 'Next.js',
+        image: '/logos/nextjs-logo.png',
+        category: 'frontend',
+      },
+      { name: 'Node.js', image: '/logos/nodejs-logo.png', category: 'backend' },
+      {
+        name: 'GraphQL',
+        image: '/logos/graphql-logo.png',
+        category: 'backend',
+      },
+      {
+        name: 'Temporal',
+        image: '/logos/temporal-logo.jpg',
+        category: 'backend',
+      },
+      {
+        name: 'Postgres',
+        image: '/logos/postgres-logo.png',
+        category: 'database',
+      },
+    ],
+    companyLogo: {
+      src: '/logos/xweave-logo.jpg',
+      alt: 'Xweave Logo',
+      width: 100,
+      height: 100,
+    },
+    isCurrentRole: true,
+  },
+  {
     id: 'cake-group',
     title: 'Software Engineer',
     company: 'Cake Group',

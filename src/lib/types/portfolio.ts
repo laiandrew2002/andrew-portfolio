@@ -37,7 +37,7 @@ export interface ProjectImage extends ImageAsset {
 }
 
 export interface Achievement {
-  title: string;
+  title?: string;
   description: string;
   impact?: string;
 }
