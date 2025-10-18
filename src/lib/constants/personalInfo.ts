@@ -10,7 +10,7 @@ export const PERSONAL_INFO = {
   extendedBio:
     'I enjoy crafting scalable architectures, optimizing user experience, and leading cross-functional teams to turn complex ideas into impactful products. My work blends technical precision with thoughtful design.',
   profileImage: {
-    src: '/andrew.png',
+    src: '/andrew-profile.png',
     alt: 'andrew portrait',
     width: 200,
     height: 208,
